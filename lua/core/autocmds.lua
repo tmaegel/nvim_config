@@ -7,7 +7,6 @@ local opt = vim.opt
 autocmd("FileType", {
   pattern = "python",
   callback = function()
-    opt.wrap = true
     opt.tabstop = 4
     opt.shiftwidth = 4
     opt.softtabstop = 4
@@ -19,7 +18,6 @@ autocmd("FileType", {
 autocmd("FileType", {
   pattern = "sh",
   callback = function()
-    opt.wrap = true
     opt.tabstop = 2
     opt.shiftwidth = 2
     opt.softtabstop = 2
