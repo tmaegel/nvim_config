@@ -17,6 +17,7 @@ cmp.setup {
     },
     documentation = {
       border = set_border "CmpDocBorder",
+      winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
     },
   },
   formatting = {

@@ -7,7 +7,7 @@ return {
     bg = colors.one_bg2,
   },
 
-  Pmenu = { bg = colors.black },
+  Pmenu = { bg = colors.black2 },
   PmenuSbar = { bg = colors.one_bg },
   PmenuSel = { bg = colors.pmenu_bg, fg = colors.black },
   PmenuThumb = { bg = colors.grey },
@@ -20,14 +20,14 @@ return {
   LineNr = { fg = colors.grey },
 
   -- floating windows
-  FloatBorder = { fg = colors.grey, bg = colors.black },
-  NormalFloat = { fg = colors.white, bg = colors.black },
+  FloatBorder = { fg = colors.grey, bg = colors.darker_black },
+  NormalFloat = { fg = colors.white, bg = colors.darker_black },
 
   NvimInternalError = { fg = colors.red },
   WinSeparator = { fg = colors.line },
 
   -- packer
-  PackerPackageName = { fg = colors.red },
+  PackerPackageName = { fg = colors.white },
   PackerSuccess = { fg = colors.green },
   PackerStatusSuccess = { fg = theme.base08 },
   PackerStatusCommit = { fg = colors.blue },
