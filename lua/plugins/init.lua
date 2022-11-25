@@ -199,6 +199,14 @@ return packer.startup(function(use)
   use "famiu/bufdelete.nvim"
 
   use {
+    "windwp/nvim-autopairs",
+    after = "nvim-cmp",
+    config = function()
+      require "plugins.config.autopairs"
+    end,
+  }
+
+  use {
     "numToStr/Comment.nvim",
     config = function()
       require("Comment").setup()
