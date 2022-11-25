@@ -1,6 +1,7 @@
 local blankline = require "indent_blankline"
 
 require("theme").load_highlight "blankline"
+require("core.utils").load_mappings "blankline"
 
 -- Change blankline context character
 vim.g.indent_blankline_context_char = "│"
