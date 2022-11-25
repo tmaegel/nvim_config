@@ -27,7 +27,7 @@ M.general = {
     ["<TAB>"] = { "<cmd> bnext <CR>", "Cycle next buffer" },
     ["<S-Tab>"] = { "<cmd> bprevious <CR>", "Cycle prev buffer" },
     ["<leader>bn"] = { "<cmd> enew <CR>", "New buffer" },
-    ["<leader>bh"] = { "<cmd> sp <CR>", "Split window" },
+    ["<leader>bh"] = { "<cmd> sp <CR>", "Horizontal split window" },
     ["<leader>bv"] = { "<cmd> vsp <CR>", "Vertical split window" },
     -- close buffer + hide terminal buffer
     ["<leader>bq"] = { "<cmd> Bdelete <CR>", "Close buffer" },
@@ -47,10 +47,10 @@ M.general = {
     -- Pydocstring
     -- ["<leader>ds"] = { "<cmd> Pydocstring <CR>", "Add Pydocstring template" },
 
-    ["<ESC>"] = { "<cmd> noh <CR>", "no highlight" },
+    ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 
     -- Save
-    ["<C-s>"] = { "<cmd> w <CR>", "save file" },
+    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
   },
   x = {
     ["<leader>e"] = { "%", "Go to matching pair" },
@@ -63,137 +63,137 @@ M.lspconfig = {
       function()
         vim.lsp.buf.declaration()
       end,
-      "lsp declaration",
+      "LSP declaration",
     },
     ["gd"] = {
       function()
         vim.lsp.buf.definition()
       end,
-      "lsp definition",
+      "LSP definition",
     },
     ["K"] = {
       function()
         vim.lsp.buf.hover()
       end,
-      "lsp hover",
+      "LSP hover",
     },
     ["gi"] = {
       function()
         vim.lsp.buf.implementation()
       end,
-      "lsp implementation",
+      "LSP implementation",
     },
     ["<leader>ls"] = {
       function()
         vim.lsp.buf.signature_help()
       end,
-      "lsp signature_help",
+      "LSP signature_help",
     },
     ["<leader>D"] = {
       function()
         vim.lsp.buf.type_definition()
       end,
-      "lsp definition type",
+      "LSP definition type",
     },
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
       end,
-      "lsp code_action",
+      "LSP code_action",
     },
     ["gr"] = {
       function()
         vim.lsp.buf.references()
       end,
-      "lsp references",
+      "LSP references",
     },
     ["<leader>df"] = {
       function()
         vim.diagnostic.open_float()
       end,
-      "floating diagnostic",
+      "Floating diagnostic",
     },
     ["<leader>dN"] = {
       function()
         vim.diagnostic.goto_prev()
       end,
-      "goto prev",
+      "Goto prev",
     },
     ["<leader>dn"] = {
       function()
         vim.diagnostic.goto_next()
       end,
-      "goto_next",
+      "Goto_next",
     },
     ["<leader>q"] = {
       function()
         vim.diagnostic.setloclist()
       end,
-      "diagnostic setloclist",
+      "Diagnostic setloclist",
     },
     ["<leader>fm"] = {
       function()
         vim.lsp.buf.format { async = true }
       end,
-      "lsp formatting",
+      "LSP formatting",
     },
     ["<leader>wa"] = {
       function()
         vim.lsp.buf.add_workspace_folder()
       end,
-      "add workspace folder",
+      "Add workspace folder",
     },
     ["<leader>wr"] = {
       function()
         vim.lsp.buf.remove_workspace_folder()
       end,
-      "remove workspace folder",
+      "Remove workspace folder",
     },
     ["<leader>wl"] = {
       function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end,
-      "list workspace folders",
+      "List workspace folders",
     },
   },
 }
 
 M.telescope = {
   n = {
-    ["?"] = { "<cmd> Telescope grep_string <CR>", "grep string under the cursor" },
-    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
-    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
+    ["?"] = { "<cmd> Telescope grep_string <CR>", "Grep string under the cursor" },
+    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<leader>F"] = {
       function()
         vim.cmd("Telescope find_files default_text=" .. vim.fn.expand "<cword>")
       end,
-      "find file under cursor",
+      "Find file under cursor",
     },
     ["<leader>fF"] = {
       function()
         local buffer_dir = require("telescope.utils").buffer_dir()
         vim.cmd("Telescope find_files prompt_title=find_files_in_buffer_dir cwd=" .. buffer_dir)
       end,
-      "find file in directory of current buffer",
+      "Find file in directory of current buffer",
     },
-    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fG"] = {
       function()
         local buffer_dir = require("telescope.utils").buffer_dir()
         vim.cmd("Telescope live_grep prompt_title=live_grep_in_buffer_dir cwd=" .. buffer_dir)
       end,
-      "find file in directory of current buffer",
+      "Find file in directory of current buffer",
     },
-    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
-    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
-    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
-    ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
-    ["<leader>fs"] = { "<cmd> Telescope search_history <CR>", "lists searches that were executed recently" },
-    ["<leader>fc"] = { "<cmd> Telescope command_history <CR>", "lists commands that were executed recently" },
-    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "git status" },
-    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
-    ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "git branches" },
-    ["<leader>fd"] = { "<cmd> Telescope file_browser <CR>", "file browser" },
+    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
+    ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "Show keys" },
+    ["<leader>fs"] = { "<cmd> Telescope search_history <CR>", "Lists searches that were executed recently" },
+    ["<leader>fc"] = { "<cmd> Telescope command_history <CR>", "Lists commands that were executed recently" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
+    ["<leader>fd"] = { "<cmd> Telescope file_browser <CR>", "File browser" },
   },
 }
 
@@ -204,8 +204,8 @@ M.trouble = {
     ["xd"] = { "<cmd> Trouble document_diagnostics <CR>", "Trouble document diagnostics" },
     ["xl"] = { "<cmd> Trouble loclist <CR>", "Trouble location list" },
     ["xq"] = { "<cmd> Trouble quickfix <CR>", "Trouble quickfix list" },
-    ["gr"] = { "<cmd> Trouble lsp_references <CR>", "Trouble lsp references" },
-    ["gR"] = { "<cmd> Trouble lsp_references <CR>", "Trouble lsp references" },
+    ["gr"] = { "<cmd> Trouble lsp_references <CR>", "Trouble LSP references" },
+    ["gR"] = { "<cmd> Trouble lsp_references <CR>", "Trouble LSP references" },
   },
 }
 
@@ -242,6 +242,24 @@ M.blankline = {
         end
       end,
       "Jump to current_context",
+    },
+  },
+}
+
+M.whichkey = {
+  n = {
+    ["<leader>wK"] = {
+      function()
+        vim.cmd "WhichKey"
+      end,
+      "Whichkey all keymaps",
+    },
+    ["<leader>wk"] = {
+      function()
+        local input = vim.fn.input "WhichKey: "
+        vim.cmd("WhichKey " .. input)
+      end,
+      "Whichkey query lookup",
     },
   },
 }

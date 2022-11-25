@@ -212,4 +212,13 @@ return packer.startup(function(use)
       require("Comment").setup()
     end,
   }
+
+  -- Only load whichkey after all the gui
+  use {
+    "folke/which-key.nvim",
+    keys = { "<leader>", '"', "'", "`" },
+    config = function()
+      require "plugins.config.whichkey"
+    end,
+  }
 end)
