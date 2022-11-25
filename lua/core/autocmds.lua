@@ -115,6 +115,14 @@ autocmd("FileType", {
   end,
 })
 
+-- Dont list quickfix buffers
+autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.opt_local.buflisted = false
+  end,
+})
+
 vim.cmd [[
   augroup autoresize
     autocmd!
