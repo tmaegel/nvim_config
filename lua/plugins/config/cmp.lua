@@ -4,6 +4,8 @@ local set_border = require("ui.utils").set_border
 
 require("theme").load_highlight "cmp"
 
+vim.o.completeopt = "menu,menuone,noselect"
+
 cmp.setup {
   snippet = {
     expand = function(args)

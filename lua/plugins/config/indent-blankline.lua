@@ -2,6 +2,9 @@ local blankline = require "indent_blankline"
 
 require("theme").load_highlight "blankline"
 
+-- Change blankline context character
+vim.g.indent_blankline_context_char = "│"
+
 blankline.setup {
   char = "│",
   indentLine_enabled = 1,

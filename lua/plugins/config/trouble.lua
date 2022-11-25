@@ -1,6 +1,7 @@
 local trouble = require "trouble"
 
 require("theme").load_highlight "trouble"
+require("core.utils").load_mappings "trouble"
 
 trouble.setup {
   -- position of the list can be: bottom, top, left, right

@@ -6,8 +6,6 @@ g.mapleader = " "
 -- Enable syntax highlight
 vim.cmd "syntax enable"
 
-opt.completeopt = "menu,menuone,noselect"
-
 -- Enable filetype plugins
 vim.cmd [[
   filetype on
@@ -19,9 +17,6 @@ vim.cmd [[
 vim.cmd [[
   set diffopt+=context:99999,foldcolumn:0
 ]]
-
--- Change blankline context character
-vim.g.indent_blankline_context_char = "│"
 
 -- Set utf8 as standard encoding and en_US as the standard language
 opt.encoding = "utf8"

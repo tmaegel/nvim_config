@@ -5,4 +5,4 @@ require "core.autocmds"
 require "plugins"
 
 -- Load mappings
-require("core.utils").load_mappings()
+require("core.utils").load_mappings "general"
