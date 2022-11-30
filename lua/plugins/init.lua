@@ -213,6 +213,14 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require "plugins.config.surround"
+    end,
+  }
+
   -- Only load whichkey after all the gui
   use {
     "folke/which-key.nvim",
