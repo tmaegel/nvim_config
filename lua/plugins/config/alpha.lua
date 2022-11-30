@@ -51,8 +51,9 @@ dashboard.section.header.opts = {
 dashboard.section.buttons.val = {
   button("e", "  New buffer", ":enew <CR>"),
   button("f", "  Find file", ":Telescope find_files <CR>"),
+  button("p", "  Find projects", ":Telescope projects <CR>"),
   button("r", "  Recently opened files", ":Telescope oldfiles <CR>"),
-  button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd <CR>"),
+  button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd <CR>"),
   button("u", "  Update plugins", ":PackerSync <CR>"),
   button("q", "  Quit", ":qa <CR>"),
 }
