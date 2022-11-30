@@ -55,6 +55,13 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    "goolord/alpha-nvim",
+    config = function()
+      require "plugins.config.alpha"
+    end,
+  }
+
   --
   -- Mason & lspconfig
   --
