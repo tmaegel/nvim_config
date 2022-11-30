@@ -5,15 +5,26 @@ return {
 
     return table.concat {
       modules.mode(),
+
+      modules.sep(),
+
       modules.cwd(),
+
+      modules.sep(),
+
       modules.git(),
-      modules.file_info(),
 
       "%#StatusLine#%=",
       "%#StatusLine#%=",
 
       modules.lsp_diagnostics(),
-      -- modules.file_type(),
+
+      modules.sep(),
+
+      modules.file_type(),
+
+      modules.sep(),
+
       modules.cursor_position(),
     }
   end,

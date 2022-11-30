@@ -1,8 +1,4 @@
 local fn = vim.fn
-local sep_style = vim.g.statusline_sep_style
-local separators = (type(sep_style) == "table" and sep_style) or require("ui.icons").statusline_separators[sep_style]
-local sep_l = separators["left"]
-local sep_r = separators["right"]
 
 local modes = {
   ["n"] = { "NORMAL", "St_NormalMode" },
@@ -35,17 +31,25 @@ local modes = {
 
 local M = {}
 
+M.sep = function()
+  return "%#St_Sep#" .. " "
+end
+
+M.sep_fill = function()
+  return "%#St_Sep_Fill#" .. "█"
+end
+
 M.mode = function()
   local m = vim.api.nvim_get_mode().mode
-  local current_mode = "%#" .. modes[m][2] .. "#" .. " " .. modes[m][1] .. " "
+  local current_mode = "%#" .. modes[m][2] .. "#" .. "  " .. modes[m][1] .. " "
 
   return current_mode
 end
 
 M.cwd = function()
   local dir_icon = "%#St_cwd_icon#" .. "  "
-  local dir_name = "%#St_cwd_text#" .. " " .. fn.fnamemodify(fn.getcwd(), ":t") .. " "
-  return (vim.o.columns > 85 and ("%#St_cwd_sep#" .. sep_l .. dir_icon .. dir_name)) or ""
+  local dir_name = "%#St_cwd_text#" .. fn.fnamemodify(fn.getcwd(), ":t") .. " "
+  return (vim.o.columns > 85 and ("%#St_cwd_icon#" .. dir_icon .. dir_name)) or ""
 end
 
 M.git = function()
@@ -55,30 +59,12 @@ M.git = function()
 
   local git_status = vim.b.gitsigns_status_dict
 
-  local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
-  local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed) or ""
-  local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
-  local branch_name = "  " .. git_status.head .. " "
+  local added = (git_status.added and git_status.added ~= 0) and (" +" .. git_status.added) or ""
+  local changed = (git_status.changed and git_status.changed ~= 0) and (" ~" .. git_status.changed) or ""
+  local removed = (git_status.removed and git_status.removed ~= 0) and (" -" .. git_status.removed) or ""
+  local branch_name = "  " .. git_status.head
 
-  return "%#St_gitIcons#" .. branch_name .. added .. changed .. removed
-end
-
-M.file_info = function()
-  local icon = "  "
-  local filename = (fn.expand "%" == "" and "Empty ") or fn.expand "%:t"
-
-  if filename ~= "Empty " then
-    local devicons_present, devicons = pcall(require, "nvim-web-devicons")
-
-    if devicons_present then
-      local ft_icon = devicons.get_icon(filename)
-      icon = (ft_icon ~= nil and " " .. ft_icon) or ""
-    end
-
-    filename = " " .. filename .. " "
-  end
-
-  return "%#St_default_sep#" .. sep_r .. "%#St_file_info#" .. icon .. filename .. "%#St_default_sep#" .. sep_r
+  return "%#St_git_info#" .. branch_name .. added .. changed .. removed .. " "
 end
 
 M.lsp_diagnostics = function()
@@ -92,34 +78,27 @@ M.lsp_diagnostics = function()
   local hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
   local info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
 
-  errors = (errors and errors > 0) and ("%#St_lspError#" .. " " .. errors .. " ") or ""
-  warnings = (warnings and warnings > 0) and ("%#St_lspWarning#" .. "  " .. warnings .. " ") or ""
-  hints = (hints and hints > 0) and ("%#St_lspHints#" .. "  " .. hints .. " ") or ""
-  info = (info and info > 0) and ("%#St_lspInfo#" .. "  " .. info .. " ") or ""
+  errors = (errors and errors > 0) and ("%#St_lspError#" .. "  " .. errors) or ""
+  warnings = (warnings and warnings > 0) and ("%#St_lspWarning#" .. "  " .. warnings) or ""
+  hints = (hints and hints > 0) and ("%#St_lspHints#" .. "  " .. hints) or ""
+  info = (info and info > 0) and ("%#St_lspInfo#" .. "  " .. info) or ""
 
-  return "%#St_default_sep#"
-    .. sep_l
-    .. lsp_status
-    .. errors
-    .. warnings
-    .. hints
-    .. info
-    .. "%#St_default_sep#"
-    .. sep_r
+  return lsp_status .. errors .. warnings .. hints .. info .. " "
 end
 
 M.lsp_status = function()
+  local icon = "  "
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_active_clients()) do
       if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-        return (vim.o.columns > 100 and "%#St_LspStatus#" .. " " .. client.name .. " ") or " LSP "
+        return (vim.o.columns > 100 and "%#St_LspStatus#" .. icon .. client.name) or " LSP "
       end
     end
   end
 end
 
 M.file_type = function()
-  local filetype_icon = "%#St_FileType_icon#"
+  local filetype_icon = "%#St_file_type_icon#"
   local filetype_text = vim.bo.filetype
 
   local filename = (fn.expand "%" == "" and "Empty") or fn.expand "%:t"
@@ -138,8 +117,8 @@ M.file_type = function()
     filetype_text = "unnamed"
   end
 
-  filetype_text = "%#St_FileType_text#" .. " " .. filetype_text .. " "
-  return (vim.o.columns > 120 and (filetype_icon .. filetype_text) .. M.sep()) or ""
+  filetype_text = "%#St_file_type_text#" .. filetype_text .. " "
+  return (vim.o.columns > 120 and filetype_icon .. filetype_text) or ""
 end
 
 M.cursor_position = function()
@@ -148,14 +127,11 @@ M.cursor_position = function()
   local total_line = fn.line "$"
   local pos = math.modf((current_line / total_line) * 100)
   local pos_text = pos .. tostring "%%"
-  if pos < 10 then
-    pos_text = " " .. pos_text
-  end
 
   pos_text = (current_line == 1 and "Top") or pos_text
   pos_text = (current_line == total_line and "Bot") or pos_text
 
-  return pos_icon .. "%#St_pos_text#" .. " " .. pos_text .. " "
+  return pos_icon .. "%#St_pos_text#" .. pos_text .. " "
 end
 
 return M

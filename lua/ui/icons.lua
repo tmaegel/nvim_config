@@ -41,29 +41,6 @@ M.lspkind = {
   Copilot = " ",
 }
 
-M.statusline_separators = {
-  none = {
-    left = " ",
-    right = " ",
-  },
-  default = {
-    left = "",
-    right = "",
-  },
-  round = {
-    left = "",
-    right = "",
-  },
-  block = {
-    left = "█",
-    right = "█",
-  },
-  arrow = {
-    left = "",
-    right = "",
-  },
-}
-
 M.devicons = {
   default_icon = {
     icon = "",
