@@ -29,7 +29,9 @@ telescope.setup {
         results_width = 0.5,
       },
       vertical = {
-        mirror = false,
+        prompt_position = "top",
+        width = 0.75,
+        height = 0.5,
       },
       width = 0.90,
       height = 0.80,
@@ -51,6 +53,14 @@ telescope.setup {
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
+    },
+  },
+  pickers = {
+    command_history = {
+      layout_strategy = "vertical",
+    },
+    keymaps = {
+      layout_strategy = "vertical",
     },
   },
   extensions = {
