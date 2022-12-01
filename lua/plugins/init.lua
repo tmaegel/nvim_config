@@ -154,15 +154,34 @@ return packer.startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    after = "telescope-file-browser.nvim",
+    after = { "telescope-file-browser.nvim", "project.nvim" },
+    cmd = "Telescope",
+    keys = { "<leader>" },
     config = function()
       require "plugins.config.telescope"
     end,
+    setup = function()
+      require("core.utils").load_mappings "telescope"
+    end,
   }
-  use "nvim-telescope/telescope-file-browser.nvim"
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    cmd = "Telescope",
+    keys = { "<leader>" },
+  }
+  use {
+    "ahmedkhalf/project.nvim",
+    cmd = "Telescope",
+    keys = { "<leader>" },
+    config = function()
+      require "plugins.config.project"
+    end,
+  }
 
   use {
     "folke/trouble.nvim",
+    cmd = "Trouble",
+    keys = { "x" },
     config = function()
       require "plugins.config.trouble"
     end,
@@ -203,13 +222,6 @@ return packer.startup(function(use)
   --   end,
   -- }
 
-  use {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require "plugins.config.project"
-    end,
-  }
-
   use "famiu/bufdelete.nvim"
 
   use {
@@ -222,6 +234,7 @@ return packer.startup(function(use)
 
   use {
     "numToStr/Comment.nvim",
+    keys = { "gc", "gb" },
     config = function()
       require("Comment").setup()
     end,
@@ -230,6 +243,7 @@ return packer.startup(function(use)
   use {
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    keys = { "sa", "sd", "sr" },
     config = function()
       require "plugins.config.surround"
     end,
@@ -238,6 +252,7 @@ return packer.startup(function(use)
   -- Only load whichkey after all the gui
   use {
     "folke/which-key.nvim",
+    module = "which-key",
     keys = { "<leader>", '"', "'", "`" },
     config = function()
       require "plugins.config.whichkey"

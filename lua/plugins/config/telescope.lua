@@ -1,7 +1,6 @@
 local telescope = require "telescope"
 
 require("theme").load_highlight "telescope"
-require("core.utils").load_mappings "telescope"
 
 telescope.setup {
   defaults = {
