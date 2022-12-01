@@ -89,9 +89,7 @@ telescope.setup {
         results_width = 0.5,
       },
       vertical = {
-        prompt_position = "top",
-        width = 0.75,
-        height = 0.5,
+        mirror = false,
       },
       width = 0.90,
       height = 0.80,
@@ -112,15 +110,25 @@ telescope.setup {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
+      n = {
+        ["q"] = require("telescope.actions").close,
+      },
     },
   },
   pickers = {
-    command_history = {
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
       layout_strategy = "vertical",
-    },
-    keymaps = {
-      layout_strategy = "vertical",
+      previewer = false,
+      mappings = {
+        i = {
+          ["<c-d>"] = "delete_buffer",
+        },
+        n = {
+          ["<c-d>"] = "delete_buffer",
+        },
+      },
     },
     find_files = {
       mappings = {
@@ -145,7 +153,7 @@ telescope.setup {
   },
   extensions = {
     file_browser = {
-      -- theme = "dropdown",
+      previewer = false,
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
