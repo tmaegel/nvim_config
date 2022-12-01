@@ -1,4 +1,5 @@
 local telescope = require "telescope"
+local lga_actions = require "telescope-live-grep-args.actions"
 
 require("theme").load_highlight "telescope"
 
@@ -156,8 +157,23 @@ telescope.setup {
         },
       },
     },
+    live_grep_args = {
+      -- enable/disable auto-quoting
+      auto_quoting = true,
+      mappings = {
+        i = {
+          ["<C-k>"] = lga_actions.quote_prompt(),
+          ["<C-i>"] = lga_actions.quote_prompt { postfix = " --iglob " },
+        },
+      },
+      -- ... also accepts theme settings, for example:
+      -- theme = "dropdown", -- use dropdown theme
+      -- theme = { }, -- use own theme spec
+      -- layout_config = { mirror=true }, -- mirror preview pane
+    },
   },
 }
 
+require("telescope").load_extension "live_grep_args"
 require("telescope").load_extension "projects"
 require("telescope").load_extension "file_browser"

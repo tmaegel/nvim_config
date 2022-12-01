@@ -168,6 +168,9 @@ return packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     after = { "telescope-file-browser.nvim", "project.nvim" },
+    requires = {
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
+    },
     config = function()
       require "plugins.config.telescope"
     end,
