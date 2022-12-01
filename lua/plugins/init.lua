@@ -125,10 +125,20 @@ return packer.startup(function(use)
       require "plugins.config.cmp"
     end,
   }
-  -- LSP source for nvim-cmp
-  use "hrsh7th/cmp-nvim-lsp"
-  -- Snippets source for nvim-cmp
-  use "saadparwaiz1/cmp_luasnip"
+  use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
+  use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
+  use {
+    "hrsh7th/cmp-buffer",
+    after = "cmp-nvim-lsp",
+  }
+  use {
+    "hrsh7th/cmp-path",
+    after = "cmp-buffer",
+  }
+  use {
+    "hrsh7th/cmp-cmdline",
+    after = "cmp-buffer",
+  }
   -- Snippets plugin
   use {
     "L3MON4D3/LuaSnip",
@@ -136,12 +146,6 @@ return packer.startup(function(use)
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/snippets" } }
     end,
   }
-
-  -- ["saadparwaiz1/cmp_luasnip"] = { after = "LuaSnip" },
-  -- ["hrsh7th/cmp-nvim-lua"] = { after = "cmp_luasnip" },
-  -- ["hrsh7th/cmp-nvim-lsp"] = { after = "cmp-nvim-lua" },
-  -- ["hrsh7th/cmp-buffer"] = { after = "cmp-nvim-lsp" },
-  -- ["hrsh7th/cmp-path"] = { after = "cmp-buffer" },
 
   use "tpope/vim-fugitive"
   use {
