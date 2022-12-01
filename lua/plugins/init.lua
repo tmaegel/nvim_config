@@ -156,29 +156,23 @@ return packer.startup(function(use)
   }
 
   use {
+    "nvim-telescope/telescope-file-browser.nvim",
+  }
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require "plugins.config.project"
+    end,
+  }
+  use {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     after = { "telescope-file-browser.nvim", "project.nvim" },
-    cmd = "Telescope",
-    keys = { "<leader>" },
     config = function()
       require "plugins.config.telescope"
     end,
     setup = function()
       require("core.utils").load_mappings "telescope"
-    end,
-  }
-  use {
-    "nvim-telescope/telescope-file-browser.nvim",
-    cmd = "Telescope",
-    keys = { "<leader>" },
-  }
-  use {
-    "ahmedkhalf/project.nvim",
-    cmd = "Telescope",
-    keys = { "<leader>" },
-    config = function()
-      require "plugins.config.project"
     end,
   }
 

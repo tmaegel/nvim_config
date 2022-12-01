@@ -169,21 +169,7 @@ M.telescope = {
       end,
       "Find file under cursor",
     },
-    ["<leader>fF"] = {
-      function()
-        local buffer_dir = require("telescope.utils").buffer_dir()
-        vim.cmd("Telescope find_files prompt_title=find_files_in_buffer_dir cwd=" .. buffer_dir)
-      end,
-      "Find file in directory of current buffer",
-    },
     ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<leader>fG"] = {
-      function()
-        local buffer_dir = require("telescope.utils").buffer_dir()
-        vim.cmd("Telescope live_grep prompt_title=live_grep_in_buffer_dir cwd=" .. buffer_dir)
-      end,
-      "Find file in directory of current buffer",
-    },
     ["<leader>fp"] = { "<cmd> Telescope projects <CR>", "Find projects" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
