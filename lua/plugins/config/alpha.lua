@@ -76,3 +76,19 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.laststatus = 0
   end,
 })
+
+-- Disable tabline in dashboard
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "alpha",
+  callback = function()
+    -- store current tabline value and use that
+    local old_showtabline = vim.opt.showtabline
+    vim.api.nvim_create_autocmd("BufUnload", {
+      buffer = 0,
+      callback = function()
+        vim.opt.showtabline = old_showtabline
+      end,
+    })
+    vim.opt.showtabline = 0
+  end,
+})

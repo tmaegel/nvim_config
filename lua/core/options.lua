@@ -54,7 +54,7 @@ opt.showmatch = true
 -- How many tenths of a second to blink when matching brackets
 opt.mat = 2
 -- Never (0) / always (2) show tabline
-opt.showtabline = 0
+opt.showtabline = 2
 -- hide (0),  show always (2) or (3) global statusline
 opt.laststatus = 3
 opt.cmdheight = 0
