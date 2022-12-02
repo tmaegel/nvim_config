@@ -46,6 +46,7 @@ local sources = {
       "120",
     },
   },
+  b.formatting.djlint,
 
   -- LUA
   b.formatting.stylua,
