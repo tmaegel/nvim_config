@@ -119,7 +119,6 @@ telescope.setup {
     buffers = {
       show_all_buffers = true,
       sort_lastused = true,
-      layout_strategy = "vertical",
       previewer = false,
       mappings = {
         i = {
