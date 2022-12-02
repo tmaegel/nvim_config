@@ -27,9 +27,19 @@ end
 --
 -- PYTHON
 --
+local python_root_files = {
+  "WORKSPACE", -- added for Bazel; items below are from default config
+  "pyproject.toml",
+  "setup.py",
+  "setup.cfg",
+  "requirements.txt",
+  "Pipfile",
+  "pyrightconfig.json",
+}
 lspconfig["pyright"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = lspconfig.util.root_pattern(unpack(python_root_files)),
   settings = {
     -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
     pyright = {
@@ -37,7 +47,6 @@ lspconfig["pyright"].setup {
       disableOrganizeImports = true,
     },
     python = {
-      pythonPath = "/usr/bin/python",
       analysis = {
         -- Automatically add common search paths like 'src'
         autoSearchPaths = true,
@@ -50,7 +59,7 @@ lspconfig["pyright"].setup {
         -- type information in the absence of type stub files. Type information will typically
         -- be incomplete. We recommend using type stubs where possible. The default value for
         -- this option is false.
-        useLibraryCodeForTypes = false,
+        useLibraryCodeForTypes = true,
         -- Diagnostics / analysis
         -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md
         -- Available values: off, basic, strict
