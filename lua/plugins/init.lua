@@ -216,12 +216,13 @@ return packer.startup(function(use)
     end,
   }
 
-  -- use {
-  --   "heavenshell/vim-pydocstring",
-  --   config = function()
-  --     require "plugins.config.nvim-pydocstring"
-  --   end,
-  -- }
+  use {
+    "heavenshell/vim-pydocstring",
+    ft = { "python" },
+    config = function()
+      require "plugins.config.pydocstring"
+    end,
+  }
 
   use "famiu/bufdelete.nvim"
 
