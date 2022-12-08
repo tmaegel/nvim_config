@@ -12,6 +12,14 @@ M.general = {
     ["<leader><Left>"] = { "<cmd> tabprevious <CR>", "Tab left" },
     ["<leader><Right>"] = { "<cmd> tabnext <CR>", "Tab right" },
 
+    -- ["*"] = {
+    --   function()
+    --     vim.fn.setreg("/", "\\<" .. vim.fn.expand "<cword>" .. "\\>")
+    --   end,
+    --   "Constant cursor position in hlsearch",
+    --   opts = { silent = true, noremap = true },
+    -- },
+
     -- Remap: Insert new line without enter insert mode
     ["o"] = { "o<ESC>", "Insert new line after (without enter insert mode)" },
     ["O"] = { "O<ESC>", "Insert new line above (without enter insert mode)" },
