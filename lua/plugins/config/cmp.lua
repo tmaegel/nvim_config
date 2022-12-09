@@ -29,9 +29,18 @@ cmp.setup {
       return vim_item
     end,
   },
+  -- Disabling completion in certain contexts, such as comments.
+  enabled = function()
+    if
+      require("cmp.config.context").in_treesitter_capture "comment" == true
+      or require("cmp.config.context").in_syntax_group "Comment"
+    then
+      return false
+    else
+      return true
+    end
+  end,
   mapping = {
-    ["<Up>"] = cmp.mapping.select_prev_item(),
-    ["<Down>"] = cmp.mapping.select_next_item(),
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
