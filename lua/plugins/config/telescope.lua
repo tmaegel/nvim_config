@@ -1,4 +1,7 @@
 local telescope = require "telescope"
+local actions = require "telescope.actions"
+local action_state = require "telescope.actions.state"
+local transform_mod = require("telescope.actions.mt").transform_mod
 local lga_actions = require "telescope-live-grep-args.actions"
 
 require("theme").load_highlight "telescope"
@@ -6,7 +9,6 @@ require("theme").load_highlight "telescope"
 -- This action will launch telescope-file-browser in folder mode,
 -- and then launch live_grep within the selected directory.
 local ts_select_dir_for_grep = function(prompt_bufnr)
-  local action_state = require "telescope.actions.state"
   local fb = require("telescope").extensions.file_browser
   local live_grep = require("telescope.builtin").live_grep
   local current_line = action_state.get_current_line()
@@ -36,7 +38,6 @@ end
 -- This action will launch telescope-file-browser in folder mode,
 -- and then launch live_grep_args within the selected directory.
 local ts_select_dir_for_grep_args = function(prompt_bufnr)
-  local action_state = require "telescope.actions.state"
   local fb = require("telescope").extensions.file_browser
   local live_grep_args = require("telescope").extensions.live_grep_args.live_grep_args
   local current_line = action_state.get_current_line()
@@ -66,7 +67,6 @@ end
 -- This action will launch telescope-file-browser in folder mode,
 -- and then launch find_files within the selected directory.
 local ts_select_dir_for_find = function(prompt_bufnr)
-  local action_state = require "telescope.actions.state"
   local fb = require("telescope").extensions.file_browser
   local find_files = require("telescope.builtin").find_files
   local current_line = action_state.get_current_line()
@@ -91,6 +91,55 @@ local ts_select_dir_for_find = function(prompt_bufnr)
       return true
     end,
   }
+end
+
+-- Open multiple files at once
+local function multiopen(prompt_bufnr, method)
+  local cmd_map = {
+    vertical = "vsplit",
+    horizontal = "split",
+    tab = "tabe",
+    default = "edit",
+  }
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local multi_selection = picker:get_multi_selection()
+
+  if #multi_selection > 1 then
+    require("telescope.pickers").on_close_prompt(prompt_bufnr)
+    pcall(vim.api.nvim_set_current_win, picker.original_win_id)
+
+    for i, entry in ipairs(multi_selection) do
+      -- opinionated use-case
+      local cmd = i == 1 and "edit" or cmd_map[method]
+      vim.cmd(string.format("%s %s", cmd, entry.value))
+    end
+  else
+    actions["select_" .. method](prompt_bufnr)
+  end
+end
+
+local custom_actions = transform_mod {
+  multi_selection_open_vertical = function(prompt_bufnr)
+    multiopen(prompt_bufnr, "vertical")
+  end,
+  multi_selection_open_horizontal = function(prompt_bufnr)
+    multiopen(prompt_bufnr, "horizontal")
+  end,
+  multi_selection_open_tab = function(prompt_bufnr)
+    multiopen(prompt_bufnr, "tab")
+  end,
+  multi_selection_open = function(prompt_bufnr)
+    multiopen(prompt_bufnr, "default")
+  end,
+}
+
+local function stopinsert(callback)
+  return function(prompt_bufnr)
+    vim.cmd.stopinsert()
+    vim.schedule(function()
+      callback(prompt_bufnr)
+    end)
+  end
 end
 
 telescope.setup {
@@ -140,8 +189,19 @@ telescope.setup {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
+      i = {
+        ["q"] = require("telescope.actions").close,
+        ["<C-v>"] = stopinsert(custom_actions.multi_selection_open_vertical),
+        ["<C-s>"] = stopinsert(custom_actions.multi_selection_open_horizontal),
+        ["<C-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
+        ["<CR>"] = stopinsert(custom_actions.multi_selection_open),
+      },
       n = {
         ["q"] = require("telescope.actions").close,
+        ["<C-v>"] = custom_actions.multi_selection_open_vertical,
+        ["<C-s>"] = custom_actions.multi_selection_open_horizontal,
+        ["<C-t>"] = custom_actions.multi_selection_open_tab,
+        ["<CR>"] = custom_actions.multi_selection_open,
       },
     },
   },
@@ -186,12 +246,8 @@ telescope.setup {
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
-        ["i"] = {
-          -- your custom insert mode mappings
-        },
-        ["n"] = {
-          -- your custom normal mode mappings
-        },
+        ["i"] = {},
+        ["n"] = {},
       },
     },
     live_grep_args = {
@@ -208,10 +264,6 @@ telescope.setup {
           ["<C-f>"] = ts_select_dir_for_grep_args,
         },
       },
-      -- ... also accepts theme settings, for example:
-      -- theme = "dropdown", -- use dropdown theme
-      -- theme = { }, -- use own theme spec
-      -- layout_config = { mirror=true }, -- mirror preview pane
     },
   },
 }
