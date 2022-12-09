@@ -21,7 +21,7 @@ return {
 
   -- floating windows
   FloatBorder = { fg = colors.grey, bg = colors.darker_black },
-  NormalFloat = { fg = colors.white, bg = colors.darker_black },
+  NormalFloat = { fg = colors.white, bg = colors.black },
 
   NvimInternalError = { fg = colors.red },
   WinSeparator = { fg = colors.line },

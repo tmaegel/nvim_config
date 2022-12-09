@@ -30,6 +30,10 @@ return {
     bg = colors.black,
   },
 
+  -- TODO: Define winhighlight mapping for lsp floating windows.
+  -- LspFloatWinNormal = { bg = colors.blue },
+  LspFloatWinBorder = { fg = colors.grey, bg = colors.black },
+
   RenamerTitle = { fg = colors.black, bg = colors.red },
   RenamerBorder = { fg = colors.red },
 }
