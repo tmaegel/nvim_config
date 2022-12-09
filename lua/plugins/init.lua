@@ -139,6 +139,10 @@ return packer.startup(function(use)
     "hrsh7th/cmp-cmdline",
     after = "cmp-buffer",
   }
+  use {
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    after = "cmp-nvim-lsp",
+  }
   -- Snippets plugin
   use {
     "L3MON4D3/LuaSnip",
