@@ -68,6 +68,14 @@
             },
             {
                 "language": "python",
+                "path": "./snippets/python/unittest.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python/pytest.json"
+            },
+            {
+                "language": "python",
                 "path": "./snippets/python/typing.json"
             },
             {

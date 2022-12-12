@@ -1,0 +1,11 @@
+{
+    "pytest assert SystemExit": {
+        "prefix": "withraisexit",
+        "body": [
+            "with pytest.raises(SystemExit) as wrapped_exit:",
+            "\t${0:fname}()",
+            "\tassert wrapped_exit.type == SystemExit",
+            "\tassert wrapped_exit.value.code == 0"
+        ]
+    }
+}

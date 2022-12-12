@@ -1,0 +1,115 @@
+{
+    "unittest assert equal": {
+        "prefix": "ase",
+        "body": "self.assertEqual(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+    },
+    "unittest assert not equal": {
+        "prefix": "asne",
+        "body": "self.assertNotEqual(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+    },
+    "unittest assert raises": {
+        "prefix": "asr",
+        "body": "self.assertRaises(${1:exception}, ${2:callable}, ${3:args})$0"
+    },
+    "unittest assert true": {
+        "prefix": "ast",
+        "body": "self.assertTrue(${1:actual}${2:, '${3:message}'})$0"
+    },
+    "unittest assert false": {
+        "prefix": "asf",
+        "body": "self.assertFalse(${1:actual}${2:, '${3:message}'})$0"
+    },
+    "unittest assert is": {
+        "prefix": "asi",
+        "body": "self.assertIs(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+    },
+    "unittest assert is not": {
+        "prefix": "asint",
+        "body": "self.assertIsNot(${1:expected}, ${2:actual}${3:, '${4:message}'})$0"
+    },
+    "unittest assert is none": {
+        "prefix": "asino",
+        "body": "self.assertIsNone(${1:actual}${2:, '${3:message}'})$0"
+    },
+    "unittest assert is not none": {
+        "prefix": "asinno",
+        "body": "self.assertIsNotNone(${1:actual}${2:, '${3:message}'})$0"
+    },
+    "unittest assert in": {
+        "prefix": "asin",
+        "body": "self.assertIn(${1:needle}, ${2:haystack}${3:, '${4:message}'})$0"
+    },
+    "unittest assert not in": {
+        "prefix": "asni",
+        "body": "self.assertNotIn(${1:needle}, ${2:haystack}${3:, '${4:message}'})$0"
+    },
+    "unittest assert": {
+        "prefix": "as",
+        "body": "self.assert_(${1:boolean expression}${2:, '${3:message}'})$0"
+    },
+    "unittest fail a test": {
+        "prefix": "fail",
+        "body": "self.fail('${1:message}')$0"
+    },
+    "unittest function setUp": {
+        "prefix": "defsetup",
+        "body": [
+            "def setUp(self):",
+            "\t${0:pass}"
+        ]
+    },
+    "unittest function setUpModule": {
+        "prefix": "defsetupmodule",
+        "body": [
+            "def setUpModule():",
+            "\t${0:pass}"
+        ]
+    },
+    "unittest function setUpClass": {
+        "prefix": "defsetupclass",
+        "body": [
+            "@classmethod",
+            "def setUpClass(cls):",
+            "\tsuper().setUpClass()"
+        ]
+    },
+    "unittest function tearDown": {
+        "prefix": "defteardown",
+        "body": [
+            "def tearDown(self):",
+            "\t${0:pass}"
+        ]
+    },
+    "unittest function tearDownModule": {
+        "prefix": "deftearmodule",
+        "body": [
+            "def tearDownodule():",
+            "\t${0:pass}"
+        ]
+    },
+    "unittest function tearDownClass": {
+        "prefix": "deftearclass",
+        "body": [
+            "@classmethod",
+            "def tearDownClass(cls):",
+            "\tsuper().tearDownClass()"
+        ]
+    },
+    "unitest patch with": {
+        "prefix": "patchw",
+        "body": [
+            "with patch(\"${2:module.Class.function}\", return_value=True) as mocked:",
+            "\tmocked.assert_called_once()",
+            "\t# assert mocked.call_count == 2"
+        ]
+    },
+    "unitest patch decorator": {
+        "prefix": "patchd",
+        "body": [
+            "@patch(\"${2:module.Class.function}\", return_value=True)",
+            "def test_${1:something}(mocked):",
+            "\tmocked.assert_called_once()",
+            "\t# assert mocked.call_count == 2"
+        ]
+    }
+}
