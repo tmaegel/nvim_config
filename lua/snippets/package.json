@@ -85,6 +85,10 @@
             {
                 "language": "lua",
                 "path": "./snippets/lua/lua.json"
+            },
+            {
+                "language": "sql",
+                "path": "./snippets/sql/sql.json"
             }
         ]
     }
