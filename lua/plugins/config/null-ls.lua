@@ -59,6 +59,14 @@ local sources = {
     },
   },
 
+  -- JSON
+  b.formatting.fixjson.with {
+    extra_args = {
+      "--indent",
+      "4",
+    },
+  },
+
   -- DART
   b.formatting.dart_format,
 

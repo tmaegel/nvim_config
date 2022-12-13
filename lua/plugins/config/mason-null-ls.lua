@@ -3,10 +3,11 @@ require("mason-null-ls").setup {
   -- This setting has no relation with the `automatic_installation` setting.
   ensure_installed = {
     "black",
+    "djlint",
+    "fixjson",
     "flake8",
     "isort",
     "mypy",
-    "djlint",
   },
   -- Will automatically install masons tools based on selected sources in `null-ls`.
   -- Can also be an exclusion list.
