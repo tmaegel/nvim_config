@@ -1,0 +1,100 @@
+{
+    "FROM": {
+        "prefix": "F",
+        "body": "FROM ${1:ubuntu}"
+    },
+    "Label maintainer": {
+        "prefix": "m",
+        "body": "LABEL maintainer=\"${1:name}\""
+    },
+    "RUN": {
+        "prefix": "R",
+        "body": [
+            "RUN ${1:command}"
+        ]
+    },
+    "CMD": {
+        "prefix": "C",
+        "body": [
+            "CMD ${1:command}"
+        ]
+    },
+    "COPY": {
+        "prefix": "CP",
+        "body": [
+            "COPY ${1:src} ${2:dest}"
+        ]
+    },
+    "EXPOSE": {
+        "prefix": "EXP",
+        "body": [
+            "EXPOSE ${1:port}"
+        ]
+    },
+    "ARG": {
+        "prefix": "ARG",
+        "body": [
+            "ARG ${1:env}=${2:dev}"
+        ]
+    },
+    "ENV": {
+        "prefix": "ENV",
+        "body": [
+            "ENV ${1:key} ${2:value}"
+        ]
+    },
+    "ADD": {
+        "prefix": "A",
+        "body": [
+            "ADD ${1:src} ${2:dst}"
+        ]
+    },
+    "ENTRYPOINT": {
+        "prefix": "ENT",
+        "body": "ENTRYPOINT ${1:command}"
+    },
+    "VOLUME": {
+        "prefix": "V",
+        "body": "VOLUME [\"${1:path}\"]"
+    },
+    "USER": {
+        "prefix": "U",
+        "body": "USER ${1:name}"
+    },
+    "WORKDIR": {
+        "prefix": "W",
+        "body": "WORKDIR ${1:name}"
+    },
+    "Update packages": {
+        "prefix": "upd",
+        "body": [
+            "RUN apt-get update && apt-get -y upgrade \\",
+            "\t&& rm -rf /var/lib/apt/lists/*"
+        ]
+    },
+    "Install packages": {
+        "prefix": "inst",
+        "body": [
+            "RUN apt-get update && apt-get -y install \\",
+            "\t${1:package} \\",
+            "\t&& rm -rf /var/lib/apt/lists/*"
+        ]
+    },
+    "HEAD": {
+        "prefix": "head",
+        "body": [
+            "# ${1:description}",
+            "#  ",
+            "# VERSION ${2:0.1.0}",
+            "${3}"
+        ]
+    },
+    "ONBUILD": {
+        "prefix": "O",
+        "body": "ONBUILD ${1}"
+    },
+    "LABEL": {
+        "prefix": "L",
+        "body": "LABEL ${1:label}=\"${2:value}\""
+    }
+}

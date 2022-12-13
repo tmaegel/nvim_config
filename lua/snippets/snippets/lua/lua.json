@@ -17,7 +17,7 @@
             "local ${1:var} = ${0:value}"
         ]
     },
-        "local single": {
+    "local single": {
         "prefix": "l",
         "body": [
             "local ${0:var}"

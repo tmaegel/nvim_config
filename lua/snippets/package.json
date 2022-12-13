@@ -79,6 +79,10 @@
                 "path": "./snippets/python/typing.json"
             },
             {
+                "language": "dockerfile",
+                "path": "./snippets/docker/dockerfile.json"
+            },
+            {
                 "language": "lua",
                 "path": "./snippets/lua/lua.json"
             }
