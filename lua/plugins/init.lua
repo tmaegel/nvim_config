@@ -259,6 +259,18 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    "rareitems/hl_match_area.nvim",
+    config = function()
+      require("hl_match_area").setup {
+        n_lines_to_search = 100, -- how many lines should be searched for a matching delimiter
+        highlight_in_insert_mode = true, -- should highlighting also be done in insert mode
+        delay = 100, -- delay before the highglight
+      }
+      require("theme").load_highlight "hl_match_area"
+    end,
+  }
+
   -- Only load whichkey after all the gui
   use {
     "folke/which-key.nvim",
