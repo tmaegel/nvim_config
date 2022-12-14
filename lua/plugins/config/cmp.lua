@@ -7,6 +7,7 @@ require("theme").load_highlight "cmp"
 vim.o.completeopt = "menu,menuone,noselect"
 
 cmp.setup {
+  preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
