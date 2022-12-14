@@ -115,6 +115,15 @@ lspconfig["tsserver"].setup {
 }
 
 --
+-- Dockerfile
+--
+lspconfig["dockerls"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {},
+}
+
+--
 -- LUA
 --
 lspconfig["sumneko_lua"].setup {
