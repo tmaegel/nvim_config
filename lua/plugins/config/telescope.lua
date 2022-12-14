@@ -190,7 +190,6 @@ telescope.setup {
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
       i = {
-        ["q"] = require("telescope.actions").close,
         ["<C-v>"] = stopinsert(custom_actions.multi_selection_open_vertical),
         ["<C-s>"] = stopinsert(custom_actions.multi_selection_open_horizontal),
         ["<C-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
