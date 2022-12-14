@@ -19,9 +19,9 @@ local on_attach = function(client, bufnr)
   client.server_capabilities.documentRangeFormattingProvider = false
   require("core.utils").load_mappings("lspconfig", { buffer = bufnr })
 
-  -- if client.server_capabilities.signatureHelpProvider then
-  --   require("ui.signature").setup(client)
-  -- end
+  if client.server_capabilities.signatureHelpProvider then
+    require("ui.signature").setup(client)
+  end
 end
 
 --
