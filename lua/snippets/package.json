@@ -79,6 +79,45 @@
                 "path": "./snippets/python/typing.json"
             },
             {
+                "language": "django",
+                "path": "./snippets/django/admin.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/django/forms.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/django/models.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/django/tags.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/django/urls.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/django/views.json"
+            },
+            {
+                "language": [
+                    "djangohtml",
+                    "htmldjango"
+                ],
+                "path": "./snippets/django/djangohtml.json"
+            },
+            {
+                "language": "django-rest",
+                "path": "./snippets/django_rest_framework/serializers.json"
+            },
+            {
+                "language": "django-rest",
+                "path": "./snippets/django_rest_framework/views.json"
+            },
+            {
                 "language": "dockerfile",
                 "path": "./snippets/docker/dockerfile.json"
             },
