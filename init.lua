@@ -1,4 +1,5 @@
 -- setup packer + plugins
+require "core.filetype"
 require "core.options"
 require "core.autocmds"
 
