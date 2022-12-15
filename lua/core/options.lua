@@ -179,13 +179,3 @@ local default_providers = {
 for _, provider in ipairs(default_providers) do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
-
--- Keep the cursor position while forward-searching a word.
--- Reference: https://github.com/NvChad/NvChad/issues/1224
--- TODO: map # key as well and activate backward search
--- TODO: Set mapping via laod_mappings. Does not work yet.
-local function shine_forward()
-  vim.fn.setreg("/", "\\<" .. vim.fn.expand "<cword>" .. "\\>")
-  vim.opt.hlsearch = true
-end
-vim.keymap.set("n", "*", shine_forward, { silent = true, noremap = true })

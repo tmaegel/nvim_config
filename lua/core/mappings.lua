@@ -12,13 +12,18 @@ M.general = {
     ["<leader><Left>"] = { "<cmd> tabprevious <CR>", "Tab left" },
     ["<leader><Right>"] = { "<cmd> tabnext <CR>", "Tab right" },
 
-    -- ["*"] = {
-    --   function()
-    --     vim.fn.setreg("/", "\\<" .. vim.fn.expand "<cword>" .. "\\>")
-    --   end,
-    --   "Constant cursor position in hlsearch",
-    --   opts = { silent = true, noremap = true },
-    -- },
+    -- Keep the cursor position while forward-searching a word.
+    -- Reference: https://github.com/NvChad/NvChad/issues/1224
+    -- TODO: map # key as well and activate backward search
+    -- TODO: Set mapping via laod_mappings. Does not work yet.
+    ["*"] = {
+      function()
+        vim.fn.setreg("/", "\\<" .. vim.fn.expand "<cword>" .. "\\>")
+        vim.opt.hlsearch = true
+      end,
+      "Constant cursor position in hlsearch",
+      opts = { silent = true, noremap = true },
+    },
 
     -- Remap: Insert new line without enter insert mode
     ["o"] = { "o<ESC>", "Insert new line after (without enter insert mode)" },
