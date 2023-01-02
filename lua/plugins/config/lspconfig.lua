@@ -163,3 +163,31 @@ lspconfig["dartls"].setup {
     },
   },
 }
+
+--
+-- ANSIBLE
+--
+lspconfig["ansiblels"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ansible = {
+      ansible = {
+        path = "ansible",
+      },
+      executionEnvironment = {
+        enabled = false,
+      },
+      python = {
+        interpreterPath = "python",
+      },
+      validation = {
+        enabled = true,
+        lint = {
+          enabled = true,
+          path = "ansible-lint",
+        },
+      },
+    },
+  },
+}
