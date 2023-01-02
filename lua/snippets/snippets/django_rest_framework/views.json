@@ -3,7 +3,7 @@
         "prefix": "apiview",
         "body": [
             "class ${1:Name}APIView(APIView):",
-            "\t${2}"
+            "\t${2:pass}"
         ],
         "description": "Django-rest Views ``ApiView`` Class"
     },
@@ -15,14 +15,14 @@
         ],
         "description": "Django-rest Views ``CreateApi`` Class"
     },
-    "DRF DestoryApiView": {
-        "prefix": "destoryapiview",
+    "DRF DestroyApiView": {
+        "prefix": "destroyapiview",
         "body": [
-            "class ${1:Name}DestoryApiView(generics.DestoryApiView):",
+            "class ${1:Name}DestroyApiView(generics.DestroyApiView):",
             "\tserializer_class = ${2:$1Serializer}",
             "\tqueryset = $1.objects.filter(${3})"
         ],
-        "description": "Django-rest Views ``DestoryApiView`` Class"
+        "description": "Django-rest Views ``DestroyApiView`` Class"
     },
     "DRF ListApiView": {
         "prefix": "listapiview",
@@ -52,7 +52,7 @@
         "description": "Django-rest Views ``RetrieveAPIView`` Class"
     },
     "DRF RetrieveDestroyAPIView": {
-        "prefix": "retrievedestoryapiview",
+        "prefix": "retrievedestroyapiview",
         "body": [
             "class ${1:Name}RetrieveDestroyAPIView(generics.RetrieveDestroyAPIView):",
             "\tserializer_class = ${2:$1Serializer}",

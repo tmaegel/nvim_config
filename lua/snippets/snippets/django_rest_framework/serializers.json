@@ -3,7 +3,7 @@
         "prefix": "serializer",
         "body": [
             "class ${1:Name}Serializer(serializers.Serializer):",
-            "\t${2}"
+            "\t${2:pass}"
         ],
         "description": "Django-rest Serializers ``Serializer`` Class"
     },

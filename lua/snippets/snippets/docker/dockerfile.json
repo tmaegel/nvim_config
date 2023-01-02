@@ -65,7 +65,7 @@
         "prefix": "W",
         "body": "WORKDIR ${1:name}"
     },
-    "Update packages": {
+    "Upgrade packages": {
         "prefix": "upd",
         "body": [
             "RUN apt-get update && apt-get -y upgrade \\",
@@ -76,6 +76,14 @@
         "prefix": "inst",
         "body": [
             "RUN apt-get update && apt-get -y install \\",
+            "\t${1:package} \\",
+            "\t&& rm -rf /var/lib/apt/lists/*"
+        ]
+    },
+    "Install and upgrade packages": {
+        "prefix": "instu",
+        "body": [
+            "RUN apt-get update && apt-get -y upgrade && apt-get -y install \\",
             "\t${1:package} \\",
             "\t&& rm -rf /var/lib/apt/lists/*"
         ]
