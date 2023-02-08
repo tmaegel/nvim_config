@@ -32,9 +32,9 @@ M.general = {
     ["U"] = { "<cmd> redo<CR>", "Redo" },
 
     ["<leader>a"] = { "ggVG", "Select all text in curent buffer" },
-    ["<leader>e"] = { "%", "Go to matching pair" },
-    ["<leader>f"] = { "^", "Go to first character in line" },
-    ["<leader>l"] = { "g_", "Go to last character in line" },
+    -- ["<leader>e"] = { "%", "Go to matching pair" },
+    -- ["<leader>f"] = { "^", "Go to first character in line" },
+    -- ["<leader>l"] = { "g_", "Go to last character in line" },
 
     -- buffer
     ["<TAB>"] = { "<cmd> bnext <CR>", "Cycle next buffer" },
@@ -58,7 +58,7 @@ M.general = {
     ["<leader>gr"] = { "<cmd> diffget REMOTE <CR>", "Apply remote changes" },
 
     -- Pydocstring
-    -- ["<leader>ds"] = { "<cmd> Pydocstring <CR>", "Add Pydocstring template" },
+    ["<leader>ds"] = { "<cmd> Pydocstring <CR>", "Add Pydocstring template" },
 
     ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 

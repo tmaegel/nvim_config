@@ -70,6 +70,9 @@ local sources = {
   -- DART
   b.formatting.dart_format,
 
+  -- TERRAFORM
+  b.formatting.terraform_fmt,
+
   -- OTHER
   b.formatting.trim_whitespace,
   b.formatting.trim_newlines,

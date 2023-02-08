@@ -36,6 +36,15 @@
             "trap cleanup EXIT"
         ]
     },
+    "check command": {
+        "prefix": "checkcmd",
+        "body": [
+            "if ! command -v ${1:cmd} &> /dev/null; then",
+            "\techo \"${1:cmd} not installed.\"",
+            "\texit 1",
+            "fi"
+        ]
+    },
     "if": {
         "prefix": "if",
         "body": [

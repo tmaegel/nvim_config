@@ -7,6 +7,7 @@ require("mason-lspconfig").setup {
     "dockerls",
     "pyright",
     "sumneko_lua",
+    "terraformls",
     "tsserver",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed

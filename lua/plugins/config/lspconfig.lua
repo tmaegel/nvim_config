@@ -191,3 +191,12 @@ lspconfig["ansiblels"].setup {
     },
   },
 }
+
+--
+-- TERRAFORM
+--
+lspconfig["terraformls"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {},
+}
