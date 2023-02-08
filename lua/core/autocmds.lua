@@ -71,6 +71,39 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
+  pattern = "html",
+  callback = function()
+    opt.tabstop = 4
+    opt.shiftwidth = 4
+    opt.softtabstop = 4
+    opt.expandtab = true
+    opt.smarttab = true
+  end,
+})
+
+autocmd("FileType", {
+  pattern = "htmldjango",
+  callback = function()
+    opt.tabstop = 4
+    opt.shiftwidth = 4
+    opt.softtabstop = 4
+    opt.expandtab = true
+    opt.smarttab = true
+  end,
+})
+
+autocmd("FileType", {
+  pattern = "django",
+  callback = function()
+    opt.tabstop = 4
+    opt.shiftwidth = 4
+    opt.softtabstop = 4
+    opt.expandtab = true
+    opt.smarttab = true
+  end,
+})
+
+autocmd("FileType", {
   pattern = "json",
   callback = function()
     opt.tabstop = 4
