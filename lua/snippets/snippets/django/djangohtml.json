@@ -4,7 +4,7 @@
         "description": "autoescape tag django template",
         "body": [
             "{% autoescape ${off} %}",
-            "$2",
+            "\t$2",
             "{% autoescape %}"
         ]
     },
@@ -13,7 +13,7 @@
         "description": "block tag django template",
         "body": [
             "{% block ${blockname} %}",
-            "$2",
+            "\t$2",
             "{% endblock ${blockname} %}"
         ]
     },
@@ -22,7 +22,7 @@
         "description": "Comment tag django template",
         "body": [
             "{% comment %}",
-            "  $1",
+            "\t$1",
             "{% endcomment %}"
         ]
     },
@@ -66,7 +66,7 @@
         "description": "filter tag django template",
         "body": [
             "{% filter $1 %}",
-            "$2",
+            "\t$2",
             "{% endfilter %}"
         ]
     },
@@ -82,7 +82,7 @@
         "description": "for tag django template",
         "body": [
             "{% for $1 in $2 %}",
-            "$3",
+            "\t$3",
             "{% endfor %}"
         ]
     },
@@ -91,9 +91,27 @@
         "description": "foreach with empty tag django template",
         "body": [
             "{% for $1 in $2 %}",
-            "$3",
+            "\t$3",
             "{% empty %}",
-            "$4",
+            "\t$4",
+            "{% endfor %}"
+        ]
+    },
+    "for counter0": {
+        "prefix": "forc0",
+        "description": "for tag django template",
+        "body": [
+            "{% for $1 in $2 %}",
+            "\t{{ forloop.counter0 }}",
+            "{% endfor %}"
+        ]
+    },
+    "for counter": {
+        "prefix": "forc",
+        "description": "for tag django template",
+        "body": [
+            "{% for $1 in $2 %}",
+            "\t{{ forloop.counter }}",
             "{% endfor %}"
         ]
     },
@@ -102,7 +120,7 @@
         "description": "if tag django template",
         "body": [
             "{% if $1 %}",
-            "$2",
+            "\t$2",
             "{% endif %}"
         ]
     },
@@ -111,7 +129,7 @@
         "description": "ifchanged tag django template",
         "body": [
             "{% ifchanged $1 %}",
-            "$2",
+            "\t$2",
             "{% endifchanged %}"
         ]
     },
@@ -120,9 +138,9 @@
         "description": "if else tag django template",
         "body": [
             "{% if $1 %}",
-            "$2",
+            "\t$2",
             "{% else %}",
-            "$3",
+            "\t$3",
             "{% endif %}",
             ""
         ]
@@ -132,9 +150,9 @@
         "description": "if else tag django template",
         "body": [
             "{% if $1 %}",
-            "$2",
+            "\t$2",
             "{% else %}",
-            "$3",
+            "\t$3",
             "{% endif %}",
             ""
         ]
@@ -144,7 +162,7 @@
         "description": "ifequal tag django template",
         "body": [
             "{% ifequal $1 %}",
-            "$2",
+            "\t$2",
             "{% endifequal %}"
         ]
     },
@@ -153,7 +171,7 @@
         "description": "ifequal tag django template",
         "body": [
             "{% ifequal $1 %}",
-            "$2",
+            "\t$2",
             "{% endifequal %}"
         ]
     },
@@ -162,7 +180,7 @@
         "description": "ifnotequal tag django template",
         "body": [
             "{% ifnotequal $1 %}",
-            "$2",
+            "\t$2",
             "{% ifnotequal %}"
         ]
     },
@@ -206,7 +224,7 @@
         "description": "spaceless tag django template",
         "body": [
             "{% spaceless %}",
-            "  $1",
+            "\t$1",
             "{% endspaceless %}"
         ]
     },
@@ -243,7 +261,7 @@
         "description": "verbatim tag django template",
         "body": [
             "{% verbatim %}",
-            "  $1",
+            "\t$1",
             "{% endverbatim %}"
         ]
     },
@@ -259,7 +277,7 @@
         "description": "with tag django template",
         "body": [
             "{% with $1 as $2 %}",
-            "$3",
+            "\t$3",
             "{% endwith %}"
         ]
     },
@@ -275,7 +293,7 @@
         "description": "blocktrans tag django template",
         "body": [
             "{% blocktrans %}",
-            "  $1",
+            "\t$1",
             "{% endblocktrans %}"
         ]
     },
@@ -291,7 +309,7 @@
         "description": "Extrahead no oficial tag",
         "body": [
             "{% block extrahead %}",
-            "    $1",
+            "\t$1",
             "{% endblock extrahead %}"
         ]
     },
@@ -300,7 +318,7 @@
         "description": "Extrastyle no oficial Tag",
         "body": [
             "{% block extrahead %}",
-            "    $1",
+            "\t$1",
             "{% endblock extrahead %}"
         ]
     },
