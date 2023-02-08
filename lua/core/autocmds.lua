@@ -27,40 +27,7 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-  pattern = "javascript",
-  callback = function()
-    opt.tabstop = 2
-    opt.shiftwidth = 2
-    opt.softtabstop = 2
-    opt.expandtab = true
-    opt.smarttab = true
-  end,
-})
-
-autocmd("FileType", {
-  pattern = "typescript",
-  callback = function()
-    opt.tabstop = 2
-    opt.shiftwidth = 2
-    opt.softtabstop = 2
-    opt.expandtab = true
-    opt.smarttab = true
-  end,
-})
-
-autocmd("FileType", {
-  pattern = "javascriptreact",
-  callback = function()
-    opt.tabstop = 2
-    opt.shiftwidth = 2
-    opt.softtabstop = 2
-    opt.expandtab = true
-    opt.smarttab = true
-  end,
-})
-
-autocmd("FileType", {
-  pattern = "typescriptreact",
+  pattern = "javascript,javascriptreact,typescript,typescriptreact",
   callback = function()
     opt.tabstop = 2
     opt.shiftwidth = 2
@@ -82,18 +49,7 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-  pattern = "htmldjango",
-  callback = function()
-    opt.tabstop = 4
-    opt.shiftwidth = 4
-    opt.softtabstop = 4
-    opt.expandtab = true
-    opt.smarttab = true
-  end,
-})
-
-autocmd("FileType", {
-  pattern = "django",
+  pattern = "htmldjango,django",
   callback = function()
     opt.tabstop = 4
     opt.shiftwidth = 4
