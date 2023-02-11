@@ -12,6 +12,7 @@ local sources = {
   -- b.formatting.autopep8,
 
   -- SHELL / BASH
+  b.code_actions.shellcheck,
   b.diagnostics.shellcheck.with {
     diagnostics_format = "#{m} [#{c}]",
     extra_args = {

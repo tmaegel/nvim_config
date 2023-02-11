@@ -8,7 +8,10 @@ require("mason-null-ls").setup {
     "flake8",
     "isort",
     "mypy",
+    "prettier",
+    "shellcheck",
     "shfmt",
+    "yamllint",
   },
   -- Will automatically install masons tools based on selected sources in `null-ls`.
   -- Can also be an exclusion list.
