@@ -165,8 +165,11 @@ return packer.startup(function(use)
   }
 
   use {
-    "nvim-telescope/telescope-file-browser.nvim",
+    "benfowler/telescope-luasnip.nvim",
+    -- if you wish to lazy-load
+    module = "telescope._extensions.luasnip",
   }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
   use {
     "ahmedkhalf/project.nvim",
     config = function()
