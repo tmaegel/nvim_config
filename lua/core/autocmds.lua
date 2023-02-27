@@ -27,7 +27,7 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-  pattern = "javascript,javascriptreact,typescript,typescriptreact",
+  pattern = "javascript,javascriptreact,typescript,typescriptreact,css",
   callback = function()
     opt.tabstop = 2
     opt.shiftwidth = 2
