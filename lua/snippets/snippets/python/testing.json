@@ -1,8 +1,16 @@
 {
+    "test class": {
+        "prefix": "classt",
+        "body": [
+            "class ${1:Name}Test:",
+            "\tdef test_${2:name}():",
+            "\t\t${0:pass}"
+        ]
+    },
     "test function": {
         "prefix": "deft",
         "body": [
-            "def test_${1:description}():",
+            "def test_${1:name}():",
             "\t${0:pass}"
         ]
     }
