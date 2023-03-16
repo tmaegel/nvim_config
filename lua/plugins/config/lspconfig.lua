@@ -47,6 +47,7 @@ lspconfig["pyright"].setup {
       disableOrganizeImports = true,
     },
     python = {
+      venv = "venv",
       analysis = {
         -- Automatically add common search paths like 'src'
         autoSearchPaths = true,
