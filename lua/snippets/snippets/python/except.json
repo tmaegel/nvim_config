@@ -46,5 +46,17 @@
             "\t${7:pass}$0"
         ],
         "description": "try/except/finally bock with else statement"
+    },
+    "try/except group": {
+        "prefix": "tryg",
+        "body": [
+            "try:",
+            "\t${1:pass}",
+            "except* ${2:ValueError}:",
+            "\tprint(\"Handling $2\")",
+            "except* ${3:TypeError}:",
+            "\tprint(\"Handling $3\")"
+        ],
+        "description": "try/except group block"
     }
 }

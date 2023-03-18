@@ -2,7 +2,7 @@
     "class simple": {
         "prefix": "class",
         "body": [
-            "class ${1:classname}:",
+            "class ${1:ClassName}:",
             "\t${2:pass}"
         ],
         "description": "class definition"
@@ -10,7 +10,7 @@
     "class extends object": {
         "prefix": "classe",
         "body": [
-            "class ${1:classname}(${2:object}):",
+            "class ${1:ClassName}(${2:object}):",
             "\t${3:pass}"
         ],
         "description": "class definition"
@@ -21,7 +21,7 @@
             "class ${1:ClassName}(${2:object}):",
             "\t\"\"\"${3:docstring for $1.}\"\"\"",
             "\tdef __init__(self, ${4:arg}):",
-            "\t\t${5:super($1, self).__init__()}",
+            "\t\t${5:super().__init__()}",
             "\t\tself.arg = arg",
             "\t\t$0"
         ],

@@ -6,16 +6,29 @@
         ],
         "description": "Lambda statement"
     },
-    "decorator": {
-        "prefix": "decfunc",
+    "decorator (no @wraps)": {
+        "prefix": "decf",
         "body": [
-            "def ${0:dname}(func):",
-            "\tdef _decorator(*args, **kwargs):",
-            "\t\t# do something",
-            "\t\treturn func(*args, **kwargs)",
-            "\treturn _decorator"
+            "def ${0:decorator}(f):",
+            "\tdef _wrapper(*args, **kwargs):",
+            "\t\tprint(\"Calling decorated function\")",
+            "\t\treturn f(*args, **kwargs)",
+            "\treturn _wrapper"
         ],
-        "description": "Decorator function"
+        "description": "Regular decorator function"
+    },
+    "decorator (with @wraps)": {
+        "prefix": "decfw",
+        "body": [
+            "from functools import wraps",
+            "def ${0:decorator}(f):",
+            "\t@wraps(f)",
+            "\tdef _wrapper(*args, **kwargs):",
+            "\t\tprint(\"Calling decorated function\")",
+            "\t\treturn f(*args, **kwargs)",
+            "\treturn _wrapper"
+        ],
+        "description": "Decorator function with @wraps"
     },
     "with": {
         "prefix": "with",
