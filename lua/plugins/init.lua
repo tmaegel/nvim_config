@@ -1,8 +1,5 @@
 local packer = require "packer"
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
 packer.init {
   auto_clean = true,
   compile_on_sync = true,
