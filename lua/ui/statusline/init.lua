@@ -8,7 +8,7 @@ return {
 
       modules.sep(),
 
-      modules.cwd(),
+      modules.buffer_dir(),
 
       modules.sep(),
 

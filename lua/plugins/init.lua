@@ -208,9 +208,10 @@ return packer.startup(function(use)
   -- }
 
   use {
-    "nanozuki/tabby.nvim",
+    "b0o/incline.nvim",
+    -- tag = "v0.0.3",
     config = function()
-      require "plugins.config.tabby"
+      require "plugins.config.incline"
     end,
   }
 
