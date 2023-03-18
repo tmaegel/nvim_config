@@ -1,14 +1,25 @@
 local M = {}
 
+-- Prevent dd override you last yank if its an empty string/line.
+local function smart_dd()
+  if vim.api.nvim_get_current_line():match "^%s*$" then
+    return '"_dd'
+  else
+    return "dd"
+  end
+end
+
+vim.keymap.set("n", "dd", smart_dd, { noremap = true, silent = true, expr = true })
+
 M.general = {
   n = {
-    -- switch between windows
+    -- Switch between windows
     ["<A-Left>"] = { "<C-w>h", "Window left" },
     ["<A-Right>"] = { "<C-w>l", "Window right" },
     ["<A-Down>"] = { "<C-w>j", "Window down" },
     ["<A-Up>"] = { "<C-w>k", "Window up" },
 
-    -- swtich between tabpages
+    -- Swtich between tabpages
     ["<leader><Left>"] = { "<cmd> tabprevious <CR>", "Tab left" },
     ["<leader><Right>"] = { "<cmd> tabnext <CR>", "Tab right" },
 
@@ -37,8 +48,8 @@ M.general = {
     -- ["<leader>l"] = { "g_", "Go to last character in line" },
 
     -- buffer
-    ["<TAB>"] = { "<cmd> bnext <CR>", "Cycle next buffer" },
-    ["<S-Tab>"] = { "<cmd> bprevious <CR>", "Cycle prev buffer" },
+    -- ["<TAB>"] = { "<cmd> bnext <CR>", "Cycle next buffer" },
+    -- ["<S-Tab>"] = { "<cmd> bprevious <CR>", "Cycle prev buffer" },
     ["<leader>bn"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>bh"] = { "<cmd> sp <CR>", "Horizontal split window" },
     ["<leader>bv"] = { "<cmd> vsp <CR>", "Vertical split window" },
@@ -67,6 +78,16 @@ M.general = {
   },
   x = {
     ["<leader>e"] = { "%", "Go to matching pair" },
+  },
+}
+
+M.cybu = {
+  n = {
+    -- Switch between windows
+    ["<Tab>"] = { "<Plug>(CybuNext)", "Cycle previous buffer" },
+    ["<S-Tab>"] = { "<Plug>(CybuPrev)", "Cycle next buffer" },
+    -- ["<Tab>"] = { "<Plug>(CybuLastusedNext)", "Cycle last next buffer" },
+    -- ["<S-Tab>"] = { "<Plug>(CybuLastusedPrev)", "Cycle previous last buffer" },
   },
 }
 

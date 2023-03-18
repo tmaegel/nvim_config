@@ -216,6 +216,19 @@ return packer.startup(function(use)
   }
 
   use {
+    "ghillb/cybu.nvim",
+    branch = "main", -- timely updates
+    -- branch = "v1.x", -- won't receive breaking changes
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+      "nvim-lua/plenary.nvim",
+    }, -- optional for icon support
+    config = function()
+      require "plugins.config.cybu"
+    end,
+  }
+
+  use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
       require "plugins.config.indent-blankline"
