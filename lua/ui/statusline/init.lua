@@ -15,6 +15,9 @@ return {
       modules.git(),
 
       "%#StatusLine#%=",
+
+      modules.tabline(),
+
       "%#StatusLine#%=",
 
       modules.lsp_diagnostics(),

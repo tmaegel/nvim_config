@@ -67,6 +67,21 @@ M.git = function()
   return "%#St_git_info#" .. branch_name .. added .. changed .. removed .. " "
 end
 
+M.tabline = function()
+  local tabs = vim.api.nvim_list_tabpages()
+  local tabline = ""
+  local current_tab = vim.api.nvim_get_current_tabpage()
+  for index, value in ipairs(tabs) do
+    local tab = " " .. value .. " "
+    if value == current_tab then
+      tabline = tabline .. "%#St_tab_active#" .. tab
+    else
+      tabline = tabline .. "%#St_tab_inactive#" .. tab
+    end
+  end
+  return tabline
+end
+
 M.lsp_diagnostics = function()
   if not rawget(vim, "lsp") then
     return ""

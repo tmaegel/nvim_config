@@ -95,6 +95,9 @@ return {
     fg = colors.grey,
     bg = colors.grey,
   },
+
+  -- Custom status line components
+
   St_file_type_icon = {
     fg = colors.light_grey,
     bg = colors.statusline_bg,
@@ -120,6 +123,14 @@ return {
     bg = colors.statusline_bg,
   },
   St_git_info = {
+    fg = colors.light_grey,
+    bg = colors.statusline_bg,
+  },
+  St_tab_active = {
+    fg = colors.light_grey,
+    bg = colors.lightbg,
+  },
+  St_tab_inactive = {
     fg = colors.light_grey,
     bg = colors.statusline_bg,
   },
