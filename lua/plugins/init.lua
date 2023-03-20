@@ -39,20 +39,6 @@ return packer.startup(function(use)
   }
 
   use {
-    "~/.config/nvim/lua/theme",
-    config = function()
-      require("theme").setup()
-    end,
-  }
-
-  use {
-    "~/.config/nvim/lua/ui",
-    config = function()
-      require("ui").setup()
-    end,
-  }
-
-  use {
     "goolord/alpha-nvim",
     config = function()
       require "plugins.config.alpha"

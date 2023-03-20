@@ -8,7 +8,7 @@ require("theme").load_highlight "cybu"
 
 cybu.setup {
   position = {
-    relative_to = "editor", -- win, editor, cursor
+    relative_to = "win", -- win, editor, cursor
     anchor = "center", -- topleft, topcenter, topright,
     -- centerleft, center, centerright,
     -- bottomleft, bottomcenter, bottomright
