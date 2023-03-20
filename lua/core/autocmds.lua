@@ -112,8 +112,8 @@ autocmd("FileType", {
 })
 
 -- Resize splits if window got resized
--- autocmd({ "VimResized" }, {
---   callback = function()
---     vim.cmd "tabdo wincmd ="
---   end,
--- })
+autocmd({ "VimResized" }, {
+  callback = function()
+    vim.cmd "tabdo wincmd ="
+  end,
+})

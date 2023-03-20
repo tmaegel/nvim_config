@@ -15,6 +15,7 @@ require("nvim-treesitter.configs").setup {
     "python",
     "toml",
     "typescript",
+    "vim",
     "yaml",
   },
   highlight = {
