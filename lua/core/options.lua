@@ -1,22 +1,12 @@
+-- lua/core/options
+
 local opt = vim.opt
 local g = vim.g
 
 g.mapleader = " "
 
--- Enable syntax highlight
-vim.cmd "syntax enable"
-
--- Enable filetype plugins
-vim.cmd [[
-  filetype on
-  filetype plugin on
-  filetype indent on
-]]
-
 -- Disable folder in diff mode
-vim.cmd [[
-  set diffopt+=context:99999,foldcolumn:0
-]]
+opt.diffopt = opt.diffopt + "context:99999,foldcolumn:0"
 
 -- Set utf8 as standard encoding and en_US as the standard language
 opt.encoding = "utf8"

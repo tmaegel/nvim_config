@@ -1,7 +1,6 @@
--- lua/custom/autocmds
+-- lua/core/autocmds
 
 local autocmd = vim.api.nvim_create_autocmd
-
 local opt = vim.opt
 
 autocmd("FileType", {
@@ -112,22 +111,9 @@ autocmd("FileType", {
   end,
 })
 
-vim.cmd [[
-  augroup autoresize
-    autocmd!
-    autocmd VimResized * wincmd =
-  augroup END
-]]
-
--- Automatically format json
--- vim.cmd [[
---   autocmd FileType json autocmd BufWritePre <buffer> silent! %!python -m json.tool --indent 4
--- ]]
-
--- Sort entries requirements*.txt
--- vim.cmd [[
---   augroup requirements
---     autocmd!
---     autocmd BufWritePre requirements*.txt silent! :sort i
---   augroup END
--- ]]
+-- Resize splits if window got resized
+-- autocmd({ "VimResized" }, {
+--   callback = function()
+--     vim.cmd "tabdo wincmd ="
+--   end,
+-- })

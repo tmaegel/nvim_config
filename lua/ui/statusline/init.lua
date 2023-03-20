@@ -8,6 +8,10 @@ return {
 
       modules.sep(),
 
+      modules.tabline(),
+
+      modules.sep(),
+
       modules.buffer_dir(),
 
       modules.sep(),
@@ -15,9 +19,6 @@ return {
       modules.git(),
 
       "%#StatusLine#%=",
-
-      modules.tabline(),
-
       "%#StatusLine#%=",
 
       modules.lsp_diagnostics(),
