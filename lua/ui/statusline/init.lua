@@ -11,11 +11,11 @@ return {
 
       modules.sep(),
 
-      modules.git(),
+      modules.buffer_dir(),
 
       modules.sep(),
 
-      modules.buffer_dir(),
+      modules.git(),
 
       "%#StatusLine#%=",
       "%#StatusLine#%=",

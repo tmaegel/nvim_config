@@ -88,8 +88,8 @@ return {
   -- Separators
 
   St_Sep = {
-    fg = colors.statusline_bg,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.black,
   },
   St_Sep_Fill = {
     fg = colors.grey,
