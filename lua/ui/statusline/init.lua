@@ -1,6 +1,5 @@
 return {
-  run = function(config)
-    vim.g.statusline_sep_style = config.separator_style
+  run = function()
     local modules = require "ui.statusline.modules"
 
     return table.concat {
@@ -12,11 +11,11 @@ return {
 
       modules.sep(),
 
-      modules.buffer_dir(),
+      modules.git(),
 
       modules.sep(),
 
-      modules.git(),
+      modules.buffer_dir(),
 
       "%#StatusLine#%=",
       "%#StatusLine#%=",

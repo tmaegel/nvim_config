@@ -10,86 +10,86 @@ return {
 
   St_lspError = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_lspWarning = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_LspHints = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_LspInfo = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_LspStatus = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_LspProgress = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_LspStatus_Icon = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
 
   -- MODES
 
   St_NormalMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.blue,
     bold = true,
   },
   St_InsertMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.green,
     bold = true,
   },
   St_TerminalMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.yellow,
     bold = true,
   },
   St_NTerminalMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.yellow,
     bold = true,
   },
   St_VisualMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.dark_purple,
     bold = true,
   },
   St_ReplaceMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.orange,
     bold = true,
   },
   St_ConfirmMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.teal,
     bold = true,
   },
   St_CommandMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.red,
     bold = true,
   },
   St_SelectMode = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = colors.black,
+    bg = colors.pink,
     bold = true,
   },
 
   -- Separators
 
   St_Sep = {
-    fg = colors.black,
-    bg = colors.black,
+    fg = colors.statusline_bg,
+    bg = colors.statusline_bg,
   },
   St_Sep_Fill = {
     fg = colors.grey,
@@ -100,38 +100,38 @@ return {
 
   St_file_type_icon = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_file_type_text = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_cwd_icon = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_cwd_text = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_pos_icon = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_pos_text = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_git_info = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
   St_tab_active = {
-    fg = colors.light_grey,
-    bg = colors.lightbg,
+    fg = colors.black,
+    bg = colors.green,
   },
   St_tab_inactive = {
     fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    bg = colors.lightbg,
   },
 }

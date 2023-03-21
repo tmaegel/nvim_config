@@ -1,8 +1,7 @@
 local M = {}
-local config = require "ui.config"
 
 M.statusline = function()
-  return require("ui.statusline").run(config.statusline)
+  return require("ui.statusline").run()
 end
 
 M.setup = function()

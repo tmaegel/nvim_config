@@ -60,13 +60,13 @@ local options = {
   fillchars = {
     diff = " ", -- ╱ ░
     eob = " ",
-    horiz = "━",
-    horizup = "┻",
-    horizdown = "┳",
-    vert = "┃",
-    vertleft = "┫",
-    vertright = "┣",
-    verthoriz = "╋",
+    -- horiz = "━", -- Fallback to default
+    -- vert = "┃", -- Fallback to default
+    horizup = " ",
+    horizdown = " ",
+    vertleft = " ",
+    vertright = " ",
+    verthoriz = " ",
   },
   -- Recommend for vgit
   incsearch = false,
