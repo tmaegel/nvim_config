@@ -15,6 +15,7 @@ local M = {
 -- for hl groups which need bg = "NONE" only!
 local hl_groups = {
   "NormalFloat",
+  "FloatBorder",
   "Normal",
   "Folded",
   "NvimTreeNormal",
@@ -41,6 +42,11 @@ M.TelescopeBorder = {
 }
 
 M.TelescopePromptBorder = {
+  fg = colors.grey,
+  bg = "NONE",
+}
+
+M.FloatBorder = {
   fg = colors.grey,
   bg = "NONE",
 }

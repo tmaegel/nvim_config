@@ -14,7 +14,7 @@ packer.init {
     header_sym = " ",
     open_fn = function()
       return require("packer.util").float {
-        border = "none",
+        border = "single",
       }
     end,
   },
