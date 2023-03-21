@@ -82,9 +82,9 @@ M.tabline = function()
   for index, value in ipairs(tabs) do
     local tab = " " .. value .. " "
     if value == current_tab then
-      tabline = tabline .. "%#St_tab_active#" .. tab
+      tabline = tabline .. "%#St_tab_active#" .. " " .. "" .. tab
     else
-      tabline = tabline .. "%#St_tab_inactive#" .. tab
+      tabline = tabline .. "%#St_tab_inactive#" .. " " .. "" .. tab
     end
   end
   return tabline
