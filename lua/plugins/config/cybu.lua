@@ -45,8 +45,8 @@ cybu.setup {
   behavior = { -- set behavior for different modes
     mode = {
       default = {
-        switch = "immediate", -- immediate, on_close
-        view = "rolling", -- paging, rolling
+        switch = "on_close", -- immediate, on_close
+        view = "paging", -- paging, rolling
       },
       last_used = {
         switch = "on_close", -- immediate, on_close
@@ -58,7 +58,7 @@ cybu.setup {
     },
     show_on_autocmd = false, -- event to trigger cybu (eg. "BufEnter")
   },
-  display_time = 1500, -- time the cybu window is displayed
+  display_time = 1000, -- time the cybu window is displayed
   exclude = { -- filetypes, cybu will not be active
     "neo-tree",
     "fugitive",
