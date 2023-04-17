@@ -41,7 +41,7 @@ end
 
 M.mode = function()
   local m = vim.api.nvim_get_mode().mode
-  local current_mode = "%#" .. modes[m][2] .. "#" .. "  " .. modes[m][1] .. " "
+  local current_mode = "%#" .. modes[m][2] .. "#" .. "  " .. modes[m][1] .. " "
 
   return current_mode
 end
