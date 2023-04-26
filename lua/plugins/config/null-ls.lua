@@ -74,6 +74,9 @@ local sources = {
   -- TERRAFORM
   b.formatting.terraform_fmt,
 
+  -- MARKDOWN
+  b.diagnostics.markdownlint,
+
   -- OTHER
   b.formatting.trim_whitespace,
   b.formatting.trim_newlines,

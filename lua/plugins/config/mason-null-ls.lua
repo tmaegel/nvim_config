@@ -7,6 +7,7 @@ require("mason-null-ls").setup {
     "fixjson",
     "flake8",
     "isort",
+    "markdownlint",
     "mypy",
     "prettier",
     "shellcheck",
