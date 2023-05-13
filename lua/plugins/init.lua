@@ -272,6 +272,14 @@ return packer.startup(function(use)
     end,
   }
 
+  use {
+    "mrjones2014/smart-splits.nvim",
+    version = "1.2.2",
+    config = function()
+      require "plugins.config.smart-splits"
+    end,
+  }
+
   -- Only load whichkey after all the gui
   use {
     "folke/which-key.nvim",

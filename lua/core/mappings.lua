@@ -93,6 +93,21 @@ M.cybu = {
   },
 }
 
+M.smartsplits = {
+  n = {
+    -- Resizing splits
+    ["<A-h>"] = { "<cmd> lua require('smart-splits').resize_left() <CR>", "Resize splits left" },
+    ["<A-j>"] = { "<cmd> lua require('smart-splits').resize_down() <CR>", "Resize splits down" },
+    ["<A-k>"] = { "<cmd> lua require('smart-splits').resize_up() <CR>", "Resize splits up" },
+    ["<A-l>"] = { "<cmd> lua require('smart-splits').resize_right() <CR>", "Resize splits right" },
+    -- Swapping buffers between windows
+    ["<leader><leader>h"] = { "<cmd> lua require('smart-splits').swap_buf_left() <CR>", "Swapping buffer down" },
+    ["<leader><leader>j"] = { "<cmd> lua require('smart-splits').swap_buf_down() <CR>", "Swapping buffer up" },
+    ["<leader><leader>k"] = { "<cmd> lua require('smart-splits').swap_buf_up() <CR>", "Swapping buffer up" },
+    ["<leader><leader>l"] = { "<cmd> lua require('smart-splits').swap_buf_right() <CR>", "Swapping buffer right" },
+  },
+}
+
 M.lspconfig = {
   n = {
     ["gD"] = {
