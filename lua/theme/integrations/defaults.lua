@@ -182,7 +182,7 @@ return {
   },
 
   QuickFixLine = {
-    bg = theme.base01,
+    bg = colors.black2,
     sp = "none",
   },
 

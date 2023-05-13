@@ -26,7 +26,6 @@ local hl_groups = {
   "TelescopeResults",
   "TelescopePromptNormal",
   "TelescopePromptPrefix",
-  "CursorLine",
   "Pmenu",
 }
 

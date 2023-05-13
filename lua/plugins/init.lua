@@ -274,6 +274,15 @@ return packer.startup(function(use)
     end,
   }
 
+  -- NVIM plugin to highlight only the screen line
+  -- of the cursor in the currently active window.
+  use {
+    "Tummetott/reticle.nvim",
+    config = function()
+      require "plugins.config.reticle"
+    end,
+  }
+
   -- Only load whichkey after all the gui
   use {
     "folke/which-key.nvim",
