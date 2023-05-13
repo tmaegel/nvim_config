@@ -221,7 +221,6 @@ M.telescope = {
       "Find file under cursor",
     },
     ["<leader>fg"] = { "<cmd> lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Live grep" },
-    ["<leader>fp"] = { "<cmd> Telescope projects <CR>", "Find projects" },
     ["<leader>fb"] = { "<cmd> Telescope buffers sort_lastused=false <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
