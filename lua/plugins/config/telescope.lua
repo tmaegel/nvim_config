@@ -251,7 +251,21 @@ telescope.setup {
   },
   extensions = {
     file_browser = {
-      previewer = false,
+      previewer = true,
+      layout_strategy = "horizontal",
+      layout_config = {
+        horizontal = {
+          prompt_position = "top",
+          preview_width = 0.5,
+          results_width = 0.5,
+        },
+        vertical = {
+          mirror = false,
+        },
+        width = 0.90,
+        height = 0.80,
+        preview_cutoff = 120,
+      },
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
