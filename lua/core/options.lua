@@ -46,7 +46,9 @@ local options = {
   showtabline = 0,
   -- Hide (0),  show always (2) or (3) global statusline
   laststatus = 3,
-  cmdheight = 0,
+  cmdheight = 1,
+  -- showcmd = true,
+  -- showcmdloc = "statusline",
   -- Hide/show visible characters
   list = false,
   listchars = {

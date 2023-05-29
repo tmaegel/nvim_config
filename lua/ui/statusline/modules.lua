@@ -41,21 +41,21 @@ end
 
 M.mode = function()
   local m = vim.api.nvim_get_mode().mode
-  local current_mode = "%#" .. modes[m][2] .. "#" .. "  " .. modes[m][1] .. " "
+  local current_mode = "%#" .. modes[m][2] .. "#" .. " " .. modes[m][1] .. " "
 
   return current_mode
 end
 
 M.cwd = function()
   -- Returns the current working directory
-  local dir_icon = "%#St_cwd_icon#" .. "  "
+  local dir_icon = "%#St_cwd_icon#" .. "  "
   local dir_name = "%#St_cwd_text#" .. fn.fnamemodify(fn.getcwd(), ":t") .. " "
   return (vim.o.columns > 85 and ("%#St_cwd_icon#" .. dir_icon .. dir_name)) or ""
 end
 
 M.buffer_dir = function()
   -- Returns the directory of the current selected buffer/file.
-  local dir_icon = "%#St_cwd_icon#" .. "  "
+  local dir_icon = "%#St_cwd_icon#" .. "  "
   local dir_name = "%#St_cwd_text#" .. vim.fn.expand "%:.:h" .. " "
   return (vim.o.columns > 85 and ("%#St_cwd_icon#" .. dir_icon .. dir_name)) or ""
 end
