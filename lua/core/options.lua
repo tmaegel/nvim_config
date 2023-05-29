@@ -47,7 +47,7 @@ local options = {
   -- Hide (0),  show always (2) or (3) global statusline
   laststatus = 3,
   cmdheight = 1,
-  -- showcmd = true,
+  showcmd = false,
   -- showcmdloc = "statusline",
   -- Hide/show visible characters
   list = false,
