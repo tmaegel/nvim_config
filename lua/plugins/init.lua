@@ -153,12 +153,17 @@ return packer.startup(function(use)
     module = "telescope._extensions.luasnip",
   }
   use { "nvim-telescope/telescope-file-browser.nvim" }
+  use { "princejoogie/dir-telescope.nvim" }
   use {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     after = { "telescope-file-browser.nvim" },
     requires = {
-      { "nvim-telescope/telescope-live-grep-args.nvim" },
+      {
+        "princejoogie/dir-telescope.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
+        "benfowler/telescope-luasnip.nvim",
+      },
     },
     config = function()
       require "plugins.config.telescope"

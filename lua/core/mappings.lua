@@ -213,7 +213,9 @@ M.lspconfig = {
 M.telescope = {
   n = {
     ["?"] = { "<cmd> Telescope grep_string <CR>", "Grep string under the cursor" },
+    ["<leader>fr"] = { "<cmd> lua require('telescope.builtin').resume() <CR>", "Resume telescope" },
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
+    ["<leader>fF"] = { "<cmd> Telescope dir find_files <CR>", "Find files in selected directory" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<leader>F"] = {
       function()
@@ -221,7 +223,8 @@ M.telescope = {
       end,
       "Find file under cursor",
     },
-    ["<leader>fg"] = { "<cmd> lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Live grep" },
+    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<leader>fG"] = { "<cmd> Telescope dir live_grep <CR>", "Live grep in selected directory" },
     ["<leader>fb"] = { "<cmd> Telescope buffers sort_lastused=false <CR>", "Find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },

@@ -56,7 +56,7 @@ end
 M.buffer_dir = function()
   -- Returns the directory of the current selected buffer/file.
   local dir_icon = "%#St_cwd_icon#" .. "  "
-  local dir_name = "%#St_cwd_text#" .. vim.fn.expand "%:.:h" .. " "
+  local dir_name = "%#St_cwd_text#" .. vim.fn.fnamemodify(vim.fn.expand '%', ':~:h') .. " "
   return (vim.o.columns > 85 and ("%#St_cwd_icon#" .. dir_icon .. dir_name)) or ""
 end
 
