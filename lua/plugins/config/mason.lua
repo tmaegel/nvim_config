@@ -10,7 +10,6 @@ local ensure_installed = {
   "bash-language-server",
   -- lua stuff
   "lua-language-server",
-  "stylua",
   -- web dev
   "typescript-language-server",
 }
@@ -41,7 +40,7 @@ mason.setup {
     check_outdated_packages_on_open = true,
     icons = {
       package_pending = " ",
-      package_installed = " ",
+      package_installed = " ",
       package_uninstalled = " ",
     },
     keymaps = {

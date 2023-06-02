@@ -12,6 +12,7 @@ require("mason-null-ls").setup {
     "prettier",
     "shellcheck",
     "shfmt",
+    "stylua",
     "yamllint",
   },
   -- Will automatically install masons tools based on selected sources in `null-ls`.
