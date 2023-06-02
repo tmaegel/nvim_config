@@ -154,6 +154,7 @@ return packer.startup(function(use)
   }
   use { "nvim-telescope/telescope-file-browser.nvim" }
   use { "princejoogie/dir-telescope.nvim" }
+  use { "nvim-telescope/telescope-ui-select.nvim" }
   use {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
@@ -163,6 +164,7 @@ return packer.startup(function(use)
         "princejoogie/dir-telescope.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
         "benfowler/telescope-luasnip.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
       },
     },
     config = function()

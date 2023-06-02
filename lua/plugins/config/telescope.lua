@@ -177,9 +177,24 @@ telescope.setup {
         ["n"] = {},
       },
     },
+    ["ui-select"] = {
+      previewer = false,
+      layout_strategy = "horizontal",
+      layout_config = {
+        horizontal = {
+          prompt_position = "top",
+        },
+        vertical = {
+          mirror = false,
+        },
+        width = 0.50,
+        height = 0.50,
+      },
+    },
   },
 }
 
 require("telescope").load_extension "file_browser"
-require("telescope").load_extension("dir")
+require("telescope").load_extension "dir"
 require("telescope").load_extension "luasnip"
+require("telescope").load_extension "ui-select"
