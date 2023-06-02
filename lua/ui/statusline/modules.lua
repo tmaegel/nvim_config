@@ -144,17 +144,22 @@ M.file_type = function()
   return (vim.o.columns > 120 and filetype_icon .. filetype_text) or ""
 end
 
+M.line_column = function()
+  local column = vim.fn.col(".")
+  return string.format("%d", column)
+end
+
 M.cursor_position = function()
-  local pos_icon = "%#St_pos_icon#" .. "  "
-  local current_line = fn.line "."
-  local total_line = fn.line "$"
+  local icon = "%#St_pos_icon#" .. "  "
+  local current_line = fn.line(".")
+  local total_line = fn.line("$")
   local pos = math.modf((current_line / total_line) * 100)
-  local pos_text = pos .. tostring "%%"
+  local pos_text = string.format("%d", pos) .. "%%"
 
   pos_text = (current_line == 1 and "Top") or pos_text
   pos_text = (current_line == total_line and "Bot") or pos_text
 
-  return pos_icon .. "%#St_pos_text#" .. pos_text .. " "
+  return icon .. "%#St_pos_text#" .. " " .. pos_text .. " / " .. M.line_column() .. " "
 end
 
 return M
