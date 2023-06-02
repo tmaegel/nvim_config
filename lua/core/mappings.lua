@@ -86,6 +86,7 @@ M.general = {
 M.cybu = {
   n = {
     -- Switch between windows
+    ["<BS>"] = { "<cmd> b# <CR>", "Alternate between two buffers" },
     ["<Tab>"] = { "<Plug>(CybuNext)", "Cycle previous buffer" },
     ["<S-Tab>"] = { "<Plug>(CybuPrev)", "Cycle next buffer" },
     -- ["<Tab>"] = { "<Plug>(CybuLastusedNext)", "Cycle last next buffer" },
