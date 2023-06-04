@@ -15,15 +15,16 @@ vim.keymap.set("n", "dd", smart_dd, { noremap = true, silent = true, expr = true
 
 M.general = {
   n = {
-    -- Switch between windows
-    ["<A-Left>"] = { "<C-w>h", "Window left" },
-    ["<A-Right>"] = { "<C-w>l", "Window right" },
-    ["<A-Down>"] = { "<C-w>j", "Window down" },
-    ["<A-Up>"] = { "<C-w>k", "Window up" },
+    -- Switch between windows and tmux panes
+    ["<A-Left>"] = { "<cmd> TmuxNavigateLeft <CR>", "Focus split left" },
+    ["<A-Right>"] = { "<cmd> TmuxNavigateRight <CR>", "Focus split right" },
+    ["<A-Down>"] = { "<cmd> TmuxNavigateDown <CR>", "Focus spit down" },
+    ["<A-Up>"] = { "<cmd> TmuxNavigateUp <CR>", "Focus split up" },
+    -- ["<A-BS>"] = { "<A-p>", "<cmd> TmuxNavigatePrevious <CR>", "Focus previews split" },
 
     -- Swtich between tabpages
-    ["<leader><Left>"] = { "<cmd> tabprevious <CR>", "Tab left" },
-    ["<leader><Right>"] = { "<cmd> tabnext <CR>", "Tab right" },
+    ["<leader>p"] = { "<cmd> tabprevious <CR>", "Tab left" },
+    ["<leader>n"] = { "<cmd> tabnext <CR>", "Tab right" },
 
     -- Keep the cursor position while forward-searching a word.
     -- Reference: https://github.com/NvChad/NvChad/issues/1224
@@ -97,15 +98,15 @@ M.cybu = {
 M.smartsplits = {
   n = {
     -- Resizing splits
-    ["<A-h>"] = { "<cmd> lua require('smart-splits').resize_left() <CR>", "Resize splits left" },
-    ["<A-j>"] = { "<cmd> lua require('smart-splits').resize_down() <CR>", "Resize splits down" },
-    ["<A-k>"] = { "<cmd> lua require('smart-splits').resize_up() <CR>", "Resize splits up" },
-    ["<A-l>"] = { "<cmd> lua require('smart-splits').resize_right() <CR>", "Resize splits right" },
+    ["<leader>h"] = { "<cmd> lua require('smart-splits').resize_left() <CR>", "Resize splits left" },
+    ["<leader>l"] = { "<cmd> lua require('smart-splits').resize_right() <CR>", "Resize splits right" },
+    ["<leader>k"] = { "<cmd> lua require('smart-splits').resize_up() <CR>", "Resize splits up" },
+    ["<leader>j"] = { "<cmd> lua require('smart-splits').resize_down() <CR>", "Resize splits down" },
     -- Swapping buffers between windows
-    ["<leader><leader>h"] = { "<cmd> lua require('smart-splits').swap_buf_left() <CR>", "Swapping buffer down" },
-    ["<leader><leader>j"] = { "<cmd> lua require('smart-splits').swap_buf_down() <CR>", "Swapping buffer up" },
-    ["<leader><leader>k"] = { "<cmd> lua require('smart-splits').swap_buf_up() <CR>", "Swapping buffer up" },
+    ["<leader><leader>h"] = { "<cmd> lua require('smart-splits').swap_buf_left() <CR>", "Swapping buffer left" },
     ["<leader><leader>l"] = { "<cmd> lua require('smart-splits').swap_buf_right() <CR>", "Swapping buffer right" },
+    ["<leader><leader>k"] = { "<cmd> lua require('smart-splits').swap_buf_up() <CR>", "Swapping buffer up" },
+    ["<leader><leader>j"] = { "<cmd> lua require('smart-splits').swap_buf_down() <CR>", "Swapping buffer down" },
   },
 }
 

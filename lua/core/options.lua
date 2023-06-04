@@ -64,11 +64,11 @@ local options = {
     eob = " ",
     -- horiz = "━", -- Fallback to default
     -- vert = "┃", -- Fallback to default
-    horizup = " ",
-    horizdown = " ",
-    vertleft = " ",
-    vertright = " ",
-    verthoriz = " ",
+    -- horizup = " ",
+    -- horizdown = " ",
+    -- vertleft = " ",
+    -- vertright = " ",
+    -- verthoriz = " ",
   },
   -- Recommend for vgit
   incsearch = false,

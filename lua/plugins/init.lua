@@ -6,11 +6,11 @@ packer.init {
   git = { clone_timeout = 6000 },
   display = {
     compact = false,
-    working_sym = "ﲊ",
-    error_sym = "✗ ",
+    working_sym = " ",
+    error_sym = " ",
     done_sym = " ",
-    removed_sym = " ",
-    moved_sym = "",
+    removed_sym = " ",
+    moved_sym = " ",
     header_sym = " ",
     open_fn = function()
       return require("packer.util").float {
@@ -37,6 +37,10 @@ return packer.startup(function(use)
       require("nvim-web-devicons").setup()
     end,
   }
+
+  -- the plugin will allow you to navigate seamlessly between
+  -- vim and tmux splits using a consistent set of hotkeys.
+  use { "christoomey/vim-tmux-navigator" }
 
   use {
     "goolord/alpha-nvim",
