@@ -58,6 +58,7 @@ M.general = {
     ["<leader>bv"] = { "<cmd> vsp <CR>", "Vertical split window" },
     -- close buffer + hide terminal buffer
     ["<leader>bq"] = { "<cmd> Bdelete <CR>", "Close buffer" },
+    ["<leader>bd"] = { "<cmd> Bdelete <CR>", "Close buffer" },
     --
     -- tabs
     ["<leader>tn"] = { "<cmd> tabnew <CR>", "New tab" },
