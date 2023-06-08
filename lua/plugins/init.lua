@@ -177,9 +177,6 @@ return packer.startup(function(use)
     config = function()
       require "plugins.config.telescope"
     end,
-    setup = function()
-      require("core.utils").load_mappings "telescope"
-    end,
   }
 
   use {
