@@ -237,7 +237,7 @@ M.telescope = {
     ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "Git branches" },
     ["<leader>fd"] = { "<cmd> Telescope file_browser <CR>", "File browser" },
-    ["<leader>fx"] = { "<cmd> Telescope luasnip <CR>", "Snippet browser" },
+    ["<leader>fx"] = { "<cmd> Telescope luasnip layout_strategy=vertical <CR>", "Snippet browser" },
   },
 }
 

@@ -3,6 +3,7 @@ local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local transform_mod = require("telescope.actions.mt").transform_mod
 
+require("core.utils").load_mappings "telescope"
 require("theme").load_highlight "telescope"
 
 -- Open multiple files at once
@@ -66,21 +67,53 @@ telescope.setup {
       "--column",
       "--smart-case",
     },
+    -- The character(s) that will be shown in front of Telescope's prompt.
     prompt_prefix = "   ",
-    selection_caret = "  ",
-    entry_prefix = "  ",
+    -- The character(s) that will be shown in front of the current selection.
+    selection_caret = "  ",
+    -- Prefix in front of each result entry. Current selection not included.
+    entry_prefix = "   ",
+    -- Symbol to add in front of a multi-selected result entry.
+    multi_icon = " + ",
     initial_mode = "insert",
+    -- Determines how the cursor acts after each sort iteration.
     selection_strategy = "reset",
+    -- Determines the direction "better" results are sorted towards.
     sorting_strategy = "ascending",
+    -- Determines the default layout of Telescope pickers.
     layout_strategy = "horizontal",
     layout_config = {
+      bottom_pane = {
+        height = 25,
+        prompt_position = "top",
+        preview_cutoff = 120,
+      },
+      center = {
+        height = 0.4,
+        width = 0.5,
+        prompt_position = "top",
+        preview_cutoff = 40,
+      },
+      cursor = {
+        height = 0.9,
+        width = 0.8,
+        preview_cutoff = 40,
+      },
+      vertical = {
+        height = 0.75,
+        width = 0.75,
+        prompt_position = "bottom",
+        preview_height = 0.4,
+        results_height = 0.4,
+        preview_cutoff = 40,
+      },
       horizontal = {
+        height = 0.9,
+        width = 0.8,
         prompt_position = "top",
         preview_width = 0.5,
         results_width = 0.5,
-      },
-      vertical = {
-        mirror = false,
+        preview_cutoff = 120,
       },
       width = 0.90,
       height = 0.80,
@@ -90,8 +123,10 @@ telescope.setup {
     file_ignore_patterns = { "node_modules", "venv" },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     path_display = { "truncate" },
+    dynamic_preview_title = true,
+    results_title = "Preview",
     winblend = 0,
-    border = {},
+    border = true,
     borderchars = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
     color_devicons = true,
     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
@@ -157,19 +192,6 @@ telescope.setup {
     file_browser = {
       previewer = true,
       layout_strategy = "horizontal",
-      layout_config = {
-        horizontal = {
-          prompt_position = "top",
-          preview_width = 0.5,
-          results_width = 0.5,
-        },
-        vertical = {
-          mirror = false,
-        },
-        width = 0.90,
-        height = 0.80,
-        preview_cutoff = 120,
-      },
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
@@ -177,15 +199,16 @@ telescope.setup {
         ["n"] = {},
       },
     },
+    luasnip = {
+      -- Has no effect, pass it on command level
+      layout_strategy = "vertical",
+    },
     ["ui-select"] = {
       previewer = false,
       layout_strategy = "horizontal",
       layout_config = {
         horizontal = {
           prompt_position = "top",
-        },
-        vertical = {
-          mirror = false,
         },
         width = 0.50,
         height = 0.50,
