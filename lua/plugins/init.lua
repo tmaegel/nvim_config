@@ -143,7 +143,11 @@ return packer.startup(function(use)
     end,
   }
 
-  use "tpope/vim-fugitive"
+  use {
+    "tpope/vim-fugitive",
+    cmd = { "G" },
+    keys = { "<leader>G" },
+  }
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
@@ -181,7 +185,7 @@ return packer.startup(function(use)
 
   use {
     "folke/trouble.nvim",
-    cmd = "Trouble",
+    cmd = { "Trouble", "TroubleToggle" },
     keys = { "x" },
     config = function()
       require "plugins.config.trouble"
@@ -233,12 +237,16 @@ return packer.startup(function(use)
   use {
     "heavenshell/vim-pydocstring",
     ft = { "python" },
+    cmd = { "Pydocstring" },
     config = function()
       require "plugins.config.pydocstring"
     end,
   }
 
-  use "famiu/bufdelete.nvim"
+  use {
+    "famiu/bufdelete.nvim",
+    cmd = { "Bdelete" },
+  }
 
   use {
     "windwp/nvim-autopairs",
@@ -266,6 +274,7 @@ return packer.startup(function(use)
   use {
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    keys = { "ys", "ds", "cs" },
     config = function()
       require "plugins.config.surround"
     end,
@@ -304,7 +313,6 @@ return packer.startup(function(use)
   use {
     "folke/which-key.nvim",
     module = "which-key",
-    keys = { "<leader>", '"', "'", "`" },
     config = function()
       require "plugins.config.whichkey"
     end,
