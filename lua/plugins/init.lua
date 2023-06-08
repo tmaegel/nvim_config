@@ -10,7 +10,7 @@ packer.init {
     error_sym = " ",
     done_sym = " ",
     removed_sym = " ",
-    moved_sym = " ",
+    moved_sym = " ",
     header_sym = " ",
     open_fn = function()
       return require("packer.util").float {
@@ -256,10 +256,16 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Old text                    Command         New text
+  -- --------------------------------------------------------------------------------
+  -- surround_words             ysiw)           (surround_words)
+  -- [delete around me!]        ds]             delete around me!
+  -- remove <b>HTML tags</b>    dst             remove HTML tags
+  -- 'change quotes'            cs'"            "change quotes"
+  -- delete(function calls)     dsf             function calls
   use {
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    keys = { "sa", "sd", "sr" },
     config = function()
       require "plugins.config.surround"
     end,

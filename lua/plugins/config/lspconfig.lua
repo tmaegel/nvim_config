@@ -158,9 +158,17 @@ lspconfig["dartls"].setup {
   capabilities = capabilities,
   settings = {
     dart = {
+      -- An array of paths (absolute or relative to each workspace folder)
+      -- that should be excluded from analysis.
+      -- analysisExcludedFolders = [],
       enableSdkFormatter = true,
       updateImportsOnRename = true,
+      -- Completes functions/methods with their required parameters.
+      completeFunctionCalls = true,
+      -- Whether to generate diagnostics for TODO comments.
+      showTodos = true,
       lineLength = 80,
+      enableSnippets = false,
     },
   },
 }

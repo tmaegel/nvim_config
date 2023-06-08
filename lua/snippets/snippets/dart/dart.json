@@ -1,0 +1,148 @@
+{
+    "main": {
+        "prefix": "main",
+        "description": "Insert a main function, used as an entry point.",
+        "body": [
+            "void main(List<String> args) {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "try": {
+        "prefix": "try",
+        "description": "Insert a try/catch block.",
+        "body": [
+            "try {",
+            "\t$0",
+            "} catch (${1:e}) {",
+            "}"
+        ]
+    },
+    "if": {
+        "prefix": "if",
+        "description": "Insert an if statement.",
+        "body": [
+            "if ($1) {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "if/else": {
+        "prefix": "ife",
+        "description": "Insert an if statement with an else block.",
+        "body": [
+            "if ($1) {",
+            "\t$0",
+            "} else {",
+            "}"
+        ]
+    },
+    "if/elseif": {
+        "prefix": "ifei",
+        "description": "Insert an if statement with an if else block.",
+        "body": [
+            "if ($1) {",
+            "\t$0",
+            "} if else ($2) {",
+            "}"
+        ]
+    },
+    "switch case": {
+        "prefix": "switch",
+        "description": "Insert a switch statement.",
+        "body": [
+            "switch ($1) {",
+            "\tcase $2:",
+            "\t\t$0",
+            "\t\tbreak;",
+            "\tdefault:",
+            "}"
+        ]
+    },
+    "for": {
+        "prefix": "for",
+        "description": "Insert a for loop.",
+        "body": [
+            "for (var i = 0; i < ${1:count}; i++) {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "for in": {
+        "prefix": "fori",
+        "description": "Insert a for-in loop.",
+        "body": [
+            "for (var ${1:item} in ${2:items}) {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "while": {
+        "prefix": "while",
+        "description": "Insert a while loop.",
+        "body": [
+            "while ($1) {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "do while": {
+        "prefix": "do",
+        "description": "Insert a do-while loop.",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while ($1);"
+        ]
+    },
+    "fun": {
+        "prefix": "fun",
+        "description": "Insert a function definition.",
+        "body": [
+            "${3:void} ${1:name}(${2:args}) {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "class": {
+        "prefix": "class",
+        "description": "Insert a class definition.",
+        "body": [
+            "class ${1:Name} {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "typedef": {
+        "prefix": "typedef",
+        "description": "Insert a typedef.",
+        "body": "typedef ${1:Type} ${2:Name}(${3:params});"
+    },
+    "test": {
+        "prefix": "test",
+        "description": "Insert a test block.",
+        "body": [
+            "test(\"$1:description\", () {",
+            "\t$0",
+            "});"
+        ]
+    },
+    "group": {
+        "prefix": "group",
+        "description": "Insert a test group block.",
+        "body": [
+            "group(\"$1:group\", () {",
+            "\t$0",
+            "});"
+        ]
+    },
+    "enum": {
+        "prefix": "enum",
+        "description": "Insert a enum.",
+        "body": [
+            "enum ${1:Name} {",
+            "\t$0",
+            "}"
+        ]
+    }
+}

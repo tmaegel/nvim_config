@@ -72,9 +72,9 @@ cmp.setup {
     end, { "i", "s" }),
   },
   sources = {
+    { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
-    { name = "luasnip" },
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path", option = { trailing_slash = true } },
