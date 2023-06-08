@@ -311,7 +311,6 @@ return packer.startup(function(use)
   -- Only load whichkey after all the gui
   use {
     "folke/which-key.nvim",
-    module = "which-key",
     config = function()
       require "plugins.config.whichkey"
     end,
