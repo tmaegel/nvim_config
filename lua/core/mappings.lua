@@ -239,6 +239,7 @@ M.telescope = {
     ["<leader>fd"] = { "<cmd> Telescope file_browser <CR>", "File browser" },
     ["<leader>fx"] = { "<cmd> Telescope luasnip layout_strategy=vertical <CR>", "Snippet browser" },
     ["<leader>fp"] = { "<cmd> Telescope builtin <CR>", "Builtin pickers" },
+    ["<leader>ft"] = { "<cmd> Telescope lsp_document_symbols <CR>", "LSP document symbols" },
   },
 }
 
