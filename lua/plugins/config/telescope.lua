@@ -137,8 +137,8 @@ telescope.setup {
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
       i = {
-        ["<C-Up>"] = actions.preview_scrolling_up,
-        ["<C-Down>"] = actions.preview_scrolling_down,
+        ["<PageUp>"] = actions.preview_scrolling_up,
+        ["<PageDown>"] = actions.preview_scrolling_down,
         ["<C-h>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
@@ -149,8 +149,8 @@ telescope.setup {
       },
       n = {
         ["q"] = require("telescope.actions").close,
-        ["<C-Up>"] = actions.preview_scrolling_up,
-        ["<C-Down>"] = actions.preview_scrolling_down,
+        ["<PageUp>"] = actions.preview_scrolling_up,
+        ["<PageDown>"] = actions.preview_scrolling_down,
         ["<C-h>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
