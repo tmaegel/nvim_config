@@ -270,7 +270,6 @@ return packer.startup(function(use)
   use {
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    keys = { "ys", "ds", "cs" },
     config = function()
       require "plugins.config.surround"
     end,
