@@ -72,9 +72,6 @@ M.general = {
     ["<leader>gl"] = { "<cmd> diffget LOCAL <CR>", "Apply local changes" },
     ["<leader>gr"] = { "<cmd> diffget REMOTE <CR>", "Apply remote changes" },
 
-    -- Pydocstring
-    ["<leader>ds"] = { "<cmd> Pydocstring <CR>", "Add Pydocstring template" },
-
     ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
 
     -- Save

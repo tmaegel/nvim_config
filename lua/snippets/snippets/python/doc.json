@@ -1,4 +1,12 @@
 {
+    "docstring": {
+        "prefix": "docs",
+        "body": [
+            "\"\"\"",
+            "${0:doc}",
+            "\"\"\""
+        ]
+    },
     "module docstring": {
         "prefix": "docsm",
         "body": [
@@ -12,7 +20,7 @@
         ]
     },
     "function docstring (pydoc)": {
-        "prefix": "docsf",
+        "prefix": "docsfp",
         "body": [
             "\"\"\"",
             "${1:Description}",
@@ -27,11 +35,48 @@
             "\"\"\""
         ]
     },
-    "docstring": {
-        "prefix": "docs",
+    "function docstring (google)": {
+        "prefix": "docsfg",
         "body": [
             "\"\"\"",
-            "${0:doc}",
+            "${1:Description}",
+            "",
+            "Note:",
+            "\tDo not include the `self` parameter in the ``Args`` section.",
+            "",
+            "Args:",
+            "\tparam1 (int): The first parameter.",
+            "\tparam2 (str): The second parameter.",
+            "",
+            "Yields:",
+            "\tint: The next number in the range of 0 to `n` - 1.",
+            "",
+            "Returns:",
+            "\tbool: The return value. True for success, False otherwise.",
+            "",
+            "Raises:",
+            "\tAttributeError: The ``Raises`` section is a list of all exceptions",
+            "\t\tthat are relevant to the interface.",
+            "\tValueError: If `param2` is equal to `param1`.",
+            "\"\"\""
+        ]
+    },
+    "class docstring (google)": {
+        "prefix": "docscg",
+        "body": [
+            "\"\"\"",
+            "${1:Description}",
+            "",
+            "Note:",
+            "\tDo not include the `self` parameter in the ``Args`` section.",
+            "",
+            "Args:",
+            "\tmsg (str): Human readable string describing the exception.",
+            "\tcode (:obj:`int`, optional): Error code.",
+            "",
+            "Attributes:",
+            "\tmsg (str): Human readable string describing the exception.",
+            "\tcode (int): Exception error code.",
             "\"\"\""
         ]
     }
