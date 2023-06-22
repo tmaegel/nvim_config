@@ -307,10 +307,4 @@ M.whichkey = {
   },
 }
 
-M.pydocstring = {
-  n = {
-    ["<leader>ds"] = { "<cmd> Pydocstring <CR>", "Add pydocstring template" },
-  },
-}
-
 return M
