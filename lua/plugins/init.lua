@@ -140,6 +140,7 @@ return packer.startup(function(use)
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/snippets" } }
       require("luasnip").filetype_extend("python", { "django", "django-rest" })
+      require("luasnip").filetype_extend("dart", { "flutter" })
     end,
   }
 

@@ -134,8 +134,12 @@
                 "path": "./snippets/dart/dart.json"
             },
             {
-                "language": "dart",
-                "path": "./snippets/dart/flutter.json"
+                "language": "flutter",
+                "path": "./snippets/flutter/flutter_basic.json"
+            },
+            {
+                "language": "flutter",
+                "path": "./snippets/flutter/flutter_adaptive_layer.json"
             }
         ]
     }
