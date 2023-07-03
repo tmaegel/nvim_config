@@ -139,7 +139,11 @@
             },
             {
                 "language": "flutter",
-                "path": "./snippets/flutter/flutter_adaptive_layer.json"
+                "path": "./snippets/flutter/flutter_layout.json"
+            },
+            {
+                "language": "flutter",
+                "path": "./snippets/flutter/flutter_bloc.json"
             }
         ]
     }
