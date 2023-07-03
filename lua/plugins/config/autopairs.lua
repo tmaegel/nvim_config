@@ -3,6 +3,22 @@ local autopairs = require "nvim-autopairs"
 autopairs.setup {
   fast_wrap = {},
   disable_filetype = { "TelescopePrompt", "vim" },
+  -- Don't add pairs if it already has a close pair in the same line.
+  enable_check_bracket_line = false,
+}
+
+autopairs.setup {
+  fast_wrap = {
+    map = "<A-e>",
+    chars = { "{", "[", "(", '"', "'" },
+    pattern = [=[[%'%"%>%]%)%}%,]]=],
+    end_key = "$",
+    keys = "qwertyuiopzxcvbnmasdfghjkl",
+    check_comma = true,
+    manual_position = true,
+    highlight = "Search",
+    highlight_grey = "Comment",
+  },
 }
 
 -- If you want insert `(` after select function or method item
