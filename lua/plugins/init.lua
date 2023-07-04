@@ -332,4 +332,7 @@ return packer.startup(function(use)
       }
     end,
   }
+
+  -- Automatically creates missing directories on saving a file.
+  use { "jghauser/mkdir.nvim" }
 end)
