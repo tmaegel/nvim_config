@@ -331,8 +331,8 @@ return packer.startup(function(use)
       require("relative-toggle").setup {
         pattern = "*",
         events = {
-          on = { "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdlineLeave", "VimEnter" },
-          off = { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "CmdlineEnter", "VimLeave" },
+          on = { "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "VimEnter" },
+          off = { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "VimLeave" },
         },
       }
     end,
