@@ -28,7 +28,7 @@ local options = {
   -- Always show current postion
   ruler = false,
   -- Enable cursorline
-  cursorline = false,
+  cursorline = true,
   cursorcolumn = false,
   foldcolumn = "0",
   -- Configure backspace so it acts as it should act

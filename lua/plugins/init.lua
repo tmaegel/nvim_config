@@ -317,4 +317,19 @@ return packer.startup(function(use)
       }
     end,
   }
+
+  -- Automatically toggling smoothly between relative and absolute
+  -- line numbers in various neovim events.
+  use {
+    "cpea2506/relative-toggle.nvim",
+    config = function()
+      require("relative-toggle").setup {
+        pattern = "*",
+        events = {
+          on = { "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdlineLeave", "VimEnter" },
+          off = { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "CmdlineEnter", "VimLeave" },
+        },
+      }
+    end,
+  }
 end)
