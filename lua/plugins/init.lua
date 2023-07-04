@@ -279,14 +279,6 @@ return packer.startup(function(use)
     end,
   }
 
-  use {
-    "mrjones2014/smart-splits.nvim",
-    version = "1.2.2",
-    config = function()
-      require "plugins.config.smart-splits"
-    end,
-  }
-
   -- NVIM plugin to highlight only the screen line
   -- of the cursor in the currently active window.
   -- use {
@@ -301,6 +293,19 @@ return packer.startup(function(use)
     "folke/which-key.nvim",
     config = function()
       require "plugins.config.whichkey"
+    end,
+  }
+
+  -- Auto-Focusing and Auto-Resizing splits / windows.
+  use {
+    "beauwilliams/focus.nvim",
+    config = function()
+      require("focus").setup {
+        -- Displays a sign column in the focussed window only.
+        signcolumn = false,
+        -- Displays line numbers in the focussed window only.
+        number = false,
+      }
     end,
   }
 

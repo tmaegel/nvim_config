@@ -21,6 +21,14 @@ M.general = {
     ["<A-Down>"] = { "<cmd> TmuxNavigateDown <CR>", "Focus spit down" },
     ["<A-Up>"] = { "<cmd> TmuxNavigateUp <CR>", "Focus split up" },
     -- ["<A-BS>"] = { "<A-p>", "<cmd> TmuxNavigatePrevious <CR>", "Focus previews split" },
+    ["<A-f>"] = {
+      "<cmd> FocusMaximise <CR>",
+      "Temporarily maximises the focussed window",
+    },
+    ["<leader>l"] = { "<cmd> FocusSplitLeft <CR>", "Move to existing or create a new split to the left" },
+    ["<leader>r"] = { "<cmd> FocusSplitRight <CR>", "Move to existing or create a new split to the right" },
+    ["<leader>d"] = { "<cmd> FocusSplitDown <CR>", "Move to existing or create a new split below" },
+    ["<leader>u"] = { "<cmd> FocusSplitUp <CR>", "Move to existing or create a new split above" },
 
     -- Swtich between tabpages
     ["<leader>p"] = { "<cmd> tabprevious <CR>", "Tab left" },
@@ -90,21 +98,6 @@ M.cybu = {
     ["<S-Tab>"] = { "<Plug>(CybuPrev)", "Cycle next buffer" },
     -- ["<Tab>"] = { "<Plug>(CybuLastusedNext)", "Cycle last next buffer" },
     -- ["<S-Tab>"] = { "<Plug>(CybuLastusedPrev)", "Cycle previous last buffer" },
-  },
-}
-
-M.smartsplits = {
-  n = {
-    -- Resizing splits
-    ["<leader>h"] = { "<cmd> lua require('smart-splits').resize_left() <CR>", "Resize splits left" },
-    ["<leader>l"] = { "<cmd> lua require('smart-splits').resize_right() <CR>", "Resize splits right" },
-    ["<leader>k"] = { "<cmd> lua require('smart-splits').resize_up() <CR>", "Resize splits up" },
-    ["<leader>j"] = { "<cmd> lua require('smart-splits').resize_down() <CR>", "Resize splits down" },
-    -- Swapping buffers between windows
-    ["<leader><leader>h"] = { "<cmd> lua require('smart-splits').swap_buf_left() <CR>", "Swapping buffer left" },
-    ["<leader><leader>l"] = { "<cmd> lua require('smart-splits').swap_buf_right() <CR>", "Swapping buffer right" },
-    ["<leader><leader>k"] = { "<cmd> lua require('smart-splits').swap_buf_up() <CR>", "Swapping buffer up" },
-    ["<leader><leader>j"] = { "<cmd> lua require('smart-splits').swap_buf_down() <CR>", "Swapping buffer down" },
   },
 }
 
