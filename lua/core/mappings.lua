@@ -20,10 +20,15 @@ M.general = {
     ["<A-Right>"] = { "<cmd> TmuxNavigateRight <CR>", "Focus split right" },
     ["<A-Down>"] = { "<cmd> TmuxNavigateDown <CR>", "Focus spit down" },
     ["<A-Up>"] = { "<cmd> TmuxNavigateUp <CR>", "Focus split up" },
+    ["<A-BS>"] = { "<cmd> b# <CR>", "Alternate between two buffers" },
     -- ["<A-BS>"] = { "<A-p>", "<cmd> TmuxNavigatePrevious <CR>", "Focus previews split" },
     ["<A-f>"] = {
       "<cmd> FocusMaximise <CR>",
       "Temporarily maximises the focussed window",
+    },
+    ["<A-g>"] = {
+      "<cmd> FocusSplitNicely <CR>",
+      "Split a window based on the golden ratio rule",
     },
     ["<leader>l"] = { "<cmd> FocusSplitLeft <CR>", "Move to existing or create a new split to the left" },
     ["<leader>r"] = { "<cmd> FocusSplitRight <CR>", "Move to existing or create a new split to the right" },
@@ -93,7 +98,6 @@ M.general = {
 M.cybu = {
   n = {
     -- Switch between windows
-    ["<BS>"] = { "<cmd> b# <CR>", "Alternate between two buffers" },
     ["<Tab>"] = { "<Plug>(CybuNext)", "Cycle previous buffer" },
     ["<S-Tab>"] = { "<Plug>(CybuPrev)", "Cycle next buffer" },
     -- ["<Tab>"] = { "<Plug>(CybuLastusedNext)", "Cycle last next buffer" },
