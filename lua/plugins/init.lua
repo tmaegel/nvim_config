@@ -145,11 +145,6 @@ return packer.startup(function(use)
   }
 
   use {
-    "tpope/vim-fugitive",
-    cmd = { "G" },
-    keys = { "<leader>G" },
-  }
-  use {
     "lewis6991/gitsigns.nvim",
     config = function()
       require "plugins.config.gitsigns"
