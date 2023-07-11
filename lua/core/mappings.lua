@@ -107,29 +107,11 @@ M.cybu = {
 
 M.lspconfig = {
   n = {
-    ["gD"] = {
-      function()
-        vim.lsp.buf.declaration()
-      end,
-      "LSP declaration",
-    },
-    ["gd"] = {
-      function()
-        vim.lsp.buf.definition()
-      end,
-      "LSP definition",
-    },
     ["K"] = {
       function()
         vim.lsp.buf.hover()
       end,
       "LSP hover",
-    },
-    ["gi"] = {
-      function()
-        vim.lsp.buf.implementation()
-      end,
-      "LSP implementation",
     },
     ["<leader>ls"] = {
       function()
@@ -137,23 +119,11 @@ M.lspconfig = {
       end,
       "LSP signature_help",
     },
-    ["<leader>D"] = {
-      function()
-        vim.lsp.buf.type_definition()
-      end,
-      "LSP definition type",
-    },
     ["<leader>ca"] = {
       function()
         vim.lsp.buf.code_action()
       end,
       "LSP code_action",
-    },
-    ["gr"] = {
-      function()
-        vim.lsp.buf.references()
-      end,
-      "LSP references",
     },
     ["<leader>df"] = {
       function()
@@ -233,7 +203,16 @@ M.telescope = {
     ["<leader>fd"] = { "<cmd> Telescope file_browser <CR>", "File browser" },
     ["<leader>fx"] = { "<cmd> Telescope luasnip layout_strategy=vertical <CR>", "Snippet browser" },
     ["<leader>fp"] = { "<cmd> Telescope builtin <CR>", "Builtin pickers" },
-    ["<leader>ft"] = { "<cmd> Telescope lsp_document_symbols <CR>", "LSP document symbols" },
+    ["gd"] = { "<cmd> Telescope lsp_definitions <CR>", "Goto the definition of the word under the cursor" },
+    ["gD"] = {
+      "<cmd> Telescope lsp_type_definitions <CR>",
+      "Goto the definition of the type of the word under the cursor",
+    },
+    ["gr"] = { "<cmd> Telescope lsp_references <CR>", "Lists LSP references for word under the cursor" },
+    ["gi"] = { "<cmd> Telescope lsp_implementations <CR>", "Goto/list the implementation of the word under the cursor" },
+    ["gs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Lists LSP document symbols in the current buffer" },
+    ["<leader>ic"] = { "<cmd> Telescope lsp_incoming_calls <CR>", "Lists LSP incoming calls for word under the cursor" },
+    ["<leader>oc"] = { "<cmd> Telescope lsp_outgoing_calls <CR>", "Lists LSP outgoing calls for word under the cursor" },
   },
 }
 
@@ -244,8 +223,6 @@ M.trouble = {
     ["xd"] = { "<cmd> Trouble document_diagnostics <CR>", "Trouble document diagnostics" },
     ["xl"] = { "<cmd> Trouble loclist <CR>", "Trouble location list" },
     ["xq"] = { "<cmd> Trouble quickfix <CR>", "Trouble quickfix list" },
-    ["gr"] = { "<cmd> Trouble lsp_references <CR>", "Trouble LSP references" },
-    ["gR"] = { "<cmd> Trouble lsp_references <CR>", "Trouble LSP references" },
   },
 }
 
