@@ -341,6 +341,7 @@ return packer.startup(function(use)
       vim.g.code_action_menu_show_details = false
       vim.g.code_action_menu_show_diff = false
       vim.g.code_action_menu_show_action_kind = false
+      require("theme").load_highlight "nvim-code-action-menu"
     end,
   }
 
