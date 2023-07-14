@@ -158,7 +158,6 @@ return packer.startup(function(use)
   }
   use { "nvim-telescope/telescope-file-browser.nvim" }
   use { "princejoogie/dir-telescope.nvim" }
-  use { "nvim-telescope/telescope-ui-select.nvim" }
   use {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
@@ -167,7 +166,6 @@ return packer.startup(function(use)
         "princejoogie/dir-telescope.nvim",
         "nvim-telescope/telescope-file-browser.nvim",
         "benfowler/telescope-luasnip.nvim",
-        "nvim-telescope/telescope-ui-select.nvim",
       },
     },
     config = function()
@@ -184,6 +182,7 @@ return packer.startup(function(use)
   --   end,
   -- }
 
+  -- Renders diagnostics using virtual lines on top of the real line of code.
   use {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
@@ -331,6 +330,17 @@ return packer.startup(function(use)
           off = { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "VimLeave" },
         },
       }
+    end,
+  }
+
+  -- Pop-up menu for code actions to show meta-information and diff preview.
+  use {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+    config = function()
+      vim.g.code_action_menu_show_details = false
+      vim.g.code_action_menu_show_diff = false
+      vim.g.code_action_menu_show_action_kind = false
     end,
   }
 

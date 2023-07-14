@@ -119,12 +119,7 @@ M.lspconfig = {
       end,
       "LSP signature_help",
     },
-    ["<leader>ca"] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      "LSP code_action",
-    },
+    ["<leader>ca"] = { "<CMD> CodeActionMenu <CR>", "LSP code_action" },
     ["<leader>df"] = {
       function()
         vim.diagnostic.open_float()

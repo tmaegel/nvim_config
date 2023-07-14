@@ -127,7 +127,7 @@ telescope.setup {
     results_title = "Preview",
     winblend = 0,
     border = true,
-    borderchars = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     color_devicons = true,
     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
@@ -203,21 +203,9 @@ telescope.setup {
       -- Has no effect, pass it on command level
       layout_strategy = "vertical",
     },
-    ["ui-select"] = {
-      previewer = false,
-      layout_strategy = "horizontal",
-      layout_config = {
-        horizontal = {
-          prompt_position = "top",
-        },
-        width = 0.50,
-        height = 0.50,
-      },
-    },
   },
 }
 
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "dir"
 require("telescope").load_extension "luasnip"
-require("telescope").load_extension "ui-select"
