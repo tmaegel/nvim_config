@@ -175,21 +175,22 @@ return packer.startup(function(use)
     end,
   }
 
-  use {
-    "folke/trouble.nvim",
-    cmd = { "Trouble", "TroubleToggle" },
-    keys = { "x" },
-    config = function()
-      require "plugins.config.trouble"
-    end,
-  }
-
   -- use {
-  --   "kyazdani42/nvim-tree.lua",
+  --   "folke/trouble.nvim",
+  --   cmd = { "Trouble", "TroubleToggle" },
+  --   keys = { "x" },
   --   config = function()
-  --     require "plugins.config.nvim-tree"
+  --     require "plugins.config.trouble"
   --   end,
   -- }
+
+  use {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("core.utils").load_mappings "lsp_lines"
+      require("lsp_lines").setup()
+    end,
+  }
 
   use {
     "b0o/incline.nvim",

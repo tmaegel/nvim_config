@@ -218,13 +218,12 @@ M.telescope = {
   },
 }
 
-M.trouble = {
+M.lsp_lines = {
   n = {
-    ["xx"] = { "<cmd> TroubleToggle <CR>", "Toggle trouble" },
-    ["xw"] = { "<cmd> Trouble workspace_diagnostics <CR>", "Trouble workspace diagnostics" },
-    ["xd"] = { "<cmd> Trouble document_diagnostics <CR>", "Trouble document diagnostics" },
-    ["xl"] = { "<cmd> Trouble loclist <CR>", "Trouble location list" },
-    ["xq"] = { "<cmd> Trouble quickfix <CR>", "Trouble quickfix list" },
+    ["xx"] = {
+      "<cmd> lua require('lsp_lines').toggle() <CR>",
+      "Toggle lsp_lines",
+    },
   },
 }
 

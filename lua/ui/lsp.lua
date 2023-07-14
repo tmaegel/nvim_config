@@ -8,11 +8,11 @@ set_lsp_sign "Warn"
 
 vim.diagnostic.config {
   underline = false,
+  -- Disable virtual_text since it's redundant due to lsp_lines.
   virtual_text = false,
-  -- virtual_text = {
-  --   prefix = "",
-  --  source = "always",  -- Or "if_many"
-  -- },
+  -- Enable lsp_lines.
+  -- virtual_lines = true,
+  virtual_lines = { only_current_line = true },
   float = {
     source = "always", -- Or "if_many"
   },
@@ -28,7 +28,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   relative = "cursor",
 })
 
--- suppress error messages from lang servers
+-- Suppress error messages from lang servers
 vim.notify = function(msg, log_level)
   if msg:match "exit code" then
     return
