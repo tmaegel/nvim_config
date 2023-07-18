@@ -173,21 +173,13 @@ return packer.startup(function(use)
     end,
   }
 
-  -- use {
-  --   "folke/trouble.nvim",
-  --   cmd = { "Trouble", "TroubleToggle" },
-  --   keys = { "x" },
-  --   config = function()
-  --     require "plugins.config.trouble"
-  --   end,
-  -- }
-
-  -- Renders diagnostics using virtual lines on top of the real line of code.
+  -- A pretty diagnostics, references, telescope results, quickfix and location list.
   use {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    "folke/trouble.nvim",
+    cmd = { "Trouble", "TroubleToggle" },
+    keys = { "x" },
     config = function()
-      require("core.utils").load_mappings "lsp_lines"
-      require("lsp_lines").setup()
+      require "plugins.config.trouble"
     end,
   }
 
@@ -295,12 +287,7 @@ return packer.startup(function(use)
   use {
     "beauwilliams/focus.nvim",
     config = function()
-      require("focus").setup {
-        -- Displays a sign column in the focussed window only.
-        signcolumn = false,
-        -- Displays line numbers in the focussed window only.
-        number = false,
-      }
+      require "plugins.config.focus"
     end,
   }
 
@@ -314,21 +301,6 @@ return packer.startup(function(use)
         hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
         number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
         centered_peeking = true, -- Peeked line will be centered relative to window
-      }
-    end,
-  }
-
-  -- Automatically toggling smoothly between relative and absolute
-  -- line numbers in various neovim events.
-  use {
-    "cpea2506/relative-toggle.nvim",
-    config = function()
-      require("relative-toggle").setup {
-        pattern = "*",
-        events = {
-          on = { "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "VimEnter" },
-          off = { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "VimLeave" },
-        },
       }
     end,
   }
@@ -347,4 +319,8 @@ return packer.startup(function(use)
 
   -- Automatically creates missing directories on saving a file.
   use { "jghauser/mkdir.nvim" }
+
+  -- Vim sugar for the UNIX shell commands that need it the most.
+  -- E.g. :Remove, :Delete, :Move, :Rename, SudoWrite, :SudeEdit, ...
+  use { "tpope/vim-eunuch" }
 end)

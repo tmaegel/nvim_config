@@ -120,12 +120,6 @@ M.lspconfig = {
       "LSP signature_help",
     },
     ["<leader>ca"] = { "<CMD> CodeActionMenu <CR>", "LSP code_action" },
-    ["<leader>df"] = {
-      function()
-        vim.diagnostic.open_float()
-      end,
-      "Floating diagnostic",
-    },
     ["<leader>dN"] = {
       function()
         vim.diagnostic.goto_prev()
@@ -213,12 +207,13 @@ M.telescope = {
   },
 }
 
-M.lsp_lines = {
+M.trouble = {
   n = {
-    ["xx"] = {
-      "<cmd> lua require('lsp_lines').toggle() <CR>",
-      "Toggle lsp_lines",
-    },
+    ["xx"] = { "<cmd> TroubleToggle <CR>", "Toggle trouble" },
+    ["xw"] = { "<cmd> Trouble workspace_diagnostics <CR>", "Trouble workspace diagnostics" },
+    ["xd"] = { "<cmd> Trouble document_diagnostics <CR>", "Trouble document diagnostics" },
+    ["xl"] = { "<cmd> Trouble loclist <CR>", "Trouble location list" },
+    ["xq"] = { "<cmd> Trouble quickfix <CR>", "Trouble quickfix list" },
   },
 }
 

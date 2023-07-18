@@ -7,7 +7,7 @@ trouble.setup {
   -- position of the list can be: bottom, top, left, right
   position = "bottom",
   -- height of the trouble list when position is top or bottom
-  -- height = 10,
+  height = 10,
   -- width of the list when position is left or right
   width = 50,
   -- use devicons for filenames

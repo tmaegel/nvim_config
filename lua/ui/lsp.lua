@@ -7,25 +7,35 @@ set_lsp_sign "Hint"
 set_lsp_sign "Warn"
 
 vim.diagnostic.config {
-  underline = false,
-  -- Disable virtual_text since it's redundant due to lsp_lines.
+  underline = true,
   virtual_text = false,
-  -- Enable lsp_lines.
-  -- virtual_lines = true,
-  virtual_lines = { only_current_line = true },
+  signs = false,
   float = {
     source = "always", -- Or "if_many"
   },
-  signs = true,
+  update_in_insert = false,
+  severity_sort = false,
 }
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single",
-})
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
   border = "single",
   focusable = false,
   relative = "cursor",
+})
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  buffer = bufnr,
+  callback = function()
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = "single",
+      source = "always",
+      prefix = "",
+      scope = "cursor",
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end,
 })
 
 -- Suppress error messages from lang servers

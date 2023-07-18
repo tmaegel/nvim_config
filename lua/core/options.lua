@@ -22,6 +22,7 @@ local options = {
   foldenable = false,
   -- Show line numbers
   number = true,
+  relativenumber = false,
   numberwidth = 2,
   -- Turn on the wild menu
   wildmenu = true,
