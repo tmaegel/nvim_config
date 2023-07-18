@@ -4,10 +4,10 @@ require("theme").load_highlight "blankline"
 require("core.utils").load_mappings "blankline"
 
 -- Change blankline context character
-vim.g.indent_blankline_context_char = "│"
+vim.g.indent_blankline_context_char = "▎"
 
 blankline.setup {
-  char = "│",
+  char = "▏",
   indentLine_enabled = 1,
   filetype_exclude = {
     "help",
@@ -23,6 +23,7 @@ blankline.setup {
   buftype_exclude = { "terminal" },
   show_trailing_blankline_indent = false,
   show_first_indent_level = false,
+  space_char_blankline = " ",
   show_current_context = true,
   show_current_context_start = true,
 }
