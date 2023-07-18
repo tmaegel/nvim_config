@@ -7,9 +7,9 @@ set_lsp_sign "Hint"
 set_lsp_sign "Warn"
 
 vim.diagnostic.config {
-  underline = true,
+  underline = false,
   virtual_text = false,
-  signs = false,
+  signs = true,
   float = {
     source = "always", -- Or "if_many"
   },

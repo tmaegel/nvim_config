@@ -33,12 +33,12 @@ focus.setup {
     tmux = false, -- Create tmux splits instead of neovim splits
   },
   ui = {
-    number = false, -- Display line numbers in the focussed window only
+    number = true, -- Display line numbers in the focussed window only
     relativenumber = true, -- Display relative line numbers in the focussed window only
     hybridnumber = true, -- Display hybrid line numbers in the focussed window only
-    absolutenumber_unfocussed = true, -- Preserve absolute numbers in the unfocussed windows
+    absolutenumber_unfocussed = false, -- Preserve absolute numbers in the unfocussed windows
 
-    cursorline = true, -- Display a cursorline in the focussed window only
+    cursorline = false, -- Display a cursorline in the focussed window only
     cursorcolumn = false, -- Display cursorcolumn in the focussed window only
     colorcolumn = {
       enable = false, -- Display colorcolumn in the foccused window only
