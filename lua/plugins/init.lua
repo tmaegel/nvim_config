@@ -311,4 +311,7 @@ return packer.startup(function(use)
   -- Vim sugar for the UNIX shell commands that need it the most.
   -- E.g. :Remove, :Delete, :Move, :Rename, SudoWrite, :SudeEdit, ...
   use { "tpope/vim-eunuch" }
+
+  -- Moving lines/blocks up and down.
+  use { "fedepujol/move.nvim" }
 end)
