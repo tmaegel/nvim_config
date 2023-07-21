@@ -8,11 +8,15 @@ g.mapleader = " "
 -- Prepare undodir for neovim
 local nvim_dir = vim.fn.expand "$HOME" .. "/.nvim/"
 local undo_dir = nvim_dir .. "undodir"
+local session_dir = nvim_dir .. "sessions"
 if vim.fn.isdirectory(nvim_dir) == 0 then
   vim.fn.mkdir(nvim_dir, "p", "0o770")
 end
 if vim.fn.isdirectory(undo_dir) == 0 then
   vim.fn.mkdir(undo_dir, "p", "0o700")
+end
+if vim.fn.isdirectory(session_dir) == 0 then
+  vim.fn.mkdir(session_dir, "p", "0o700")
 end
 
 local options = {
