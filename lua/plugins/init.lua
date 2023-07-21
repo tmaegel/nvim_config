@@ -144,6 +144,7 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Git integration for buffers.
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
