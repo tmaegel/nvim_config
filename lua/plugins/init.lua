@@ -280,6 +280,15 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Session management (read, write, delete).
+  use {
+    "echasnovski/mini.sessions",
+    branch = "stable",
+    config = function()
+      require "plugins.config.mini-sessions"
+    end,
+  }
+
   -- Plugin that peeks lines of the buffer in non-obtrusive way.
   use {
     "nacro90/numb.nvim",

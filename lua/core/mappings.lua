@@ -285,4 +285,10 @@ M.whichkey = {
   },
 }
 
+M.mini_sessions = {
+  n = {
+    ["<leader>r"] = { "<cmd> lua MiniSessions.read('Session.vim') <CR>", "Restore session" },
+  },
+}
+
 return M
