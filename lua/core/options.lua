@@ -5,6 +5,16 @@ local g = vim.g
 
 g.mapleader = " "
 
+-- Prepare undodir for neovim
+local nvim_dir = vim.fn.expand "$HOME" .. "/.nvim/"
+local undo_dir = nvim_dir .. "undodir"
+if vim.fn.isdirectory(nvim_dir) == 0 then
+  vim.fn.mkdir(nvim_dir, "p", "0o770")
+end
+if vim.fn.isdirectory(undo_dir) == 0 then
+  vim.fn.mkdir(undo_dir, "p", "0o700")
+end
+
 local options = {
   -- Disable folder in diff mode
   diffopt = opt.diffopt + "context:99999,foldcolumn:0",
@@ -112,6 +122,7 @@ local options = {
   termguicolors = true,
   timeoutlen = 400,
   undofile = true,
+  undodir = undo_dir,
   -- Interval for writing swap file to disk, also used by gitsigns
   updatetime = 250,
   -- Go to previous/next line with h,l,left arrow and right arrow
