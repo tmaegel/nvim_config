@@ -315,9 +315,6 @@ return packer.startup(function(use)
     end,
   }
 
-  -- Automatically creates missing directories on saving a file.
-  use { "jghauser/mkdir.nvim" }
-
   -- Vim sugar for the UNIX shell commands that need it the most.
   -- E.g. :Remove, :Delete, :Move, :Rename, SudoWrite, :SudeEdit, ...
   use { "tpope/vim-eunuch" }
