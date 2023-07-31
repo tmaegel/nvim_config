@@ -22,15 +22,10 @@ packer.init {
 
 return packer.startup(function(use)
   use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
 
-  -- use {
-  --   "lewis6991/impatient.nvim",
-  --   config = function()
-  --     require "impatient"
-  --   end,
-  -- }
-
+  --
+  -- Misc
+  --
   use {
     "kyazdani42/nvim-web-devicons",
     config = function()
@@ -144,7 +139,9 @@ return packer.startup(function(use)
     end,
   }
 
-  -- Git integration for buffers.
+  --
+  -- Git
+  --
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
@@ -152,6 +149,9 @@ return packer.startup(function(use)
     end,
   }
 
+  --
+  -- Telescope
+  --
   use {
     "benfowler/telescope-luasnip.nvim",
     -- if you wish to lazy-load
@@ -184,6 +184,9 @@ return packer.startup(function(use)
     end,
   }
 
+  --
+  -- Buffer related
+  --
   use {
     "b0o/incline.nvim",
     -- tag = "v0.0.3",
@@ -191,7 +194,6 @@ return packer.startup(function(use)
       require "plugins.config.incline"
     end,
   }
-
   use {
     "ghillb/cybu.nvim",
     branch = "main", -- timely updates
@@ -202,6 +204,17 @@ return packer.startup(function(use)
     }, -- optional for icon support
     config = function()
       require "plugins.config.cybu"
+    end,
+  }
+  use {
+    "famiu/bufdelete.nvim",
+    cmd = { "Bdelete" },
+  }
+  -- Auto-Focusing and Auto-Resizing splits / windows.
+  use {
+    "beauwilliams/focus.nvim",
+    config = function()
+      require "plugins.config.focus"
     end,
   }
 
@@ -217,11 +230,6 @@ return packer.startup(function(use)
     config = function()
       require "plugins.config.nvim-colorizer"
     end,
-  }
-
-  use {
-    "famiu/bufdelete.nvim",
-    cmd = { "Bdelete" },
   }
 
   use {
@@ -269,14 +277,6 @@ return packer.startup(function(use)
     "folke/which-key.nvim",
     config = function()
       require "plugins.config.whichkey"
-    end,
-  }
-
-  -- Auto-Focusing and Auto-Resizing splits / windows.
-  use {
-    "beauwilliams/focus.nvim",
-    config = function()
-      require "plugins.config.focus"
     end,
   }
 
