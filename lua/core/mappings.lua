@@ -69,8 +69,9 @@ M.general = {
     ["<leader>bn"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>bh"] = { "<cmd> sp <CR>", "Horizontal split window" },
     ["<leader>bv"] = { "<cmd> vsp <CR>", "Vertical split window" },
-    ["<leader>bq"] = { "<cmd> Bdelete <CR>", "Close buffer" },
-    ["<leader>bd"] = { "<cmd> Bdelete <CR>", "Close buffer" },
+    ["<leader>bq"] = { "<cmd> quit <CR>", "Close buffer" },
+    ["<leader>bc"] = { "<cmd> quit <CR>", "Close buffer (alt. mapping)" },
+    ["<leader>bd"] = { "<cmd> Bdelete <CR>", "Close and delete buffer" },
     --
     -- tabs
     ["<leader><Right>"] = { "<cmd> tabprevious <CR>", "Tab left" },
@@ -79,8 +80,8 @@ M.general = {
     ["<leader>tl"] = { "<cmd> tablast <CR>", "Tab last" },
     ["<leader>tn"] = { "<cmd> tabnew <CR>", "New tab" },
     ["<leader>tq"] = { "<cmd> tabclose <CR>", "Close tab" },
-    ["<leader>td"] = { "<cmd> windo bd <CR>", "Close tab and its buffers" },
-    ["<leader>tc"] = { "<cmd> windo bd <CR>", "Close tab and its buffers (alt. mapping)" },
+    ["<leader>tc"] = { "<cmd> tabclose <CR>", "Close tab (alt. mapping)" },
+    ["<leader>td"] = { "<cmd> windo bd <CR>", "Close and delete tab and its buffers" },
     ["<leader>tm"] = { "<cmd> +tabmove <CR>", "Move tab to the right" },
     ["<leader>tM"] = { "<cmd> -tabmove <CR>", "Move tab to the left" },
 
