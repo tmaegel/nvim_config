@@ -114,7 +114,7 @@ local options = {
   wb = false,
   swapfile = false,
   -- Insert mode completion setting
-  completeopt = { "menu", "menuone", "noselect" },
+  completeopt = { "menu", "menuone", "noselect", "noinsert" },
   showmode = false,
   clipboard = "unnamedplus",
   mouse = "a",

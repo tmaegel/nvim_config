@@ -28,7 +28,7 @@ M.general = {
     ["<A-Right>"] = { "<cmd> TmuxNavigateRight <CR>", "Focus split right" },
     ["<A-Down>"] = { "<cmd> TmuxNavigateDown <CR>", "Focus spit down" },
     ["<A-Up>"] = { "<cmd> TmuxNavigateUp <CR>", "Focus split up" },
-    ["<A-BS>"] = { "<cmd> b# <CR>", "Alternate between two buffers" },
+    ["<A-Tab>"] = { "<cmd> b# <CR>", "Alternate between two buffers" },
     -- ["<A-BS>"] = { "<A-p>", "<cmd> TmuxNavigatePrevious <CR>", "Focus previews split" },
     ["<A-f>"] = {
       "<cmd> FocusMaximise <CR>",
@@ -38,14 +38,6 @@ M.general = {
       "<cmd> FocusSplitNicely <CR>",
       "Split a window based on the golden ratio rule",
     },
-    ["<leader>l"] = { "<cmd> FocusSplitLeft <CR>", "Move to existing or create a new split to the left" },
-    ["<leader>r"] = { "<cmd> FocusSplitRight <CR>", "Move to existing or create a new split to the right" },
-    ["<leader>d"] = { "<cmd> FocusSplitDown <CR>", "Move to existing or create a new split below" },
-    ["<leader>u"] = { "<cmd> FocusSplitUp <CR>", "Move to existing or create a new split above" },
-
-    -- Swtich between tabpages
-    ["<leader>p"] = { "<cmd> tabprevious <CR>", "Tab left" },
-    ["<leader>n"] = { "<cmd> tabnext <CR>", "Tab right" },
 
     -- Keep the cursor position while forward-searching a word.
     -- Reference: https://github.com/NvChad/NvChad/issues/1224
@@ -77,11 +69,14 @@ M.general = {
     ["<leader>bn"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>bh"] = { "<cmd> sp <CR>", "Horizontal split window" },
     ["<leader>bv"] = { "<cmd> vsp <CR>", "Vertical split window" },
-    -- close buffer + hide terminal buffer
     ["<leader>bq"] = { "<cmd> Bdelete <CR>", "Close buffer" },
     ["<leader>bd"] = { "<cmd> Bdelete <CR>", "Close buffer" },
     --
     -- tabs
+    ["<leader><Right>"] = { "<cmd> tabprevious <CR>", "Tab left" },
+    ["<leader><Left>"] = { "<cmd> tabnext <CR>", "Tab right" },
+    ["<leader>tf"] = { "<cmd> tabfirst <CR>", "Tab first" },
+    ["<leader>tl"] = { "<cmd> tablast <CR>", "Tab last" },
     ["<leader>tn"] = { "<cmd> tabnew <CR>", "New tab" },
     ["<leader>tq"] = { "<cmd> tabclose <CR>", "Close tab" },
     ["<leader>td"] = { "<cmd> windo bd <CR>", "Close tab and its buffers" },
@@ -93,10 +88,22 @@ M.general = {
     ["<leader>gl"] = { "<cmd> diffget LOCAL <CR>", "Apply local changes" },
     ["<leader>gr"] = { "<cmd> diffget REMOTE <CR>", "Apply remote changes" },
 
-    ["<ESC>"] = { "<cmd> noh <CR>", "No highlight" },
-
-    -- Save
-    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+    ["<ESC>"] = { "<cmd> noh <CR><ESC>", "Escape and clear hlsearch" },
+    ["<leader>qq"] = { "<cmd> qa <CR>", "Quit all" },
+    ["<C-s>"] = { "<cmd> w <CR><ESC>", "Save file" },
+  },
+  i = {
+    ["<ESC>"] = { "<cmd> noh <CR><ESC>", "Escape and clear hlsearch" },
+    ["<C-s>"] = { "<cmd> w <CR><ESC>", "Save file" },
+  },
+  s = {
+    ["<C-s>"] = { "<cmd> w <CR><ESC>", "Save file" },
+  },
+  v = {
+    ["<C-s>"] = { "<cmd> w <CR><ESC>", "Save file" },
+    -- Better indenting
+    ["<"] = { "<gv", "Better indenting (left)" },
+    [">"] = { ">gv", "Better indenting (right)" },
   },
   x = {
     ["<leader>e"] = { "%", "Go to matching pair" },
