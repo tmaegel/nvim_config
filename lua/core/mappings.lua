@@ -13,18 +13,13 @@ end
 
 vim.keymap.set("n", "dd", smart_dd, { noremap = true, silent = true, expr = true })
 
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "+", ":MoveLine(1)<CR>", opts)
-vim.keymap.set("n", "-", ":MoveLine(-1)<CR>", opts)
--- vim.keymap.set("n", "<A-h>", ":MoveHChar(-1)<CR>", opts)
--- vim.keymap.set("n", "<A-l>", ":MoveHChar(1)<CR>", opts)
-vim.keymap.set("n", "<leader>wf", ":MoveWord(1)<CR>", opts)
-vim.keymap.set("n", "<leader>wb", ":MoveWord(-1)<CR>", opts)
-
-vim.keymap.set("v", "+", ":MoveBlock(1)<CR>", opts)
-vim.keymap.set("v", "-", ":MoveBlock(-1)<CR>", opts)
--- vim.keymap.set("v", "<A-h>", ":MoveHBlock(-1)<CR>", opts)
--- vim.keymap.set("v", "<A-l>", ":MoveHBlock(1)<CR>", opts)
+-- Move lines/blocks
+vim.keymap.set("n", "+", "<cmd>m .+1<cr>==", { desc = "Move down" })
+vim.keymap.set("n", "-", "<cmd>m .-2<cr>==", { desc = "Move up" })
+-- vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+-- vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+vim.keymap.set("v", "+", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+vim.keymap.set("v", "-", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 M.general = {
   n = {
