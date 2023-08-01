@@ -37,13 +37,6 @@ return packer.startup(function(use)
   -- vim and tmux splits using a consistent set of hotkeys.
   use { "christoomey/vim-tmux-navigator" }
 
-  use {
-    "goolord/alpha-nvim",
-    config = function()
-      require "plugins.config.alpha"
-    end,
-  }
-
   --
   -- Mason & lspconfig
   --
