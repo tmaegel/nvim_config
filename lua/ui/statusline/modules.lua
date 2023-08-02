@@ -41,23 +41,43 @@ end
 
 M.mode = function()
   local m = vim.api.nvim_get_mode().mode
-  local current_mode = "%#" .. modes[m][2] .. "#" .. " " .. modes[m][1] .. " "
+  local current_mode = "%#" .. modes[m][2] .. "#" .. "  " .. modes[m][1] .. " "
 
   return current_mode
 end
 
+M.tabline = function()
+  local tabs = vim.api.nvim_list_tabpages()
+  local tabline = ""
+  local current_tab = vim.api.nvim_get_current_tabpage()
+  for index, value in ipairs(tabs) do
+    local tab = " " .. value .. " "
+    if value == current_tab then
+      tabline = tabline .. "%#St_tab_active#" .. " " .. "" .. tab
+    else
+      tabline = tabline .. "%#St_tab_inactive#" .. " " .. "" .. tab
+    end
+  end
+  return tabline
+end
+
 M.cwd = function()
   -- Returns the current working directory
-  local dir_icon = "%#St_cwd_icon#" .. "  "
+  local dir_icon = "%#St_cwd_icon#" .. " 󰉋 "
   local dir_name = "%#St_cwd_text#" .. fn.fnamemodify(fn.getcwd(), ":t") .. " "
   return (vim.o.columns > 85 and ("%#St_cwd_icon#" .. dir_icon .. dir_name)) or ""
 end
 
 M.buffer_dir = function()
   -- Returns the directory of the current selected buffer/file.
-  local dir_icon = "%#St_cwd_icon#" .. "  "
-  local dir_name = "%#St_cwd_text#" .. vim.fn.fnamemodify(vim.fn.expand '%', ':~:h') .. " "
+  local dir_icon = "%#St_cwd_icon#" .. " 󰉋 "
+  local dir_name = "%#St_cwd_text#" .. vim.fn.fnamemodify(vim.fn.expand "%", ":~:h") .. " "
   return (vim.o.columns > 85 and ("%#St_cwd_icon#" .. dir_icon .. dir_name)) or ""
+end
+
+M.file_encoding = function()
+  local encode = vim.bo.fenc ~= "" and vim.bo.fenc or vim.o.enc
+  return " " .. encode:upper()
 end
 
 M.git = function()
@@ -75,38 +95,22 @@ M.git = function()
   return "%#St_git_info#" .. branch_name .. added .. changed .. removed .. " "
 end
 
-M.tabline = function()
-  local tabs = vim.api.nvim_list_tabpages()
-  local tabline = ""
-  local current_tab = vim.api.nvim_get_current_tabpage()
-  for index, value in ipairs(tabs) do
-    local tab = " " .. value .. " "
-    if value == current_tab then
-      tabline = tabline .. "%#St_tab_active#" .. " " .. "" .. tab
-    else
-      tabline = tabline .. "%#St_tab_inactive#" .. " " .. "" .. tab
-    end
-  end
-  return tabline
-end
-
 M.lsp_diagnostics = function()
   if not rawget(vim, "lsp") then
     return ""
   end
 
-  local lsp_status = M.lsp_status() or ""
   local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
   local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
   local hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
   local info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
 
-  errors = (errors and errors > 0) and ("%#St_lspError#" .. "  " .. errors) or ""
-  warnings = (warnings and warnings > 0) and ("%#St_lspWarning#" .. "  " .. warnings) or ""
-  hints = (hints and hints > 0) and ("%#St_lspHints#" .. "  " .. hints) or ""
-  info = (info and info > 0) and ("%#St_lspInfo#" .. "  " .. info) or ""
+  errors = (errors and errors > 0) and ("%#St_lsp_error#" .. "  " .. errors) or ""
+  warnings = (warnings and warnings > 0) and ("%#St_lsp_warning#" .. "  " .. warnings) or ""
+  hints = (hints and hints > 0) and ("%#St_lsp_hints#" .. "  " .. hints) or ""
+  info = (info and info > 0) and ("%#St_lsp_info#" .. "  " .. info) or ""
 
-  return lsp_status .. errors .. warnings .. hints .. info .. " "
+  return errors .. warnings .. hints .. info .. " "
 end
 
 M.lsp_status = function()
@@ -114,7 +118,7 @@ M.lsp_status = function()
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_active_clients()) do
       if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-        return (vim.o.columns > 100 and "%#St_LspStatus#" .. icon .. client.name) or " LSP "
+        return (vim.o.columns > 100 and "%#St_lsp_name#" .. icon .. client.name) or " LSP "
       end
     end
   end
@@ -132,11 +136,11 @@ M.file_type = function()
       if ft_icon ~= nil then
         filetype_icon = filetype_icon .. " " .. ft_icon .. " "
       else
-        filetype_icon = filetype_icon .. "  "
+        filetype_icon = filetype_icon .. " 󰈔 "
       end
     end
   else
-    filetype_icon = filetype_icon .. "  "
+    filetype_icon = filetype_icon .. " 󰈔 "
     filetype_text = "unnamed"
   end
 
@@ -145,21 +149,21 @@ M.file_type = function()
 end
 
 M.line_column = function()
-  local column = vim.fn.col(".")
+  local column = vim.fn.col "."
   return string.format("%d", column)
 end
 
 M.cursor_position = function()
   local icon = "%#St_pos_icon#" .. "  "
-  local current_line = fn.line(".")
-  local total_line = fn.line("$")
+  local current_line = fn.line "."
+  local total_line = fn.line "$"
   local pos = math.modf((current_line / total_line) * 100)
   local pos_text = string.format("%d", pos) .. "%%"
 
   pos_text = (current_line == 1 and "Top") or pos_text
   pos_text = (current_line == total_line and "Bot") or pos_text
 
-  return icon .. "%#St_pos_text#" .. " " .. pos_text .. " / " .. M.line_column() .. " "
+  return icon .. "%#St_pos_text#" .. " " .. pos_text .. " " .. current_line .. ":" .. M.line_column() .. " "
 end
 
 return M

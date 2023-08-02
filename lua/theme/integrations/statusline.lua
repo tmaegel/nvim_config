@@ -8,33 +8,25 @@ return {
 
   -- LSP
 
-  St_lspError = {
+  St_lsp_error = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
-  St_lspWarning = {
+  St_lsp_warning = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
-  St_LspHints = {
+  St_lsp_hints = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
-  St_LspInfo = {
+  St_lsp_info = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
-  St_LspStatus = {
+  St_lsp_name = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
-  },
-  St_LspProgress = {
-    fg = colors.light_grey,
-    bg = colors.lightbg,
-  },
-  St_LspStatus_Icon = {
-    fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
 
   -- MODES
@@ -42,47 +34,38 @@ return {
   St_NormalMode = {
     fg = colors.black,
     bg = colors.blue,
-    bold = true,
   },
   St_InsertMode = {
     fg = colors.black,
     bg = colors.green,
-    bold = true,
   },
   St_TerminalMode = {
     fg = colors.black,
     bg = colors.yellow,
-    bold = true,
   },
   St_NTerminalMode = {
     fg = colors.black,
     bg = colors.yellow,
-    bold = true,
   },
   St_VisualMode = {
     fg = colors.black,
     bg = colors.dark_purple,
-    bold = true,
   },
   St_ReplaceMode = {
     fg = colors.black,
     bg = colors.orange,
-    bold = true,
   },
   St_ConfirmMode = {
     fg = colors.black,
     bg = colors.teal,
-    bold = true,
   },
   St_CommandMode = {
     fg = colors.black,
     bg = colors.red,
-    bold = true,
   },
   St_SelectMode = {
     fg = colors.black,
     bg = colors.pink,
-    bold = true,
   },
 
   -- Separators
@@ -100,31 +83,31 @@ return {
 
   St_file_type_icon = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
   St_file_type_text = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
   St_cwd_icon = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
   St_cwd_text = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
   St_pos_icon = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
   St_pos_text = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
   St_git_info = {
     fg = colors.light_grey,
-    bg = colors.lightbg,
+    bg = colors.black,
   },
   St_tab_active = {
     fg = colors.black,

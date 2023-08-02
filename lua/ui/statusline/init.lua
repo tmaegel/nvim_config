@@ -4,14 +4,11 @@ return {
 
     return table.concat {
       modules.mode(),
-
-      modules.sep(),
-
       modules.tabline(),
 
       modules.sep(),
 
-      modules.buffer_dir(),
+      modules.cwd(),
 
       modules.sep(),
 
@@ -21,6 +18,10 @@ return {
       "%#StatusLine#%=",
 
       modules.lsp_diagnostics(),
+
+      modules.sep(),
+
+      modules.lsp_status() or "",
 
       modules.sep(),
 
