@@ -12,7 +12,7 @@ return {
   PmenuSel = { bg = colors.pmenu_bg, fg = colors.black },
   PmenuThumb = { bg = colors.grey },
 
-  MatchParent = { link = "MatchWord" },
+  MatchParen = { bg = colors.one_bg2 },
 
   Comment = { fg = colors.grey_fg },
 

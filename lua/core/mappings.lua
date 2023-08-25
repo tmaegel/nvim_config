@@ -74,8 +74,8 @@ M.general = {
     ["<leader>bd"] = { "<cmd> Bdelete <CR>", "Close and delete buffer" },
     --
     -- tabs
-    ["<leader><Right>"] = { "<cmd> tabprevious <CR>", "Tab left" },
-    ["<leader><Left>"] = { "<cmd> tabnext <CR>", "Tab right" },
+    ["<leader><Left>"] = { "<cmd> tabprevious <CR>", "Tab left" },
+    ["<leader><Right>"] = { "<cmd> tabnext <CR>", "Tab right" },
     ["<leader>tf"] = { "<cmd> tabfirst <CR>", "Tab first" },
     ["<leader>tl"] = { "<cmd> tablast <CR>", "Tab last" },
     ["<leader>tn"] = { "<cmd> tabnew <CR>", "New tab" },

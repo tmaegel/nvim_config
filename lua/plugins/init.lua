@@ -308,6 +308,16 @@ return packer.startup(function(use)
     end,
   }
 
+  -- Enhanced matchparen.vim plugin for Neovim
+  --for showing matching parens.
+  use {
+    "utilyre/sentiment.nvim",
+    tag = "*",
+    config = function()
+      require("sentiment").setup {}
+    end,
+  }
+
   -- Vim sugar for the UNIX shell commands that need it the most.
   -- E.g. :Remove, :Delete, :Move, :Rename, SudoWrite, :SudeEdit, ...
   use { "tpope/via-eunuch" }
