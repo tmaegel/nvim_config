@@ -213,6 +213,9 @@ return packer.startup(function(use)
 
   use {
     "lukas-reineke/indent-blankline.nvim",
+    -- Follow migration guide for version v3.x.x
+    -- https://github.com/lukas-reineke/indent-blankline.nvim/wiki/Migrate-to-version-3
+    tag = "v2.20.8",
     config = function()
       require "plugins.config.indent-blankline"
     end,
@@ -309,7 +312,7 @@ return packer.startup(function(use)
   }
 
   -- Enhanced matchparen.vim plugin for Neovim
-  --for showing matching parens.
+  -- for showing matching parens.
   use {
     "utilyre/sentiment.nvim",
     tag = "*",
@@ -320,5 +323,5 @@ return packer.startup(function(use)
 
   -- Vim sugar for the UNIX shell commands that need it the most.
   -- E.g. :Remove, :Delete, :Move, :Rename, SudoWrite, :SudeEdit, ...
-  use { "tpope/via-eunuch" }
+  -- use { "tpope/via-eunuch" }
 end)
