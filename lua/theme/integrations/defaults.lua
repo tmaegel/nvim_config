@@ -12,7 +12,7 @@ return {
   PmenuSel = { bg = colors.pmenu_bg, fg = colors.black },
   PmenuThumb = { bg = colors.grey },
 
-  MatchParen = { bg = colors.one_bg2 },
+  MatchParen = { bg = colors.one_bg2, fg = colors.green },
 
   Comment = { fg = colors.grey_fg },
 
@@ -25,16 +25,6 @@ return {
 
   NvimInternalError = { fg = colors.red },
   WinSeparator = { fg = colors.line },
-
-  -- packer
-  PackerPackageName = { fg = colors.white },
-  PackerSuccess = { fg = colors.green },
-  PackerStatusSuccess = { fg = theme.base08 },
-  PackerStatusCommit = { fg = colors.blue },
-  PackeProgress = { fg = colors.blue },
-  PackerOutput = { fg = colors.red },
-  PackerStatus = { fg = colors.blue },
-  PackerHash = { fg = colors.blue },
 
   Normal = {
     fg = theme.base05,

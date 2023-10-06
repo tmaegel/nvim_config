@@ -8,7 +8,7 @@ require("theme").setup()
 -- Initialize statusline
 require("ui").setup()
 
--- Setup packer + plugins
+-- Setup package manager + plugins
 require "plugins"
 
 -- Load mappings

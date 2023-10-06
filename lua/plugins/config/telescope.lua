@@ -3,6 +3,8 @@ local actions = require "telescope.actions"
 local action_state = require "telescope.actions.state"
 local transform_mod = require("telescope.actions.mt").transform_mod
 
+local trouble = require "trouble.providers.telescope"
+
 require("core.utils").load_mappings "telescope"
 require("theme").load_highlight "telescope"
 
@@ -139,24 +141,32 @@ telescope.setup {
       i = {
         ["<PageUp>"] = actions.preview_scrolling_up,
         ["<PageDown>"] = actions.preview_scrolling_down,
+        ["<S-Up>"] = actions.results_scrolling_up,
+        ["<S-Down>"] = actions.results_scrolling_down,
         ["<C-h>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
         ["<A-h>"] = stopinsert(custom_actions.multi_selection_open_horizontal),
         ["<A-v>"] = stopinsert(custom_actions.multi_selection_open_vertical),
         ["<A-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
+        ["<C-q>"] = trouble.open_selected_with_trouble, -- Open search in troubles quickfix list
+        ["<M-q>"] = trouble.open_with_trouble, -- Open selected in troubles quickfix list
         ["<CR>"] = stopinsert(custom_actions.multi_selection_open),
       },
       n = {
         ["q"] = require("telescope.actions").close,
         ["<PageUp>"] = actions.preview_scrolling_up,
         ["<PageDown>"] = actions.preview_scrolling_down,
+        ["<S-Up>"] = actions.results_scrolling_up,
+        ["<S-Down>"] = actions.results_scrolling_down,
         ["<C-h>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
         ["<A-h>"] = custom_actions.multi_selection_open_horizontal,
         ["<A-v>"] = custom_actions.multi_selection_open_vertical,
         ["<A-t>"] = custom_actions.multi_selection_open_tab,
+        ["<C-q>"] = trouble.open_selected_with_trouble, -- Open search in troubles quickfix list
+        ["<M-q>"] = trouble.open_with_trouble, -- Open selected in troubles quickfix list
         ["<CR>"] = custom_actions.multi_selection_open,
       },
     },
