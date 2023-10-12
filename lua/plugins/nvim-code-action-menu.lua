@@ -4,7 +4,7 @@ return {
   config = function()
     local colors = require("theme.utils").get_theme_tb "base_30"
 
-    require("theme").load_highlight {
+    require("theme.utils").load_highlight {
       CodeActionMenuMenuSelection = { fg = colors.black, bg = colors.blue },
     }
 
