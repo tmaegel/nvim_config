@@ -33,6 +33,7 @@ return {
       },
       -- Change folder arrow icons
       renderer = {
+        root_folder_label = false,
         indent_markers = {
           enable = true,
         },
