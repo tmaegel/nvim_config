@@ -1,6 +1,7 @@
 return {
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp", -- Snippets source for nvim-cmp
       "hrsh7th/cmp-nvim-lsp-signature-help", -- Source for displaying function signatures
