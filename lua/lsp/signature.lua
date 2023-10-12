@@ -1,7 +1,12 @@
 -- thx to https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/lsp/init.lua
 local M = {}
 
-M.signature_window = function(_, result, ctx, config)
+-- thx to https://github.com/seblj/dotfiles/blob/0542cae6cd9a2a8cbddbb733f4f65155e6d20edf/nvim/lua/config/lspconfig/init.lua
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local clients = {}
+
+local signature_window = function(_, result, ctx, config)
   local bufnr, winner = vim.lsp.handlers.signature_help(_, result, ctx, config)
   local current_cursor_line = vim.api.nvim_win_get_cursor(0)[1]
 
@@ -20,12 +25,6 @@ M.signature_window = function(_, result, ctx, config)
     return bufnr, winner
   end
 end
-
--- thx to https://github.com/seblj/dotfiles/blob/0542cae6cd9a2a8cbddbb733f4f65155e6d20edf/nvim/lua/config/lspconfig/init.lua
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-local util = require "vim.lsp.util"
-local clients = {}
 
 local check_trigger_char = function(line_to_cursor, triggers)
   if not triggers then
@@ -66,12 +65,12 @@ local open_signature = function()
   end
 
   if triggered then
-    local params = util.make_position_params()
+    local params = require("vim.lsp.util").make_position_params()
     vim.lsp.buf_request(
       0,
       "textDocument/signatureHelp",
       params,
-      vim.lsp.with(M.signature_window, {
+      vim.lsp.with(signature_window, {
         border = "single",
         focusable = false,
       })
