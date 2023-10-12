@@ -5,12 +5,8 @@ return {
       "nvim-telescope/telescope.nvim",
     },
   },
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-  },
-  {
-    "princejoogie/dir-telescope.nvim",
-  },
+  { "nvim-telescope/telescope-file-browser.nvim" },
+  { "princejoogie/dir-telescope.nvim" },
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",

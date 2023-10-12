@@ -52,6 +52,7 @@ require("lazy").setup({
     },
   },
   install = {
+    missing = false,
     colorscheme = { "darkone" },
   },
   checker = {
