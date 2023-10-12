@@ -67,7 +67,7 @@ keymap.set("n", "<leader>gr", "<cmd> diffget REMOTE <CR>", { desc = "Apply remot
 
 keymap.set("n", "<ESC>", "<cmd> noh <CR><ESC>", { desc = "Escape and clear hlsearch" })
 keymap.set("n", "<leader>qq", "<cmd> qa <CR>", { desc = "Quit all" })
-keymap.set("n", "<C-s>", "<cmd> w <CR><ESC>", { desc = "Save file" })
+keymap.set({ "n", "i", "v", "s" }, "<C-s>", "<cmd> w <CR><ESC>", { desc = "Save file" })
 
 keymap.set("n", "dd", smart_dd, { noremap = true, silent = true, expr = true })
 
@@ -80,9 +80,5 @@ keymap.set("v", "+", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 keymap.set("v", "-", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 keymap.set("i", "ESC", "<cmd> noh <CR><ESC>", { desc = "Escape and clear hlsearch" })
-
-keymap.set("i", "C-s", "<cmd> w <CR><ESC>", { desc = "Save file" })
-keymap.set("v", "C-s", "<cmd> w <CR><ESC>", { desc = "Save file" })
-keymap.set("s", "C-s", "<cmd> w <CR><ESC>", { desc = "Save file" })
 
 keymap.set("x", "<leader>e", "%", { desc = "Go to matching pair" })
