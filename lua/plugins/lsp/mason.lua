@@ -8,21 +8,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local ensure_installed = {
-        -- python
-        "pyright",
-        "black",
-        "flake8",
-        "isort",
-        "mypy",
-        -- shell
-        "bash-language-server",
-        -- lua stuff
-        "lua-language-server",
-        -- web dev
-        "typescript-language-server",
-      }
-
       require("mason").setup {
         -- Where Mason should put its bin location in your PATH. Can be one of:
         -- * "prepend" (default, Mason's bin location is put first in PATH)
@@ -64,7 +49,8 @@ return {
       }
 
       require("mason-lspconfig").setup {
-        -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "sumneko_lua" }
+        -- A list of servers to automatically install if they're not already installed.
+        -- Example: { "rust_analyzer@nightly", "sumneko_lua" }
         -- This setting has no relation with the `automatic_installation` setting.
         ensure_installed = {
           "ansiblels",
@@ -81,7 +67,8 @@ return {
         -- Can either be:
         -- * false: Servers are not automatically installed.
         -- * true: All servers set up via lspconfig are automatically installed.
-        -- * { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
+        -- * { exclude: string[] }: All servers set up via lspconfig, except the ones
+        --   provided in the list, are automatically installed.
         --   Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
         automatic_installation = false,
       }
@@ -90,8 +77,8 @@ return {
       vim.api.nvim_create_autocmd("Filetype", {
         pattern = "mason",
         callback = function()
-          local colors = require("theme").get_theme_tb "base_30"
-          require("theme").load_highlight {
+          local colors = require("theme.utils").get_theme_tb "base_30"
+          require("theme.utils").load_highlight {
             MasonNormal = { bg = colors.darker_black },
             MasonCursorLine = { bg = colors.darker_black },
 
@@ -117,10 +104,6 @@ return {
         end,
         group = "_mason",
       })
-
-      vim.api.nvim_create_user_command("MasonInstallAll", function()
-        vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
-      end, {})
     end,
   },
   --
