@@ -3,7 +3,18 @@ return {
     "b0o/incline.nvim",
     -- tag = "v0.0.3",
     config = function()
-      require("theme").load_highlight "incline"
+      local colors = require("theme").get_theme_tb "base_30"
+
+      require("theme").load_highlight {
+        InclineNormal = {
+          fg = colors.black,
+          bg = colors.green,
+        },
+        InclineNormalNC = {
+          fg = colors.light_grey,
+          bg = colors.lightbg,
+        },
+      }
 
       require("incline").setup {
         debounce_threshold = {

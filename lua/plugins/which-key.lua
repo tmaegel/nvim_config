@@ -6,7 +6,18 @@ return {
     vim.o.timeoutlen = 500
   end,
   config = function()
-    require("theme").load_highlight "whichkey"
+    local colors = require("theme").get_theme_tb "base_30"
+
+    require("theme").load_highlight {
+      WhichKey = { fg = colors.blue },
+      WhichKeySeparator = { fg = colors.light_grey },
+      WhichKeyDesc = { fg = colors.red },
+      WhichKeyGroup = { fg = colors.green },
+      WhichKeyValue = { fg = colors.green },
+      WhichKeyFloat = { bg = colors.black },
+      WhichKeyBorder = { fg = colors.grey, bg = colors.black },
+    }
+
     require("which-key").setup {
       icons = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo

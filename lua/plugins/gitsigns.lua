@@ -2,7 +2,48 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    require("theme").load_highlight "git"
+    local theme = require("theme").get_theme_tb "base_16"
+    local colors = require("theme").get_theme_tb "base_30"
+
+    require("theme").load_highlight {
+      GitSignsAdd = {
+        fg = colors.green,
+        bg = "none",
+      },
+      GitSignsChange = {
+        fg = colors.blue,
+        bg = "none",
+      },
+      GitSignsDelete = {
+        fg = colors.red,
+        bg = "none",
+      },
+      GitSignsAddNr = {
+        fg = colors.green,
+        bg = colors.black,
+      },
+      GitSignsChangeNr = {
+        fg = colors.blue,
+        bg = colors.black,
+      },
+      GitSignsDeleteNr = {
+        fg = colors.red,
+        bg = colors.black,
+      },
+      GitSignsAddLn = {
+        fg = "none",
+        bg = colors.diff_add,
+      },
+      GitSignsChangeLn = {
+        fg = "none",
+        bg = colors.diff_change,
+      },
+      GitSignsDeleteLn = {
+        fg = "none",
+        bg = colors.diff_delete,
+      },
+    }
+
     require("gitsigns").setup {
       signs = {
         add = { text = "┃" },

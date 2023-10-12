@@ -27,6 +27,7 @@ M.setup = function()
   M.load_highlight "statusline"
   M.load_highlight "syntax"
   M.load_highlight "lsp"
+  M.load_highlight "git"
   if config.transparency then
     M.load_highlight "glassy"
   end

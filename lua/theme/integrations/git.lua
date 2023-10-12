@@ -32,48 +32,11 @@ return {
     fg = colors.red,
   },
 
-  -- Gitsigns
-  GitSignsAdd = {
-    fg = colors.green,
-    bg = "none",
-  },
-  GitSignsChange = {
-    fg = colors.blue,
-    bg = "none",
-  },
-  GitSignsDelete = {
-    fg = colors.red,
-    bg = "none",
-  },
   GitWordAdd = {
     bg = colors.diff_text,
   },
   GitWordDelete = {
     bg = colors.diff_text,
-  },
-  GitSignsAddNr = {
-    fg = colors.green,
-    bg = colors.black,
-  },
-  GitSignsChangeNr = {
-    fg = colors.blue,
-    bg = colors.black,
-  },
-  GitSignsDeleteNr = {
-    fg = colors.red,
-    bg = colors.black,
-  },
-  GitSignsAddLn = {
-    fg = "none",
-    bg = colors.diff_add,
-  },
-  GitSignsChangeLn = {
-    fg = "none",
-    bg = colors.diff_change,
-  },
-  GitSignsDeleteLn = {
-    fg = "none",
-    bg = colors.diff_delete,
   },
 
   -- git commits

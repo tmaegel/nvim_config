@@ -2,7 +2,32 @@ return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    require("theme").load_highlight "trouble"
+    require("theme").load_highlight {
+      -- TroubleCount
+      -- TroubleError
+      -- TroubleNormal
+      -- TroubleTextInformation
+      -- TroubleSignWarning
+      -- TroubleLocation
+      -- TroubleWarning
+      -- TroublePreview
+      -- TroubleTextError
+      -- TroubleSignInformation
+      -- TroubleIndent
+      -- TroubleSource
+      -- TroubleSignHint
+      -- TroubleSignOther
+      -- TroubleFoldIcon
+      -- TroubleTextWarning
+      -- TroubleCode
+      -- TroubleInformation
+      -- TroubleSignError
+      -- TroubleFile
+      -- TroubleHint
+      -- TroubleTextHint
+      -- TroubleText
+    }
+
     require("trouble").setup {
       -- position of the list can be: bottom, top, left, right
       position = "bottom",
