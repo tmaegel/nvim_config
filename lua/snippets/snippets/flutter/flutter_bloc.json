@@ -106,5 +106,57 @@
             "}"
         ],
         "description": "Create a BlocObserver for a bloc."
+    },
+    "BlocBuilder": {
+        "prefix": "blocb",
+        "body": [
+            "BlocBuilder<${1:BlocA}, ${2:BlocState}>(",
+            "\tbuilder: (BuildContext context, ${2:BlocState} state) {",
+            "\t\t// return widget here based on state",
+            "\t}",
+            ")"
+        ],
+        "description": "Create a BlocBuilder."
+    },
+    "BlocBuilder with local bloc": {
+        "prefix": "blocbb",
+        "body": [
+            "BlocBuilder<${1:BlocA}, ${2:BlocState}>(",
+            "\tbloc: ${3:bloc},",
+            "\tbuilder: (BuildContext context, ${2:BlocState} state) {",
+            "\t\t// return widget here based on state",
+            "\t}",
+            ")"
+        ],
+        "description": "Create a BlocBuilder with local bloc."
+    },
+    "BlocBuilder with buildWhen": {
+        "prefix": "blocbbw",
+        "body": [
+            "BlocBuilder<${1:BlocA}, ${2:BlocState}>(",
+            "\tbuildWhen: (${2:BlocState} previousState, ${2:BlocState} state) {",
+            "\t\t// return true/false to determine whether or not",
+            "\t\t// to rebuild the widget with state",
+            "\t},",
+            "\tbuilder: (BuildContext context, ${2:BlocState} state) {",
+            "\t\t// return widget here based on state",
+            "\t}",
+            ")"
+        ],
+        "description": "Create a BlocBuilder with buildWhen."
+    },
+    "BlocSelector": {
+        "prefix": "blocs",
+        "body": [
+            "BlocSelector<${1:BlocA}, ${2:BlocState}, ${3:SelectedState}>(",
+            "\tselector: (state) {",
+            "\t\t// return selected state based on the provided state.",
+            "\t}",
+            "\tbuilder: (BuildContext context, ${2:BlocState} state) {",
+            "\t\t// return widget here based on selected state",
+            "\t}",
+            ")"
+        ],
+        "description": "Create a BlocSelector."
     }
 }

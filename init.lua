@@ -2,6 +2,7 @@
 require "core.filetype"
 require "core.options"
 require "core.autocmds"
+require "core.mappings"
 
 -- Initialize theme
 require("theme").setup()
@@ -9,7 +10,4 @@ require("theme").setup()
 require("ui").setup()
 
 -- Setup package manager + plugins
-require "plugins"
-
--- Load mappings
-require("core.utils").load_mappings "general"
+require "package_manager"
