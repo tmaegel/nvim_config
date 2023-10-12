@@ -1,6 +1,4 @@
-local options = {
+return {
   theme = "onedark",
   transparency = true,
 }
-
-return options

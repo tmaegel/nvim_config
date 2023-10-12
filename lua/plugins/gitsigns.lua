@@ -2,10 +2,10 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local theme = require("theme").get_theme_tb "base_16"
-    local colors = require("theme").get_theme_tb "base_30"
+    local theme = require("theme.utils").get_theme_tb "base_16"
+    local colors = require("theme.utils").get_theme_tb "base_30"
 
-    require("theme").load_highlight {
+    require("theme.utils").load_highlight {
       GitSignsAdd = {
         fg = colors.green,
         bg = "none",
@@ -75,7 +75,7 @@ return {
       max_file_length = 40000, -- Disable if file is longer than this (in lines)
       preview_config = {
         -- Options passed to nvim_open_win
-        border = require("ui.utils").set_border "FloatBorder",
+        border = require("utils").set_border "FloatBorder",
         style = "minimal",
         relative = "cursor",
         row = 1,

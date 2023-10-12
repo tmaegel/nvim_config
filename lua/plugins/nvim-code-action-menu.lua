@@ -2,7 +2,7 @@ return {
   "weilbith/nvim-code-action-menu",
   cmd = "CodeActionMenu",
   config = function()
-    local colors = require("theme").get_theme_tb "base_30"
+    local colors = require("theme.utils").get_theme_tb "base_30"
 
     require("theme").load_highlight {
       CodeActionMenuMenuSelection = { fg = colors.black, bg = colors.blue },

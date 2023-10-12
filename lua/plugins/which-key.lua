@@ -6,9 +6,9 @@ return {
     vim.o.timeoutlen = 500
   end,
   config = function()
-    local colors = require("theme").get_theme_tb "base_30"
+    local colors = require("theme.utils").get_theme_tb "base_30"
 
-    require("theme").load_highlight {
+    require("theme.utils").load_highlight {
       WhichKey = { fg = colors.blue },
       WhichKeySeparator = { fg = colors.light_grey },
       WhichKeyDesc = { fg = colors.red },

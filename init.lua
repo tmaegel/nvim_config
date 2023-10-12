@@ -5,9 +5,9 @@ require "core.autocmds"
 require "core.mappings"
 
 -- Initialize theme
-require("theme").setup()
+require "theme"
 -- Initialize statusline
-require("ui").setup()
+require("statusline").setup()
 
 -- Setup package manager + plugins
 require "package_manager"

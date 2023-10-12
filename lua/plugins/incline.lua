@@ -3,9 +3,9 @@ return {
     "b0o/incline.nvim",
     -- tag = "v0.0.3",
     config = function()
-      local colors = require("theme").get_theme_tb "base_30"
+      local colors = require("theme.utils").get_theme_tb "base_30"
 
-      require("theme").load_highlight {
+      require("theme.utils").load_highlight {
         InclineNormal = {
           fg = colors.black,
           bg = colors.green,

@@ -6,17 +6,65 @@ return {
   },
   config = function()
     local lspconfig = require "lspconfig"
-    local set_border = require("ui.utils").set_border
 
-    require("theme").load_highlight "lsp"
-    require "ui.lsp"
+    require("theme.utils").load_highlight "lsp"
+
+    -- Overwrite diagnostic icons/signs
+    require("utils").set_lsp_sign "Error"
+    require("utils").set_lsp_sign "Info"
+    require("utils").set_lsp_sign "Hint"
+    require("utils").set_lsp_sign "Warn"
+
+    vim.diagnostic.config {
+      underline = false,
+      virtual_text = false,
+      signs = true,
+      float = {
+        source = "always", -- Or "if_many"
+      },
+      update_in_insert = false,
+      severity_sort = false,
+    }
+
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "single",
+      focusable = false,
+      relative = "cursor",
+    })
+
+    vim.api.nvim_create_autocmd("CursorHold", {
+      buffer = bufnr,
+      callback = function()
+        local opts = {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          border = "single",
+          source = "always",
+          prefix = "",
+          scope = "cursor",
+        }
+        vim.diagnostic.open_float(nil, opts)
+      end,
+    })
+
+    -- Suppress error messages from lang servers
+    vim.notify = function(msg, log_level)
+      if msg:match "exit code" then
+        return
+      end
+      if log_level == vim.log.levels.ERROR then
+        vim.api.nvim_err_writeln(msg)
+      else
+        vim.api.nvim_echo({ { msg } }, true, {})
+      end
+    end
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
       opts = opts or {}
-      opts.border = opts.border or set_border "LspFloatWinBorder"
+      opts.border = opts.border or require("utils").set_border "LspFloatWinBorder"
       return orig_util_open_floating_preview(contents, syntax, opts, ...)
     end
 
@@ -60,7 +108,7 @@ return {
       end, { desc = "List workspace folders", noremap = true, silent = true })
 
       if client.server_capabilities.signatureHelpProvider then
-        require("ui.signature").setup(client)
+        require("lsp.signature").setup(client)
       end
     end
 

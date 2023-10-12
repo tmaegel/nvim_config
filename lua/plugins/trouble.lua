@@ -2,7 +2,7 @@ return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    require("theme").load_highlight {
+    require("theme.utils").load_highlight {
       -- TroubleCount
       -- TroubleError
       -- TroubleNormal

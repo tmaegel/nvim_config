@@ -5,9 +5,9 @@ return {
   -- Until https://github.com/nvim-treesitter/nvim-treesitter/issues/4945 is solved.
   commit = "33eb472b459f1d2bf49e16154726743ab3ca1c6d",
   config = function()
-    local theme = require("theme").get_theme_tb "base_16"
+    local theme = require("theme.utils").get_theme_tb "base_16"
 
-    require("theme").load_highlight {
+    require("theme.utils").load_highlight {
       -- `@annotation` is not one of the default capture group, should we keep it
       ["@annotation"] = { fg = theme.base0F },
       ["@attribute"] = { fg = theme.base0A },

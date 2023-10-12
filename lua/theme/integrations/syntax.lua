@@ -1,4 +1,4 @@
-local theme = require("theme").get_theme_tb "base_16"
+local theme = require("theme.utils").get_theme_tb "base_16"
 
 return {
   Boolean = {

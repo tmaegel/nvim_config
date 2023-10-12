@@ -4,12 +4,12 @@ return {
   -- https://github.com/lukas-reineke/indent-blankline.nvim/wiki/Migrate-to-version-3
   tag = "v2.20.8",
   config = function()
-    local colors = require("theme").get_theme_tb "base_30"
+    local colors = require("theme.utils").get_theme_tb "base_30"
 
     -- Change blankline context character
     vim.g.indent_blankline_context_char = "▎"
 
-    require("theme").load_highlight {
+    require("theme.utils").load_highlight {
       IndentBlanklineChar = { fg = colors.line },
       IndentBlanklineSpaceChar = { fg = colors.line },
       IndentBlanklineContextChar = { fg = colors.one_bg2 },

@@ -15,11 +15,10 @@ return {
     config = function()
       local cmp = require "cmp"
       local luasnip = require "luasnip"
-      local base16 = require("theme").get_theme_tb "base_16"
-      local colors = require("theme").get_theme_tb "base_30"
-      local set_border = require("ui.utils").set_border
+      local base16 = require("theme.utils").get_theme_tb "base_16"
+      local colors = require("theme.utils").get_theme_tb "base_30"
 
-      require("theme").load_highlight {
+      require("theme.utils").load_highlight {
         -- nvim cmp
         CmpItemAbbr = { fg = colors.white },
         CmpItemAbbrMatch = { fg = colors.blue, bold = true },
@@ -71,17 +70,17 @@ return {
         },
         window = {
           completion = {
-            border = set_border "CmpBorder",
+            border = require("utils").set_border "CmpBorder",
             winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
           },
           documentation = {
-            border = set_border "CmpDocBorder",
+            border = require("utils").set_border "CmpDocBorder",
             winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
           },
         },
         formatting = {
           format = function(_, vim_item)
-            local icons = require("ui.icons").lspkind
+            local icons = require("theme.icons").lspkind
             vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
             return vim_item
           end,

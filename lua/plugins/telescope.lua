@@ -26,9 +26,9 @@ return {
       local actions = require "telescope.actions"
       local trouble = require "trouble.providers.telescope"
 
-      local colors = require("theme").get_theme_tb "base_30"
+      local colors = require("theme.utils").get_theme_tb "base_30"
 
-      require("theme").load_highlight {
+      require("theme.utils").load_highlight {
         TelescopeBorder = {
           fg = colors.darker_black,
           bg = colors.darker_black,

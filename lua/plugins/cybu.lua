@@ -7,9 +7,9 @@ return {
     "nvim-lua/plenary.nvim",
   }, -- optional for icon support
   config = function()
-    local colors = require("theme").get_theme_tb "base_30"
+    local colors = require("theme.utils").get_theme_tb "base_30"
 
-    require("theme").load_highlight {
+    require("theme.utils").load_highlight {
       -- current / selected buffer
       CybuFocus = {
         bg = colors.blue,
