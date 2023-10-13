@@ -6,6 +6,36 @@ return {
   config = function()
     local keymap = vim.keymap
 
+    local colors = require("theme.utils").get_theme_tb "base_30"
+
+    require("theme.utils").load_highlight {
+      NvimTreeIndentMarker = { fg = colors.one_bg2 },
+
+      NvimTreeFolderDirty = { fg = colors.red },
+      NvimTreeFileDirty = { fg = colors.red },
+      NvimTreeGitDirty = { fg = colors.red },
+
+      NvimTreeFolderStaged = { fg = colors.green },
+      NvimTreeFileStaged = { fg = colors.green },
+      NvimTreeGitStaged = { fg = colors.green },
+
+      NvimTreeFolderRenamed = { fg = colors.blue },
+      NvimTreeFileRenamed = { fg = colors.blue },
+      NvimTreeGitRenamed = { fg = colors.blue },
+
+      NvimTreeFolderNew = { fg = colors.blue },
+      NvimTreeFileNew = { fg = colors.blue },
+      NvimTreeGitNew = { fg = colors.blue },
+
+      NvimTreeFolderDeleted = { fg = colors.blue },
+      NvimTreeFileDeleted = { fg = colors.blue },
+      NvimTreeGitDeleted = { fg = colors.blue },
+
+      NvimTreeFolderIgnored = { fg = colors.grey },
+      NvimTreeFileIgnored = { fg = colors.grey },
+      NvimTreeGitIgnored = { fg = colors.grey },
+    }
+
     -- Recommended settings from nvim-tree documentation
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
@@ -17,7 +47,7 @@ return {
         number = false,
         relativenumber = false,
         cursorline = false,
-        signcolumn = "no",
+        signcolumn = "yes",
         float = {
           enable = true,
           quit_on_focus_loss = true,
@@ -25,7 +55,7 @@ return {
             relative = "editor",
             border = "single",
             width = 35,
-            height = 30,
+            height = 50,
             row = 0,
             col = 0,
           },
@@ -34,14 +64,42 @@ return {
       -- Change folder arrow icons
       renderer = {
         root_folder_label = false,
+        highlight_git = true,
+        highlight_diagnostics = false,
         indent_markers = {
           enable = true,
+          icons = {
+            corner = "└",
+            edge = "│",
+            item = "│",
+            bottom = "─",
+            none = " ",
+          },
         },
         icons = {
           glyphs = {
+            default = "",
+            symlink = "",
+            bookmark = "󰆤",
+            modified = "●",
             folder = {
-              arrow_closed = "",
-              arrow_open = "",
+              arrow_closed = "",
+              arrow_open = "",
+              default = "󰉖",
+              open = "󰷏",
+              empty = "󰉖",
+              empty_open = "󰷏",
+              symlink = "󱧯",
+              symlink_open = "󱧯",
+            },
+            git = {
+              unstaged = "",
+              staged = "󰄴",
+              unmerged = "󰗖",
+              renamed = "󱖔",
+              untracked = "",
+              deleted = "󰅚",
+              ignored = "󱥸",
             },
           },
         },
@@ -51,6 +109,15 @@ return {
         open_file = {
           window_picker = {
             enable = false,
+          },
+        },
+        file_popup = {
+          open_win_config = {
+            col = 1,
+            row = 1,
+            relative = "cursor",
+            border = "single",
+            style = "minimal",
           },
         },
       },
