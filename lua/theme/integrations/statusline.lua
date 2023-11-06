@@ -32,40 +32,40 @@ return {
   -- MODES
 
   St_NormalMode = {
-    fg = colors.black,
-    bg = colors.blue,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_InsertMode = {
-    fg = colors.black,
-    bg = colors.green,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_TerminalMode = {
-    fg = colors.black,
-    bg = colors.yellow,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_NTerminalMode = {
-    fg = colors.black,
-    bg = colors.yellow,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_VisualMode = {
-    fg = colors.black,
-    bg = colors.dark_purple,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_ReplaceMode = {
-    fg = colors.black,
-    bg = colors.orange,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_ConfirmMode = {
-    fg = colors.black,
-    bg = colors.teal,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_CommandMode = {
-    fg = colors.black,
-    bg = colors.red,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
   St_SelectMode = {
-    fg = colors.black,
-    bg = colors.pink,
+    fg = colors.light_grey,
+    bg = colors.black,
   },
 
   -- Separators
@@ -74,34 +74,18 @@ return {
     fg = colors.black,
     bg = colors.black,
   },
-  St_Sep_Fill = {
-    fg = colors.grey,
-    bg = colors.grey,
-  },
 
   -- Custom status line components
 
-  St_file_type_icon = {
+  St_file_type = {
     fg = colors.light_grey,
     bg = colors.black,
   },
-  St_file_type_text = {
+  St_cwd = {
     fg = colors.light_grey,
     bg = colors.black,
   },
-  St_cwd_icon = {
-    fg = colors.light_grey,
-    bg = colors.black,
-  },
-  St_cwd_text = {
-    fg = colors.light_grey,
-    bg = colors.black,
-  },
-  St_pos_icon = {
-    fg = colors.light_grey,
-    bg = colors.black,
-  },
-  St_pos_text = {
+  St_pos = {
     fg = colors.light_grey,
     bg = colors.black,
   },

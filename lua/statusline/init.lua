@@ -7,25 +7,20 @@ end
 M.run = function()
   local modules = require "statusline.modules"
   return table.concat {
-    modules.mode(),
     modules.tabline(),
+
+    modules.sep(),
+
+    modules.mode(),
 
     modules.sep(),
 
     modules.cwd(),
 
-    modules.sep(),
+    "%#StatusLine#%=",
+    "%#StatusLine#%=",
 
     modules.git(),
-
-    "%#StatusLine#%=",
-    "%#StatusLine#%=",
-
-    modules.lsp_diagnostics(),
-
-    modules.sep(),
-
-    modules.lsp_status() or "",
 
     modules.sep(),
 
