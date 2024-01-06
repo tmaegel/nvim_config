@@ -1,5 +1,7 @@
+-- https://github.com/folke/trouble.nvim
 return {
   "folke/trouble.nvim",
+  tag = "v2.10.0",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require("theme.utils").load_highlight {
