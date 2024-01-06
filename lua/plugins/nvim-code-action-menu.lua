@@ -1,3 +1,5 @@
+-- https://github.com/weilbith/nvim-code-action-menu
+-- @todo: Repository has been archived.
 return {
   "weilbith/nvim-code-action-menu",
   cmd = "CodeActionMenu",

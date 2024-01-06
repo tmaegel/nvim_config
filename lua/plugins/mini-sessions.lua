@@ -1,3 +1,4 @@
+-- https://github.com/echasnovski/mini.sessions
 return {
   "echasnovski/mini.sessions",
   branch = "stable",

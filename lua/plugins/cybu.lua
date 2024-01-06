@@ -1,3 +1,4 @@
+-- https://github.com/ghillb/cybu.nvim
 return {
   "ghillb/cybu.nvim",
   branch = "main", -- timely updates

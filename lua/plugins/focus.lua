@@ -1,3 +1,4 @@
+-- https://github.com/nvim-focus/focus.nvim
 return {
   "beauwilliams/focus.nvim",
   commit = "a994282f957840ee3419ad62a36be9d4e155560c",

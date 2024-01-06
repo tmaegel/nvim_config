@@ -5,6 +5,7 @@
 -- remove <b>HTML tags</b>    dst             remove HTML tags
 -- 'change quotes'            cs'"            "change quotes"
 -- delete(function calls)     dsf             function calls
+-- https://github.com/kylechui/nvim-surround
 return {
   "kylechui/nvim-surround",
   version = "*", -- Use for stability; omit to use `main` branch for the latest features
