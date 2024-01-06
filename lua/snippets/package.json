@@ -39,6 +39,10 @@
                 "path": "./snippets/shell/shell.json"
             },
             {
+                "language": "nix",
+                "path": "./snippets/nix.json"
+            },
+            {
                 "language": "python",
                 "path": "./snippets/python/class.json"
             },
