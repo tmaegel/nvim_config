@@ -25,6 +25,12 @@
             },
             {
                 "language": [
+                    "license"
+                ],
+                "path": "./snippets/license.json"
+            },
+            {
+                "language": [
                     "shellscript",
                     "shell",
                     "sh",
