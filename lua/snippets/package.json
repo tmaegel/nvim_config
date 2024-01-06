@@ -7,6 +7,13 @@
         "snippets": [
             {
                 "language": [
+                    "markdown",
+                    "rmd"
+                ],
+                "path": "./snippets/markdown.json"
+            },
+            {
+                "language": [
                     "shellscript",
                     "shell",
                     "sh",
