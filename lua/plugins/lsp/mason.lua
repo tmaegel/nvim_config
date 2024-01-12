@@ -57,6 +57,7 @@ return {
           "bashls",
           "dockerls",
           "lua_ls",
+          "nil_ls",
           "pyright",
           "terraformls",
           "tsserver",
