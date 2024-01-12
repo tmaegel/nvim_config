@@ -1,3 +1,19 @@
+local select_one_or_multi = function(prompt_bufnr)
+  local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+  local multi = picker:get_multi_selection()
+  if not vim.tbl_isempty(multi) then
+    require("telescope.actions").close(prompt_bufnr)
+    for _, j in pairs(multi) do
+      if j.path ~= nil then
+        vim.cmd(string.format("%s %s", "edit", j.path))
+      end
+    end
+  else
+    require("telescope.actions").select_default(prompt_bufnr)
+  end
+end
+
+-- https://github.com/nvim-telescope/telescope.nvim
 return {
   {
     "benfowler/telescope-luasnip.nvim",
@@ -162,6 +178,7 @@ return {
               ["<C-t>"] = actions.select_tab,
               ["<C-q>"] = trouble.open_selected_with_trouble, -- Open search in troubles quickfix list
               ["<M-q>"] = trouble.open_with_trouble, -- Open selected in troubles quickfix list
+              ["<CR>"] = select_one_or_multi,
             },
             n = {
               ["q"] = require("telescope.actions").close,
@@ -174,6 +191,7 @@ return {
               ["<C-t>"] = actions.select_tab,
               ["<C-q>"] = trouble.open_selected_with_trouble, -- Open search in troubles quickfix list
               ["<M-q>"] = trouble.open_with_trouble, -- Open selected in troubles quickfix list
+              ["<CR>"] = select_one_or_multi,
             },
           },
         },
