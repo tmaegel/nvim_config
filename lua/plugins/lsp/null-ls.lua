@@ -76,8 +76,8 @@ return {
       -- DART
       b.formatting.dart_format,
 
-      -- TERRAFORM
-      b.formatting.terraform_fmt,
+      -- NIX
+      b.formatting.nixfmt,
 
       -- MARKDOWN
       b.diagnostics.markdownlint,

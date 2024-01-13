@@ -53,14 +53,13 @@ return {
         -- Example: { "rust_analyzer@nightly", "sumneko_lua" }
         -- This setting has no relation with the `automatic_installation` setting.
         ensure_installed = {
-          "ansiblels",
-          "bashls",
-          "dockerls",
-          "lua_ls",
-          "nil_ls",
-          "pyright",
-          "terraformls",
-          "tsserver",
+          -- "ansiblels", -- Installed via nix
+          -- "bashls", -- Installed via nix
+          -- "dockerls", -- Installed via nix
+          -- "lua_ls", -- Installed via nix
+          -- "nil_ls", -- Installed via nix
+          -- "pyright", -- Installed via nix
+          -- "tsserver", -- Installed via nix
         },
         -- Whether servers that are set up (via lspconfig) should be automatically installed
         -- if they're not already installed.
@@ -122,18 +121,18 @@ return {
         -- A list of sources to install if they're not already installed.
         -- This setting has no relation with the `automatic_installation` setting.
         ensure_installed = {
-          "black",
-          "djlint",
-          "fixjson",
-          "flake8",
-          "isort",
-          "markdownlint",
-          "mypy",
-          "prettier",
-          "shellcheck",
-          "shfmt",
-          "stylua",
-          "yamllint",
+          -- "black", -- Installed via nix
+          -- "djlint", -- Installed via nix
+          -- "fixjson", -- Installed via nix
+          -- "flake8", -- Installed via nix
+          -- "isort", -- Installed via nix
+          -- "markdownlint", -- Installed via nix
+          -- "mypy", -- Insalled via nix
+          -- "prettier", -- Installed via nix
+          -- "shellcheck", -- Installed via nix
+          -- "shfmt", -- Installed via nix
+          -- "stylua", -- Installed via nix
+          -- "yamllint", -- Installed via nix
         },
         -- Will automatically install masons tools based on selected sources in `null-ls`.
         -- Can also be an exclusion list.
