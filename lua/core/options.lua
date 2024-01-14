@@ -116,7 +116,7 @@ local options = {
   -- Insert mode completion setting
   completeopt = { "menu", "menuone", "noselect", "noinsert" },
   showmode = false,
-  clipboard = "unnamedplus",
+  clipboard = opt.clipboard + "unnamedplus",
   mouse = "a",
   -- Disable nvim intro
   shortmess = opt.shortmess + "sI",
