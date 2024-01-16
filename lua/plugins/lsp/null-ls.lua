@@ -80,7 +80,12 @@ return {
       b.formatting.nixfmt,
 
       -- MARKDOWN
-      b.diagnostics.markdownlint,
+      b.diagnostics.markdownlint.with {
+        extra_args = {
+          "--disable",
+          "MD013",
+        },
+      },
 
       -- OTHER
       b.formatting.trim_whitespace,
