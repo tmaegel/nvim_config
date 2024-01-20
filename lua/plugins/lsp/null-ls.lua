@@ -66,7 +66,7 @@ return {
       },
 
       -- JSON
-      b.formatting.fixjson.with {
+      b.formatting.json_tool.with {
         extra_args = {
           "--indent",
           "4",
