@@ -52,7 +52,7 @@ return {
           "120",
         },
       },
-      b.formatting.djlint,
+      b.formatting.djhtml,
 
       -- LUA
       b.formatting.stylua,
