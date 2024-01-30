@@ -12,9 +12,13 @@ return {
       -- b.diagnostics.pylint,
       b.diagnostics.flake8,
       b.diagnostics.mypy,
-      b.formatting.isort,
+      b.formatting.isort.with {
+        args = {
+          "--stdout",
+          "$FILENAME",
+        },
+      },
       b.formatting.black,
-      -- b.formatting.autopep8,
 
       -- SHELL / BASH
       b.code_actions.shellcheck,
