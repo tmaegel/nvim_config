@@ -9,15 +9,9 @@ return {
     local sources = {
 
       -- PYTHON
-      -- b.diagnostics.pylint,
       b.diagnostics.flake8,
       b.diagnostics.mypy,
-      b.formatting.isort.with {
-        args = {
-          "--stdout",
-          "$FILENAME",
-        },
-      },
+      b.formatting.isort,
       b.formatting.black,
 
       -- SHELL / BASH
