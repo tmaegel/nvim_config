@@ -1,7 +1,6 @@
 -- https://github.com/nvim-focus/focus.nvim
 return {
   "beauwilliams/focus.nvim",
-  commit = "a994282f957840ee3419ad62a36be9d4e155560c",
   config = function()
     -- Ignore filetypes
     local ignore_filetypes = {
@@ -27,8 +26,8 @@ return {
         enable = true, -- Enable or disable auto-resizing of splits
         width = 0, -- Force width for the focused window
         height = 0, -- Force height for the focused window
-        minwidth = 0, -- Force minimum width for the unfocused window
-        minheight = 0, -- Force minimum height for the unfocused window
+        minwidth = 20, -- Force minimum width for the unfocused window
+        minheight = 20, -- Force minimum height for the unfocused window
         height_quickfix = 10, -- Set the height of quickfix panel
       },
       split = {
@@ -53,6 +52,7 @@ return {
     }
 
     local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
+
     vim.api.nvim_create_autocmd("WinEnter", {
       group = augroup,
       callback = function(_)
@@ -72,5 +72,14 @@ return {
       end,
       desc = "Disable focus autoresize for FileType",
     })
+
+    local keymap = vim.keymap
+    keymap.set("n", "<A-t>", "<cmd> FocusToggle <CR>", { desc = "Toggle focus (globally) on and off" })
+    keymap.set(
+      "n",
+      "<A-f>",
+      "<cmd> FocusMaxOrEqual <CR>",
+      { desc = "Toggles between having the splits equalised or the focused window maximised" }
+    )
   end,
 }

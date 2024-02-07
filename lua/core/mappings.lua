@@ -16,8 +16,6 @@ keymap.set("n", "<A-Down>", "<cmd> TmuxNavigateDown <CR>", { desc = "Focus spit 
 keymap.set("n", "<A-Up>", "<cmd> TmuxNavigateUp <CR>", { desc = "Focus split up" })
 keymap.set("n", "<A-Tab>", "<cmd> b# <CR>", { desc = "Alternate between two buffers" })
 -- ["<A-BS>", "<A-p>", "<cmd> TmuxNavigatePrevious <CR>", { desc = "Focus previews split" })
-keymap.set("n", "<A-f>", "<cmd> FocusMaximise <CR>", { desc = "Temporarily maximises the focussed window" })
-keymap.set("n", "<A-g>", "<cmd> FocusSplitNicely <CR>", { desc = "Split a window based on the golden ratio rule" })
 
 -- Keep the cursor position while forward-searching a word.
 -- Reference: https://github.com/NvChad/NvChad/issues/1224
