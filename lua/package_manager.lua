@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lsp" },
+  { import = "plugins.dap" },
 }, {
   ui = {
     -- a number <1 is a percentage., >1 is a fixed size
