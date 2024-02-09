@@ -74,9 +74,6 @@ return {
       -- DART
       b.formatting.dart_format,
 
-      -- NIX
-      b.formatting.nixfmt,
-
       -- MARKDOWN
       b.diagnostics.markdownlint.with {
         extra_args = {
