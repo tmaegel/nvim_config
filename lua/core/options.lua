@@ -35,7 +35,7 @@ local options = {
   -- Disable folding
   foldenable = false,
   -- Show line numbers
-  number = true,
+  number = false,
   relativenumber = false,
   numberwidth = 2,
   -- Turn on the wild menu
@@ -120,7 +120,7 @@ local options = {
   mouse = "a",
   -- Disable nvim intro
   shortmess = opt.shortmess + "sI",
-  signcolumn = "yes",
+  signcolumn = "auto",
   splitbelow = true,
   splitright = true,
   termguicolors = true,

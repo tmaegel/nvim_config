@@ -11,6 +11,7 @@ return {
       "Trouble",
       "tsplayground",
       "Outline",
+      "DiffviewFiles",
     }
     -- Ignore buftypes
     local ignore_buftypes = {
