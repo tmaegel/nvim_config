@@ -82,6 +82,9 @@ return {
         },
       },
 
+      -- TERRAFORM
+      b.formatting.terraform_fmt,
+
       -- OTHER
       b.formatting.trim_whitespace,
       b.formatting.trim_newlines,

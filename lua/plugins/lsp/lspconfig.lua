@@ -262,5 +262,14 @@ return {
         },
       },
     }
+
+    --
+    -- TERRAFORM
+    --
+    lspconfig["terraformls"].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {},
+    }
   end,
 }
