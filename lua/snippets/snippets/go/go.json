@@ -35,7 +35,10 @@
         "description": "Struct declaration"
     },
     "package main and main function": {
-        "prefix": "pkgm",
+        "prefix": [
+            "pkgm",
+            "packagem"
+        ],
         "body": "package main\n\nfunc main() {\n\t$0\n}",
         "description": "Main package & function"
     },
