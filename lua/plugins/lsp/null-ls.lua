@@ -34,6 +34,9 @@ return {
         },
       },
 
+      -- GOLANG
+      b.formatting.gofmt,
+
       -- JAVASCRIPT, CSS & HTML
       b.formatting.prettier.with {
         filetypes = {

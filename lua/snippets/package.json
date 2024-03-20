@@ -46,6 +46,10 @@
                 "path": "./snippets/shell/shell.json"
             },
             {
+                "language": "go",
+                "path": "./snippets/go/go.json"
+            },
+            {
                 "language": "nix",
                 "path": "./snippets/nix.json"
             },
