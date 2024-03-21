@@ -132,6 +132,7 @@ local options = {
   -- Go to previous/next line with h,l,left arrow and right arrow
   -- when cursor reaches end/beginning of line
   whichwrap = opt.whichwrap + "<>[]hl",
+  autowriteall = true,
 }
 
 for k, v in pairs(options) do
