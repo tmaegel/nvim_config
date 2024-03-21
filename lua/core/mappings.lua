@@ -65,7 +65,7 @@ keymap.set("n", "<leader>gr", "<cmd> diffget REMOTE <CR>", { desc = "Apply remot
 
 keymap.set("n", "<ESC>", "<cmd> noh <CR><ESC>", { desc = "Escape and clear hlsearch" })
 keymap.set("n", "<leader>qq", "<cmd> qa <CR>", { desc = "Quit all" })
-keymap.set({ "n", "i", "v", "s" }, "<C-s>", "<cmd> w <CR><ESC>", { desc = "Save file" })
+keymap.set({ "n", "i", "v", "s" }, "<C-s>", "<cmd> silent w <CR><ESC>", { desc = "Save file" })
 
 keymap.set("n", "dd", smart_dd, { noremap = true, silent = true, expr = true })
 
