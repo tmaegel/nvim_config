@@ -35,7 +35,10 @@ return {
       },
 
       -- GOLANG
-      b.formatting.gofmt,
+      -- b.formatting.gofmt,
+      -- By default, the tool will use goimports as the base formatter (if found),
+      -- otherwise it will revert to gofmt.
+      b.formatting.golines,
 
       -- JAVASCRIPT, CSS & HTML
       b.formatting.prettier.with {
