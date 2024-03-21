@@ -105,7 +105,7 @@ return {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<ESC>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
+            -- behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           },
           ["<Tab>"] = cmp.mapping(function(fallback)

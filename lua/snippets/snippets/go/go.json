@@ -1,36 +1,45 @@
 {
     "single import": {
-        "prefix": "im",
+        "prefix": "imp",
         "body": "import \"${1:package}\"",
         "description": "Import statement"
     },
     "multiple imports": {
-        "prefix": "ims",
+        "prefix": "impb",
         "body": "import (\n\t\"${1:package}\"\n)",
         "description": "Import block"
     },
     "single constant": {
-        "prefix": "co",
+        "prefix": "con",
         "body": "const ${1:name} = ${2:value}",
         "description": "Constant"
     },
     "multiple constants": {
-        "prefix": "cos",
+        "prefix": "conb",
         "body": "const (\n\t${1:name} = ${2:value}\n)",
         "description": "Constant block"
     },
     "type function declaration": {
-        "prefix": "tyf",
+        "prefix": [
+            "typef",
+            "funct"
+        ],
         "body": "type ${1:name} func($3) $4",
         "description": "Type function declaration"
     },
     "type interface declaration": {
-        "prefix": "tyi",
+        "prefix": [
+            "typei",
+            "interf"
+        ],
         "body": "type ${1:name} interface {\n\t$0\n}",
         "description": "Type interface"
     },
     "type struct declaration": {
-        "prefix": "tys",
+        "prefix": [
+            "types",
+            "struct"
+        ],
         "body": "type ${1:name} struct {\n\t$0\n}",
         "description": "Struct declaration"
     },
@@ -145,6 +154,14 @@
         ],
         "body": "fmt.Printf(\"$1\", ${2:var})",
         "description": "fmt.Printf()"
+    },
+    "fmt.Sprintf": {
+        "prefix": [
+            "fspf",
+            "sprintf"
+        ],
+        "body": "fmt.Sprintf(\"$1\", ${2:var})",
+        "description": "fmt.Sprintf()"
     },
     "log.Println": {
         "prefix": [
