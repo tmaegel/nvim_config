@@ -67,6 +67,7 @@ return {
         "css",
         "dart",
         "dockerfile",
+        "go",
         "hcl",
         "html",
         "javascript",
