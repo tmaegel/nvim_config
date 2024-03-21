@@ -59,7 +59,7 @@
     },
     "switch statement": {
         "prefix": "switch",
-        "body": "switch ${1:expression} {\ncase ${2:condition}:\n\t$0\n}",
+        "body": "switch ${1:expression} {\n\tcase ${2:condition}:\n\t\t$0\n}",
         "description": "Switch statement"
     },
     "select statement": {
