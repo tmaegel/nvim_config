@@ -46,14 +46,6 @@
                 "path": "./snippets/shell/shell.json"
             },
             {
-                "language": "go",
-                "path": "./snippets/go/go.json"
-            },
-            {
-                "language": "nix",
-                "path": "./snippets/nix.json"
-            },
-            {
                 "language": "python",
                 "path": "./snippets/python/class.json"
             },
@@ -163,6 +155,18 @@
             {
                 "language": "lua",
                 "path": "./snippets/lua/lua.json"
+            },
+            {
+                "language": "go",
+                "path": "./snippets/go/go.json"
+            },
+            {
+                "language": "ansible",
+                "path": "./snippets/ansible/base.json"
+            },
+            {
+                "language": "nix",
+                "path": "./snippets/nix.json"
             },
             {
                 "language": "sql",

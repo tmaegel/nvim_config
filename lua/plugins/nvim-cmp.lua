@@ -184,6 +184,7 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/snippets" } }
       require("luasnip").filetype_extend("python", { "django", "django-rest" })
       require("luasnip").filetype_extend("dart", { "flutter" })
+      require("luasnip").filetype_extend("yaml.ansible", { "ansible" })
     end,
   },
   { "saadparwaiz1/cmp_luasnip" },

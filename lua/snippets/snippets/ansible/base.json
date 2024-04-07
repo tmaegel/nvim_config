@@ -1,0 +1,27 @@
+{
+    "command": {
+        "prefix": [
+            "cmd",
+            "command"
+        ],
+        "body": [
+            "- name: Uptime",
+            "\tansible.builtin.command: uptime",
+            "\tregister: uptime",
+            "\tchanged_when: uptime.rc != 0"
+        ],
+        "description": "Command"
+    },
+    "debug": {
+        "prefix": [
+            "dbg",
+            "debug"
+        ],
+        "body": [
+            "- name: User id",
+            "\tansible.builtin.debug:",
+            "\tmsg: \"msg={{ id.stdout }}\""
+        ],
+        "description": "Debug"
+    }
+}
