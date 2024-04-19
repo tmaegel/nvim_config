@@ -118,6 +118,7 @@ local options = {
   showmode = false,
   clipboard = opt.clipboard + "unnamedplus",
   mouse = "a",
+  mousemodel = "extend",
   -- Disable nvim intro
   shortmess = opt.shortmess + "sI",
   signcolumn = "auto",
