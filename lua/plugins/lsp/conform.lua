@@ -15,8 +15,9 @@ return {
       html = { "prettier" },
       css = { "prettier" },
       markdown = { "prettier" },
-      json = { "jq" },
       terraform = { "terraform_fmt" },
+      json = { "jq" },
+      yaml = { "yamlfmt" },
       -- Use the "*" filetype to run formatters on all filetypes.
       ["*"] = {},
       -- Use the "_" filetype to run formatters on filetypes that don't
