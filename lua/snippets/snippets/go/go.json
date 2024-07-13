@@ -53,18 +53,23 @@
     },
     "function declaration": {
         "prefix": "func",
-        "body": "func $1($2) $3 {\n\t$0\n}",
+        "body": "func ${1:name}(${2:args}) ${3:returns} {\n\t$0\n}",
         "description": "Function declaration"
     },
-    "variable declaration": {
+    "variable declaration without initialization": {
         "prefix": "var",
         "body": "var ${1:name} ${2:type}",
-        "description": "Variable"
+        "description": "Variable declaration without initialization"
     },
-    "variables declaration": {
+    "variable declaration with initialization": {
+        "prefix": "vari",
+        "body": "var ${1:name} ${2:type} = ${3:value}",
+        "description": "Variable declaration with initialization"
+    },
+    "variables in block declaration": {
         "prefix": "vars",
         "body": "var (\n\t${1:name} ${2:type} = ${3:value}\n)",
-        "description": "Variable"
+        "description": "Variables in block declaration with initialization"
     },
     "switch statement": {
         "prefix": "switch",
@@ -101,35 +106,50 @@
         "body": "chan ${1:type}",
         "description": "Channel"
     },
-    "array declaration (empty)": {
+    "empty array declaration": {
         "prefix": "arr",
         "body": "var array [3]int",
-        "description": "Array (empty)"
+        "description": "Empty array"
     },
-    "array declaration (values)": {
+    "array declaration with values": {
         "prefix": "arrv",
         "body": "var array = [3]int{10, 20, 30}",
         "description": "Array with values"
     },
-    "slice declaration (empty)": {
+    "array declaration with values (shorthand)": {
+        "prefix": "arrvs",
+        "body": "array := [3]int{10, 20, 30}",
+        "description": "Array with values (shorthand)"
+    },
+    "empty slice declaration": {
         "prefix": "sli",
         "body": "var slice []int",
-        "description": "Slice (empty)"
+        "description": "Empty slice"
     },
-    "slice declaration (values)": {
+    "slice declaration with values": {
         "prefix": "sliv",
         "body": "var slice = []int{10, 20, 30}",
         "description": "Slice with values"
     },
-    "map declaration (nil)": {
+    "slice declaration with values (shorthand)": {
+        "prefix": "sliv",
+        "body": "slice := []int{10, 20, 30}",
+        "description": "Slice with values (shorthand)"
+    },
+    "slice declaration with make": {
+        "prefix": "slim",
+        "body": "var a = make([]${1:type}, ${1:len}, ${1:cap})",
+        "description": "Slice with make"
+    },
+    "nil map declaration": {
         "prefix": "mapn",
         "body": "var nilMap map[string]int",
         "description": "Map (nil)"
     },
-    "map declaration (empty)": {
+    "empty map declaration": {
         "prefix": "mape",
         "body": "emptyMap := map[string]int{}",
-        "description": "Map (empty)"
+        "description": "Empty map"
     },
     "empty interface": {
         "prefix": "in",
@@ -152,7 +172,7 @@
         "description": "If else"
     },
     "if err != nil": {
-        "prefix": "ir",
+        "prefix": "iferr",
         "body": "if err != nil {\n\t${1:return ${2:nil, }${3:err}}\n}",
         "description": "if err != nil"
     },
