@@ -19,32 +19,32 @@ return {
   },
   keys = {
     {
-      "<leader>xx",
+      "xx",
       "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
       desc = "Trouble diagnostics",
     },
     {
-      "<leader>xX",
+      "xX",
       "<cmd>Trouble diagnostics toggle<CR>",
       desc = "Trouble buffer diagnostics",
     },
     {
-      "<leader>cs",
+      "cs",
       "<cmd>Trouble symbols toggle focus=false<CR>",
       desc = "Trouble symbols",
     },
     {
-      "<leader>cl",
+      "cl",
       "<cmd>Trouble lsp toggle focus=false win.position=right<CR>",
       desc = "Trouble LSP definitions / references / ...",
     },
     {
-      "<leader>xL",
+      "xL",
       "<cmd>Trouble loclist toggle<CR>",
       desc = "Trouble location list",
     },
     {
-      "<leader>xQ",
+      "xQ",
       "<cmd>Trouble qflist toggle<CR>",
       desc = "Trouble quickfix list",
     },
