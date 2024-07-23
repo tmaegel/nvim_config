@@ -26,7 +26,7 @@ return {
       b.diagnostics.yamllint.with {
         extra_args = {
           "-d",
-          "{extends: default, rules: {line-length: {max: 999}}}",
+          '{extends: default, rules: {line-length: {max: 999}, document-start: "disable"}}',
         },
       },
 
