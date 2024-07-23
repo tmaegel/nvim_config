@@ -8,7 +8,7 @@ return {
       "qf",
       "help",
       "NvimTree",
-      "Trouble",
+      "trouble",
       "tsplayground",
       "Outline",
       "DiffviewFiles",

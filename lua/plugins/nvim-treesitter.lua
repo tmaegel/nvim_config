@@ -3,9 +3,6 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
-  -- Until https://github.com/nvim-treesitter/nvim-treesitter/issues/4945 is solved.
-  commit = "33eb472b459f1d2bf49e16154726743ab3ca1c6d",
-  -- tag = "v0.9.1",
   config = function()
     local theme = require("theme.utils").get_theme_tb "base_16"
 

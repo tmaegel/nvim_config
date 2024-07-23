@@ -36,7 +36,7 @@ return {
     },
     config = function()
       local actions = require "telescope.actions"
-      local trouble = require "trouble.providers.telescope"
+      local open_with_trouble = require("trouble.sources.telescope").open
 
       local colors = require("theme.utils").get_theme_tb "base_30"
 
@@ -176,8 +176,7 @@ return {
               ["<C-h>"] = actions.select_horizontal,
               ["<C-v>"] = actions.select_vertical,
               ["<C-t>"] = actions.select_tab,
-              ["<C-q>"] = trouble.open_selected_with_trouble, -- Open search in troubles quickfix list
-              ["<M-q>"] = trouble.open_with_trouble, -- Open selected in troubles quickfix list
+              ["<C-q>"] = open_with_trouble, -- Open search / selected in troubles quickfix list
               ["<CR>"] = select_one_or_multi,
             },
             n = {
@@ -189,8 +188,7 @@ return {
               ["<C-h>"] = actions.select_horizontal,
               ["<C-v>"] = actions.select_vertical,
               ["<C-t>"] = actions.select_tab,
-              ["<C-q>"] = trouble.open_selected_with_trouble, -- Open search in troubles quickfix list
-              ["<M-q>"] = trouble.open_with_trouble, -- Open selected in troubles quickfix list
+              ["<C-q>"] = open_with_trouble, -- Open search / selected in troubles quickfix list
               ["<CR>"] = select_one_or_multi,
             },
           },
