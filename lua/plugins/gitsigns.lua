@@ -88,7 +88,7 @@ return {
       },
       on_attach = function(bufnr)
         local keymap = vim.keymap
-        keymap.set("n", "<leader>hn", "<cmd> Gitsigns next_hunk <CR>", { desc = " Git go to next hunk" })
+        keymap.set("n", "<leader>hn", "<cmd> Gitsigns next_hunk <CR>", { desc = "Git go to next hunk" })
         keymap.set("n", "<leader>hN", "<cmd> Gitsigns prev_hunk <CR>", { desc = "Git go to prev hunk" })
         keymap.set("n", "<leader>ha", "<cmd> Gitsigns stage_hunk <CR>", { desc = "Git stage hunk" })
         keymap.set("n", "<leader>hA", "<cmd> Gitsigns stage_buffer <CR>", { desc = "Git stage buffer" })

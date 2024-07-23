@@ -250,51 +250,61 @@ return {
         "n",
         "<leader>fr",
         "<cmd> lua require('telescope.builtin').resume() <CR>",
-        { desc = "Resume telescope" }
+        { desc = "Telescope resume" }
       )
-      keymap.set("n", "<leader>ff", "<cmd> Telescope find_files <CR>", { desc = "Find files" })
+      keymap.set("n", "<leader>ff", "<cmd> Telescope find_files <CR>", { desc = "Telescope find files" })
       keymap.set(
         "n",
         "<leader>fF",
         "<cmd> Telescope dir find_files <CR>",
-        { desc = "Find files in selected directory" }
+        { desc = "Telescope find files in selected directory" }
       )
       keymap.set(
         "n",
         "<leader>fa",
         "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
-        { desc = "Find all" }
+        { desc = "Telescope find all" }
       )
       keymap.set("n", "<leader>F", function()
         vim.cmd("Telescope find_files default_text=" .. vim.fn.expand "<cword>")
-      end, { desc = "Find file under cursor" })
+      end, { desc = "Telescope find file under cursor" })
 
-      keymap.set("n", "<leader>fg", "<cmd> Telescope live_grep <CR>", { desc = "Find live grep" })
+      keymap.set("n", "<leader>fg", "<cmd> Telescope live_grep <CR>", { desc = "Telescope live grep" })
       keymap.set(
         "n",
         "<leader>fG",
         "<cmd> Telescope dir live_grep <CR>",
-        { desc = "Find live grep in selected directory" }
+        { desc = "Telescope live grep in selected directory" }
       )
-      keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Find oldfiles" })
-      keymap.set("n", "<leader>fb", "<cmd> Telescope buffers sort_lastused=false <CR>", { desc = "Find buffers" })
-      keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Find help page" })
-      keymap.set("n", "<leader>fk", "<cmd> Telescope keymaps <CR>", { desc = "Find keys" })
+      keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Telescope find oldfiles" })
+      keymap.set(
+        "n",
+        "<leader>fb",
+        "<cmd> Telescope buffers sort_lastused=false <CR>",
+        { desc = "Telescope show buffers" }
+      )
+      keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Telescope find help pages" })
+      keymap.set("n", "<leader>fk", "<cmd> Telescope keymaps <CR>", { desc = "Telescope find keys" })
       keymap.set(
         "n",
         "<leader>fs",
         "<cmd> Telescope search_history <CR>",
-        { desc = "Find searches that were executed recently" }
+        { desc = "Telescope find searches that were executed recently" }
       )
       keymap.set(
         "n",
         "<leader>fc",
         "<cmd> Telescope command_history <CR>",
-        { desc = "Find commands that were executed recently" }
+        { desc = "Telescope find commands that were executed recently" }
       )
-      keymap.set("n", "<leader>fd", "<cmd> Telescope file_browser <CR>", { desc = "File browser" })
-      keymap.set("n", "<leader>fx", "<cmd> Telescope luasnip layout_strategy=vertical <CR>", { desc = "Find snippets" })
-      keymap.set("n", "<leader>fp", "<cmd> Telescope builtin <CR>", { desc = "Builtin pickers" })
+      keymap.set("n", "<leader>fd", "<cmd> Telescope file_browser <CR>", { desc = "Telescope file browser" })
+      keymap.set(
+        "n",
+        "<leader>fx",
+        "<cmd> Telescope luasnip layout_strategy=vertical <CR>",
+        { desc = "Telescope find snippets" }
+      )
+      keymap.set("n", "<leader>fp", "<cmd> Telescope builtin <CR>", { desc = "Telescope find builtin pickers" })
       -- Git
       keymap.set("n", "<leader>gs", "<cmd> Telescope git_status <CR>", { desc = "Git status" })
       keymap.set("n", "<leader>gc", "<cmd> Telescope git_commits <CR>", { desc = "Git commits" })
@@ -304,43 +314,43 @@ return {
         "n",
         "gd",
         "<cmd> Telescope lsp_definitions <CR>",
-        { desc = "Goto the definition of the word under the cursor" }
+        { desc = "Telescope goto the LSP definition (word under cursor)" }
       )
       keymap.set(
         "n",
         "gD",
         "<cmd> Telescope lsp_type_definitions <CR>",
-        { desc = "Goto the definition of the type of the word under the cursor" }
+        { desc = "Telescope goto the LSP definition (word under cursor)" }
       )
       keymap.set(
         "n",
         "gr",
         "<cmd> Telescope lsp_references <CR>",
-        { desc = "Lists LSP references for word under the cursor" }
+        { desc = "Telescope lists LSP references (word under cursor)" }
       )
       keymap.set(
         "n",
         "gi",
         "<cmd> Telescope lsp_implementations <CR>",
-        { desc = "Goto/list the implementation of the word under the cursor" }
+        { desc = "Telescope list the LSP implementation (word under cursor)" }
       )
       keymap.set(
         "n",
         "gs",
         "<cmd> Telescope lsp_document_symbols <CR>",
-        { desc = "Lists LSP document symbols in the current buffer" }
+        { desc = "Telescope lists LSP document symbols of the current buffer" }
       )
       keymap.set(
         "n",
         "<leader>ic",
         "<cmd> Telescope lsp_incoming_calls <CR>",
-        { desc = "Lists LSP incoming calls for word under the cursor" }
+        { desc = "Telescope lists LSP incoming calls (word under cursor)" }
       )
       keymap.set(
         "n",
         "<leader>oc",
         "<cmd> Telescope lsp_outgoing_calls <CR>",
-        { desc = "Lists LSP outgoing calls for word under the cursor" }
+        { desc = "Telescope lists LSP outgoing calls (word under cursor)" }
       )
     end,
   },

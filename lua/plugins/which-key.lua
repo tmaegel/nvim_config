@@ -13,26 +13,31 @@ return {
   opts = {
     icons = {
       breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-      separator = "  ", -- symbol used between a key and it's label
+      separator = "➜", -- symbol used between a key and it's label
       group = "+", -- symbol prepended to a group
+      ellipsis = "…",
     },
-    popup_mappings = {
-      scroll_down = "<c-d>", -- binding to scroll down inside the popup
-      scroll_up = "<c-u>", -- binding to scroll up inside the popup
-    },
-    window = {
-      border = "single", -- none/single/double/shadow
-      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-      padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    win = {
+      -- don't allow the popup to overlap with the cursor
+      no_overlap = true,
+      -- width = 1,
+      -- height = { min = 4, max = 25 },
+      -- col = 0,
+      -- row = math.huge,
+      border = "single",
+      padding = { 2, 2 }, -- extra window padding [top/bottom, right/left]
+      title = true,
+      title_pos = "center",
+      zindex = 1000,
+      -- Additional vim.wo and vim.bo options
+      bo = {},
+      wo = {
+        -- winblend = 10, -- value between 0-100 0 for fully opaque and 100 for fully transparent
+      },
     },
     layout = {
+      width = { min = 20 }, -- min and max width of the columns
       spacing = 6, -- spacing between columns
-    },
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
-    triggers_blacklist = {
-      -- list of mode / prefixes that should never be hooked by WhichKey
-      i = { "j", "k" },
-      v = { "j", "k" },
     },
   },
   config = function()
