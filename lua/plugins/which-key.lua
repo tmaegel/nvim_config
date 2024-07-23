@@ -2,10 +2,39 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
+  }, -- optional for icon support
   init = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 500
   end,
+  opts = {
+    icons = {
+      breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+      separator = "  ", -- symbol used between a key and it's label
+      group = "+", -- symbol prepended to a group
+    },
+    popup_mappings = {
+      scroll_down = "<c-d>", -- binding to scroll down inside the popup
+      scroll_up = "<c-u>", -- binding to scroll up inside the popup
+    },
+    window = {
+      border = "single", -- none/single/double/shadow
+      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+      padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    },
+    layout = {
+      spacing = 6, -- spacing between columns
+    },
+    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
+    triggers_blacklist = {
+      -- list of mode / prefixes that should never be hooked by WhichKey
+      i = { "j", "k" },
+      v = { "j", "k" },
+    },
+  },
   config = function()
     local colors = require("theme.utils").get_theme_tb "base_30"
 
@@ -17,32 +46,6 @@ return {
       WhichKeyValue = { fg = colors.green },
       WhichKeyFloat = { bg = colors.black },
       WhichKeyBorder = { fg = colors.grey, bg = colors.black },
-    }
-
-    require("which-key").setup {
-      icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "  ", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
-      },
-      popup_mappings = {
-        scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>", -- binding to scroll up inside the popup
-      },
-      window = {
-        border = "single", -- none/single/double/shadow
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-      },
-      layout = {
-        spacing = 6, -- spacing between columns
-      },
-      hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " },
-      triggers_blacklist = {
-        -- list of mode / prefixes that should never be hooked by WhichKey
-        i = { "j", "k" },
-        v = { "j", "k" },
-      },
     }
     local keymap = vim.keymap
     keymap.set("n", "<leader>wk", function()

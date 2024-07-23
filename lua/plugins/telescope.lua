@@ -269,31 +269,31 @@ return {
         vim.cmd("Telescope find_files default_text=" .. vim.fn.expand "<cword>")
       end, { desc = "Find file under cursor" })
 
-      keymap.set("n", "<leader>fg", "<cmd> Telescope live_grep <CR>", { desc = "Live grep" })
-      keymap.set("n", "<leader>fG", "<cmd> Telescope dir live_grep <CR>", { desc = "Live grep in selected directory" })
+      keymap.set("n", "<leader>fg", "<cmd> Telescope live_grep <CR>", { desc = "Find live grep" })
+      keymap.set(
+        "n",
+        "<leader>fG",
+        "<cmd> Telescope dir live_grep <CR>",
+        { desc = "Find live grep in selected directory" }
+      )
       keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Find oldfiles" })
       keymap.set("n", "<leader>fb", "<cmd> Telescope buffers sort_lastused=false <CR>", { desc = "Find buffers" })
-      keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Help page" })
-      keymap.set("n", "<leader>fk", "<cmd> Telescope keymaps <CR>", { desc = "Show keys" })
+      keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Find help page" })
+      keymap.set("n", "<leader>fk", "<cmd> Telescope keymaps <CR>", { desc = "Find keys" })
       keymap.set(
         "n",
         "<leader>fs",
         "<cmd> Telescope search_history <CR>",
-        { desc = "Lists searches that were executed recently" }
+        { desc = "Find searches that were executed recently" }
       )
       keymap.set(
         "n",
         "<leader>fc",
         "<cmd> Telescope command_history <CR>",
-        { desc = "Lists commands that were executed recently" }
+        { desc = "Find commands that were executed recently" }
       )
       keymap.set("n", "<leader>fd", "<cmd> Telescope file_browser <CR>", { desc = "File browser" })
-      keymap.set(
-        "n",
-        "<leader>fx",
-        "<cmd> Telescope luasnip layout_strategy=vertical <CR>",
-        { desc = "Snippet browser" }
-      )
+      keymap.set("n", "<leader>fx", "<cmd> Telescope luasnip layout_strategy=vertical <CR>", { desc = "Find snippets" })
       keymap.set("n", "<leader>fp", "<cmd> Telescope builtin <CR>", { desc = "Builtin pickers" })
       -- Git
       keymap.set("n", "<leader>gs", "<cmd> Telescope git_status <CR>", { desc = "Git status" })

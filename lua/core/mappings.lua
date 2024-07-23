@@ -60,8 +60,8 @@ keymap.set("n", "<leader>tm", "<cmd> +tabmove <CR>", { desc = "Move tab to the r
 keymap.set("n", "<leader>tM", "<cmd> -tabmove <CR>", { desc = "Move tab to the left" })
 
 -- Diff and merge
-keymap.set("n", "<leader>gl", "<cmd> diffget LOCAL <CR>", { desc = "Apply local changes" })
-keymap.set("n", "<leader>gr", "<cmd> diffget REMOTE <CR>", { desc = "Apply remote changes" })
+keymap.set("n", "<leader>gl", "<cmd> diffget LOCAL <CR>", { desc = "Git diff apply local changes" })
+keymap.set("n", "<leader>gr", "<cmd> diffget REMOTE <CR>", { desc = "Git diff apply remote changes" })
 
 keymap.set("n", "<ESC>", "<cmd> noh <CR><ESC>", { desc = "Escape and clear hlsearch" })
 keymap.set("n", "<leader>qq", "<cmd> qa <CR>", { desc = "Quit all" })
