@@ -1,7 +1,7 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 return {
   "lewis6991/gitsigns.nvim",
-  tag = "v0.7",
+  tag = "v0.9.0",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local theme = require("theme.utils").get_theme_tb "base_16"

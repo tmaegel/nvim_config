@@ -1,7 +1,7 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 return {
   "lukas-reineke/indent-blankline.nvim",
-  tag = "v3.5.1",
+  tag = "v3.7.1",
   main = "ibl",
   config = function()
     local colors = require("theme.utils").get_theme_tb "base_30"

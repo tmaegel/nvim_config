@@ -2,7 +2,6 @@
 return {
   "ghillb/cybu.nvim",
   branch = "main", -- timely updates
-  -- branch = "v1.x", -- won't receive breaking changes
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
