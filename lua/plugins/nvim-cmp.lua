@@ -128,7 +128,7 @@ return {
           end, { "i", "s" }),
         },
         experimental = {
-          ghost_text = true,
+          ghost_text = false,
         },
         sources = {
           { name = "luasnip" },
