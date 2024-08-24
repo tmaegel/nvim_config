@@ -1,6 +1,7 @@
 -- https://github.com/stevearc/conform.nvim
 return {
   "stevearc/conform.nvim",
+  branch = "nvim-0.9",
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
@@ -18,6 +19,7 @@ return {
       terraform = { "terraform_fmt" },
       json = { "jq" },
       yaml = { "yamlfmt" },
+      nix = { "nixfmt" },
       -- Use the "*" filetype to run formatters on all filetypes.
       ["*"] = {},
       -- Use the "_" filetype to run formatters on filetypes that don't
