@@ -15,17 +15,17 @@ return {
         bg = colors.blue,
         fg = colors.black,
       },
-      -- buffers not in focus
+      -- Buffers not in focus
       CybuAdjacent = {
         fg = colors.white,
         bg = colors.black,
       },
-      -- window background
+      -- Window background
       CybuBackground = {
         fg = colors.red,
         bg = colors.red,
       },
-      -- border of the window
+      -- Border of the window
       CybuBorder = {
         fg = colors.grey,
         bg = colors.black,

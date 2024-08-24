@@ -4,7 +4,6 @@ return {
   tag = "v0.9.0",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local theme = require("theme.utils").get_theme_tb "base_16"
     local colors = require("theme.utils").get_theme_tb "base_30"
 
     require("theme.utils").load_highlight {
