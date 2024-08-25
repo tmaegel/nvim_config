@@ -104,6 +104,9 @@ return {
           },
           file_sorter = require("telescope.sorters").get_fuzzy_file,
           file_ignore_patterns = {
+            "%.bz",
+            "%.gpg",
+            "%.gz",
             "%.ipynb",
             "%.jpeg",
             "%.jpg",
