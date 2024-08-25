@@ -120,10 +120,6 @@ return {
       keymap.set("n", "<leader>wl", function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, { desc = "List workspace folders", noremap = true, silent = true })
-
-      if client.server_capabilities.signatureHelpProvider then
-        require("lsp.signature").setup(client)
-      end
     end
 
     --
