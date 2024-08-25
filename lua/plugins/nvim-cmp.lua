@@ -4,6 +4,7 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
+      "onsails/lspkind.nvim",
       "hrsh7th/cmp-nvim-lsp", -- Snippets source for nvim-cmp
       "hrsh7th/cmp-nvim-lsp-signature-help", -- Source for displaying function signatures
       "hrsh7th/cmp-nvim-lua", -- Source for neovim Lua API
@@ -16,8 +17,10 @@ return {
     config = function()
       local cmp = require "cmp"
       local luasnip = require "luasnip"
+      local lspkind = require "lspkind"
 
       cmp.setup {
+
         completion = {
           completeopt = "menu,menuone,noselect,noinsert",
         },
@@ -38,11 +41,21 @@ return {
           },
         },
         formatting = {
-          format = function(_, vim_item)
-            local icons = require("icons").lspkind
-            vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-            return vim_item
-          end,
+          format = lspkind.cmp_format {
+            mode = "symbol_text", -- show only symbol annotations
+            preset = "default",
+            -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            -- can also be a function to dynamically calculate max width such as
+            -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
+            maxwidth = 50,
+            ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+            -- The function below will be called before any actual modifications from lspkind
+            -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+            before = function(entry, vim_item)
+              return vim_item
+            end,
+          },
         },
         -- Disabling completion in certain contexts, such as comments.
         enabled = function()
