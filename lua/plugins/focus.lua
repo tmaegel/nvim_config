@@ -4,20 +4,28 @@ return {
   config = function()
     -- Ignore filetypes
     local ignore_filetypes = {
-      "toggleterm",
-      "qf",
+      "",
+      "alpha",
+      "DiffviewFiles",
       "help",
+      "lspinfo",
+      "mason",
       "NvimTree",
+      "Outline",
+      "packer",
+      "qf",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "terminal",
+      "toggleterm",
       "trouble",
       "tsplayground",
-      "Outline",
-      "DiffviewFiles",
     }
     -- Ignore buftypes
     local ignore_buftypes = {
       "nofile",
-      "prompt",
       "popup",
+      "prompt",
     }
 
     require("focus").setup {
@@ -36,7 +44,7 @@ return {
         tmux = false, -- Create tmux splits instead of neovim splits
       },
       ui = {
-        number = true, -- Display line numbers in the focussed window only
+        number = false, -- Display line numbers in the focussed window only
         relativenumber = false, -- Display relative line numbers in the focussed window only
         hybridnumber = false, -- Display hybrid line numbers in the focussed window only
         absolutenumber_unfocussed = false, -- Preserve absolute numbers in the unfocussed windows

@@ -35,7 +35,7 @@ local options = {
   -- Disable folding
   foldenable = false,
   -- Show line numbers
-  number = false,
+  number = true,
   relativenumber = false,
   numberwidth = 2,
   -- Turn on the wild menu
@@ -77,8 +77,8 @@ local options = {
   fillchars = {
     diff = " ", -- ╱ ░
     eob = " ",
-    -- horiz = "━", -- Fallback to default
-    -- vert = "┃", -- Fallback to default
+    horiz = "─", -- Fallback to default
+    vert = "│", -- Fallback to default
     -- horizup = " ",
     -- horizdown = " ",
     -- vertleft = " ",
@@ -121,7 +121,7 @@ local options = {
   mousemodel = "extend",
   -- Disable nvim intro
   shortmess = opt.shortmess + "sI",
-  signcolumn = "auto",
+  signcolumn = "yes",
   splitbelow = true,
   splitright = true,
   termguicolors = true,

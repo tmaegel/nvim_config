@@ -41,17 +41,6 @@ return {
     },
   },
   config = function()
-    local colors = require("theme.utils").get_theme_tb "base_30"
-
-    require("theme.utils").load_highlight {
-      WhichKey = { fg = colors.blue },
-      WhichKeySeparator = { fg = colors.light_grey },
-      WhichKeyDesc = { fg = colors.red },
-      WhichKeyGroup = { fg = colors.green },
-      WhichKeyValue = { fg = colors.green },
-      WhichKeyFloat = { bg = colors.black },
-      WhichKeyBorder = { fg = colors.grey, bg = colors.black },
-    }
     local keymap = vim.keymap
     keymap.set("n", "<leader>wk", function()
       vim.cmd "WhichKey"

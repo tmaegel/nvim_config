@@ -7,31 +7,6 @@ return {
     "nvim-lua/plenary.nvim",
   }, -- optional for icon support
   config = function()
-    local colors = require("theme.utils").get_theme_tb "base_30"
-
-    require("theme.utils").load_highlight {
-      -- current / selected buffer
-      CybuFocus = {
-        bg = colors.blue,
-        fg = colors.black,
-      },
-      -- Buffers not in focus
-      CybuAdjacent = {
-        fg = colors.white,
-        bg = colors.black,
-      },
-      -- Window background
-      CybuBackground = {
-        fg = colors.red,
-        bg = colors.red,
-      },
-      -- Border of the window
-      CybuBorder = {
-        fg = colors.grey,
-        bg = colors.black,
-      },
-    }
-
     require("cybu").setup {
       position = {
         relative_to = "win", -- win, editor, cursor

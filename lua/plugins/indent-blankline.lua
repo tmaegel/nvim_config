@@ -1,43 +1,22 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 return {
   "lukas-reineke/indent-blankline.nvim",
-  tag = "v3.7.1",
+  tag = "v3.7.2",
   main = "ibl",
   config = function()
-    local colors = require("theme.utils").get_theme_tb "base_30"
-
-    require("theme.utils").load_highlight {
-      Indentation = { fg = colors.line },
-      CurrentScope = { fg = colors.one_bg2 },
-    }
-
     require("ibl").setup {
       indent = {
         char = "▏",
-        highlight = "Indentation",
+        highlight = "IblIndent",
       },
       scope = {
-        char = "▎",
+        char = "▏",
         show_start = true,
         show_end = true,
         show_exact_scope = true,
-        highlight = "CurrentScope",
-      },
-      exclude = {
-        filetypes = {
-          "help",
-          "terminal",
-          "alpha",
-          "packer",
-          "lspinfo",
-          "TelescopePrompt",
-          "TelescopeResults",
-          "mason",
-          "",
-        },
+        highlight = "IblScope",
       },
     }
-
     local hooks = require "ibl.hooks"
     -- Replaces the first indentation guide for space indentation with a normal space.
     hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)

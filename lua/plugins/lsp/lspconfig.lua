@@ -7,8 +7,6 @@ return {
   config = function()
     local lspconfig = require "lspconfig"
 
-    require("theme.utils").load_highlight "lsp"
-
     -- Overwrite diagnostic icons/signs
     require("utils").set_lsp_sign "Error"
     require("utils").set_lsp_sign "Info"

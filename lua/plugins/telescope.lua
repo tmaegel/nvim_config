@@ -38,55 +38,6 @@ return {
       local actions = require "telescope.actions"
       local open_with_trouble = require("trouble.sources.telescope").open
 
-      local colors = require("theme.utils").get_theme_tb "base_30"
-
-      require("theme.utils").load_highlight {
-        TelescopeBorder = {
-          fg = colors.darker_black,
-          bg = colors.darker_black,
-        },
-        TelescopePromptBorder = {
-          fg = colors.black2,
-          bg = colors.black2,
-        },
-        TelescopePromptNormal = {
-          fg = colors.white,
-          bg = colors.black2,
-        },
-        TelescopePromptPrefix = {
-          fg = colors.red,
-          bg = colors.black2,
-        },
-        TelescopeNormal = {
-          bg = colors.darker_black,
-        },
-        TelescopePreviewTitle = {
-          fg = colors.black,
-          bg = colors.green,
-        },
-        TelescopePromptTitle = {
-          fg = colors.black,
-          bg = colors.red,
-        },
-        TelescopeResultsTitle = {
-          fg = colors.darker_black,
-          bg = colors.darker_black,
-        },
-        TelescopeSelection = {
-          bg = colors.black2,
-          fg = colors.white,
-        },
-        TelescopeResultsDiffAdd = {
-          fg = colors.green,
-        },
-        TelescopeResultsDiffChange = {
-          fg = colors.yellow,
-        },
-        TelescopeResultsDiffDelete = {
-          fg = colors.red,
-        },
-      }
-
       require("telescope").setup {
         defaults = {
           vimgrep_arguments = {
@@ -102,9 +53,9 @@ return {
           -- The character(s) that will be shown in front of Telescope's prompt.
           prompt_prefix = "   ",
           -- The character(s) that will be shown in front of the current selection.
-          selection_caret = "  ",
+          selection_caret = " ",
           -- Prefix in front of each result entry. Current selection not included.
-          entry_prefix = "   ",
+          entry_prefix = " ",
           -- Symbol to add in front of a multi-selected result entry.
           multi_icon = " + ",
           initial_mode = "insert",
