@@ -274,5 +274,14 @@ return {
       capabilities = capabilities,
       settings = {},
     }
+
+    --
+    -- HELM
+    --
+    lspconfig["helm_ls"].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {},
+    }
   end,
 }
