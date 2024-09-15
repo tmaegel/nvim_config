@@ -11,6 +11,7 @@ return {
     vim.o.timeoutlen = 500
   end,
   opts = {
+    preset = "modern",
     icons = {
       breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
       separator = "➜", -- symbol used between a key and it's label
@@ -35,19 +36,21 @@ return {
         -- winblend = 10, -- value between 0-100 0 for fully opaque and 100 for fully transparent
       },
     },
+    show_help = false,
+    show_keys = true,
     layout = {
+      align = "center",
       width = { min = 20 }, -- min and max width of the columns
-      spacing = 6, -- spacing between columns
+      spacing = 3, -- spacing between columns
     },
   },
-  config = function()
-    local keymap = vim.keymap
-    keymap.set("n", "<leader>wk", function()
-      vim.cmd "WhichKey"
-    end, { desc = "Whichkey all keymaps" })
-    keymap.set("n", "<leader>wK", function()
-      local input = vim.fn.input "WhichKey: "
-      vim.cmd("WhichKey " .. input)
-    end, { desc = "Whichkey query lookup" })
-  end,
+  keys = {
+    {
+      "<leader>wk",
+      function()
+        require("which-key").show { global = false }
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
 }

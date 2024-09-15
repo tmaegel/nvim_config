@@ -206,14 +206,7 @@ return {
       --
       -- Which-key
       --
-      WhichKey = { fg = "${blue}" }, -- Function
-      WhichKeyBorder = { fg = "${border}", bg = "${bg}" }, -- Border of the which-key window
-      WhichKeyDesc = { fg = "${fg}" }, -- Description
-      WhichKeyGroup = { fg = "${green}" }, -- Group name
-      WhichKeyNormal = { bg = "${bg}" }, -- ormal in th which-key window
-      WhichKeySeparator = { fg = "${gray}" }, -- The separator between the key and its description
-      WhichKeyTitle = { fg = "${fg}", bg = "${purple}" }, -- Title of the which-key
-      WhichKeyValue = { fg = "${green}" }, -- Values by plugins (like marks, registers, etc)
+      WhichKeyTitle = { fg = "${bg}", bg = "${green}" }, -- Title of the which-key
     },
 
     caching = false,
@@ -223,7 +216,7 @@ return {
       gitsigns = false,
       indentline = false,
       telescope = false,
-      which_key = false,
+      which_key = true,
       nvim_cmp = false,
     },
     styles = {
