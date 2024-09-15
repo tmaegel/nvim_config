@@ -66,21 +66,13 @@ return {
           -- Determines the default layout of Telescope pickers.
           layout_strategy = "horizontal",
           layout_config = {
-            bottom_pane = {
-              height = 25,
-              prompt_position = "top",
-              preview_cutoff = 120,
-            },
-            center = {
-              height = 0.4,
-              width = 0.5,
-              prompt_position = "top",
-              preview_cutoff = 40,
-            },
-            cursor = {
+            horizontal = {
               height = 0.9,
               width = 0.8,
-              preview_cutoff = 40,
+              prompt_position = "top",
+              preview_width = 0.5,
+              results_width = 0.5,
+              preview_cutoff = 120,
             },
             vertical = {
               height = 0.75,
@@ -89,14 +81,6 @@ return {
               preview_height = 0.4,
               results_height = 0.4,
               preview_cutoff = 40,
-            },
-            horizontal = {
-              height = 0.9,
-              width = 0.8,
-              prompt_position = "top",
-              preview_width = 0.5,
-              results_width = 0.5,
-              preview_cutoff = 120,
             },
             width = 0.90,
             height = 0.80,
@@ -166,9 +150,14 @@ return {
         },
         pickers = {
           buffers = {
+            previewer = false,
             show_all_buffers = true,
             sort_lastused = true,
-            previewer = false,
+            sort_mru = true,
+            layout_config = {
+              width = 0.5,
+              height = 0.4,
+            },
             mappings = {
               i = {
                 ["<c-d>"] = "delete_buffer",
@@ -190,11 +179,26 @@ return {
               n = {},
             },
           },
+          search_history = {
+            layout_config = {
+              width = 0.5,
+              height = 0.4,
+            },
+          },
+          command_history = {
+            layout_config = {
+              width = 0.5,
+              height = 0.4,
+            },
+          },
         },
         extensions = {
           file_browser = {
-            previewer = true,
-            layout_strategy = "horizontal",
+            previewer = false,
+            layout_config = {
+              width = 0.5,
+              height = 0.4,
+            },
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
             mappings = {
@@ -246,12 +250,7 @@ return {
         { desc = "Telescope live grep in selected directory" }
       )
       keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Telescope find oldfiles" })
-      keymap.set(
-        "n",
-        "<leader>fb",
-        "<cmd> Telescope buffers sort_lastused=false <CR>",
-        { desc = "Telescope show buffers" }
-      )
+      keymap.set("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Telescope show buffers" })
       keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Telescope find help pages" })
       keymap.set("n", "<leader>fk", "<cmd> Telescope keymaps <CR>", { desc = "Telescope find keys" })
       keymap.set(

@@ -150,6 +150,7 @@ return {
       TelescopeNormal = { bg = "${bg_darker}" },
       TelescopeBorder = { fg = "${bg_darker}", bg = "${bg_darker}" },
       TelescopeSelection = { fg = "${bg}", bg = "${blue}" },
+      TelescopeSelectionCaret = { fg = "${bg}", bg = "${blue}" },
       TelescopeMatching = { fg = "${red}" },
 
       --
@@ -183,16 +184,6 @@ return {
       InclineNormalNC = { fg = "${fg}", bg = "${bg}" },
 
       --
-      -- Cybu
-      -- @todo
-      --
-      CybuFocus = { fg = "${bg}", bg = "${blue}" }, -- current / selected buffer
-      CybuAdjacent = { fg = "${fg}", bg = "${bg}" }, -- Buffers not in focus
-      CybuBackground = { fg = "${fg}", bg = "${bg}" }, -- Window background
-      CybuBorder = { fg = "${blue}", bg = "${bg}" }, -- Border of the window
-      CybuInfobar = {},
-
-      --
       -- Indent-blankline
       --
       IblIndent = { fg = "${line}" },
@@ -215,9 +206,9 @@ return {
     plugins = {
       gitsigns = false,
       indentline = false,
+      nvim_cmp = false,
       telescope = false,
       which_key = true,
-      nvim_cmp = false,
     },
     styles = {
       tags = "NONE",
