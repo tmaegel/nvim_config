@@ -251,6 +251,7 @@ return {
       )
       keymap.set("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>", { desc = "Telescope find oldfiles" })
       keymap.set("n", "<leader>fb", "<cmd> Telescope buffers <CR>", { desc = "Telescope show buffers" })
+      keymap.set("n", "<leader><tab>", "<cmd> Telescope buffers <CR>", { desc = "Telescope show buffers" })
       keymap.set("n", "<leader>fh", "<cmd> Telescope help_tags <CR>", { desc = "Telescope find help pages" })
       keymap.set("n", "<leader>fk", "<cmd> Telescope keymaps <CR>", { desc = "Telescope find keys" })
       keymap.set(
