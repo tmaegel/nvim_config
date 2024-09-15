@@ -15,10 +15,10 @@ return {
         bg_lighter = "require('onedarkpro.helpers').lighten('bg', 2, 'onedark')",
         bg_darker = "require('onedarkpro.helpers').darken('bg', 2, 'onedark')",
         light_gray = "require('onedarkpro.helpers').darken('gray', 15, 'onedark')",
-        diff_add = "#31392b",
-        diff_delete = "#382b2c",
-        diff_change = "#1c3448",
-        diff_text = "#2c5372",
+        diff_add = "#273732",
+        diff_delete = "#362B31",
+        diff_change = "#273732",
+        diff_text = "#395844",
         codeblock = "require('onedarkpro.helpers').lighten('bg', 2, 'onedark')",
       },
     },
@@ -48,6 +48,14 @@ return {
       PmenuSbar = { bg = "${bg}" },
       PmenuSel = { bg = "${blue}", fg = "${bg}" },
       PmenuThumb = { bg = "${gray}" },
+
+      --
+      -- Git
+      --
+      DiffAdd = { bg = "${diff_add}" }, -- diff mode: Added line |diff.txt|
+      DiffChange = { bg = "${diff_change}" }, -- diff mode: Changed line |diff.txt|
+      DiffDelete = { bg = "${diff_delete}" },
+      DiffText = { bg = "${diff_text}" }, -- diff mode: Changed text within a changed line |diff.txt|
 
       --
       -- LSP
@@ -121,21 +129,6 @@ return {
       TelescopeMatching = { fg = "${red}" },
 
       --
-      -- Git / Gitsign
-      --
-      --
-      DiffText = { fg = "none", bg = "${diff_text}" },
-      DiffAdd = { fg = "none", bg = "${diff_add}" },
-      DiffChange = { fg = "none", bg = "${diff_change}" },
-      DiffDelete = { fg = "none", bg = "${diff_delete}" },
-      DiffAdded = { fg = "${green}" },
-      DiffChangeDelete = { fg = "${red}" },
-      DiffModified = { fg = "${yellow}" },
-      DiffRemoved = { fg = "${red}" },
-      GitWordAdd = { bg = "${diff_text}" },
-      GitWordDelete = { bg = "${diff_text}" },
-
-      --
       -- Incline
       --
       InclineNormal = { fg = "${bg}", bg = "${blue}" },
@@ -144,8 +137,8 @@ return {
       --
       -- Indent-blankline
       --
-      IblIndent = { fg = "${line}" },
-      IblScope = { fg = "${light_gray}" },
+      IndentLine = { fg = "${line}" },
+      IndentBlanklineContextChar = { fg = "${light_gray}" },
 
       --
       -- nvim-code-action-menu
@@ -163,9 +156,11 @@ return {
 
     plugins = {
       gitsigns = true,
-      indentline = false,
+      indentline = true,
       nvim_cmp = true,
       telescope = false,
+      treesitter = true,
+      trouble = true,
       which_key = true,
     },
     styles = {

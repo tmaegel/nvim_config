@@ -7,14 +7,14 @@ return {
     require("ibl").setup {
       indent = {
         char = "▏",
-        highlight = "IblIndent",
+        highlight = "IndentLine",
       },
       scope = {
         char = "▏",
         show_start = true,
         show_end = true,
         show_exact_scope = true,
-        highlight = "IblScope",
+        highlight = "IndentBlanklineContextChar",
       },
     }
     local hooks = require "ibl.hooks"
