@@ -95,42 +95,9 @@ return {
       --
       -- Cmp
       --
-      CmpItemAbbr = { fg = "${fg}" }, -- Highlight group for unmatched characters of each completion field.
-      CmpItemAbbrMatch = { fg = "${blue}", bold = true }, -- Highlight group for matched characters of each completion field.
-      CmpItemAbbrMatchFuzzy = { fg = "${blue}", underline = true }, -- Highlight group for fuzzy-matched characters of each completion field.
+      CmpPmenu = { bg = "${bg}" },
       CmpBorder = { fg = "${border}" },
       CmpDocBorder = { fg = "${border}" },
-      CmpPmenu = { bg = "${bg}" },
-      -- cmp item kinds
-      CmpItemKindConstant = { fg = "${yellow}" },
-      CmpItemKindFunction = { fg = "${cyan}" },
-      CmpItemKindIdentifier = { fg = "${red}" },
-      CmpItemKindField = { fg = "${red}" },
-      CmpItemKindVariable = { fg = "${purple}" },
-      CmpItemKindSnippet = { fg = "${red}" },
-      CmpItemKindText = { fg = "${green}" },
-      CmpItemKindStructure = { fg = "${purple}" },
-      CmpItemKindType = { fg = "${yellow}" },
-      CmpItemKindKeyword = { fg = "${fg}" },
-      CmpItemKindMethod = { fg = "${cyan}" },
-      CmpItemKindConstructor = { fg = "${blue}" },
-      CmpItemKindFolder = { fg = "${fg}" },
-      CmpItemKindModule = { fg = "${yellow}" },
-      CmpItemKindProperty = { fg = "${red}" },
-      -- CmpItemKindEnum = { fg = "" },
-      CmpItemKindUnit = { fg = "${purple}" },
-      -- CmpItemKindClass = { fg = "" },
-      CmpItemKindFile = { fg = "${fg}" },
-      -- CmpItemKindInterface = { fg = "" },
-      CmpItemKindColor = { fg = "${red}" },
-      CmpItemKindReference = { fg = "${fg}" },
-      -- CmpItemKindEnumMember = { fg = "" },
-      CmpItemKindStruct = { fg = "${purple}" },
-      -- CmpItemKindValue = { fg = "" },
-      -- CmpItemKindEvent = { fg = "" },
-      CmpItemKindOperator = { fg = "${fg}" },
-      CmpItemKindTypeParameter = { fg = "${red}" },
-      CmpItemKindCopilot = { fg = "${green}" },
 
       --
       -- Telescope
@@ -156,16 +123,7 @@ return {
       --
       -- Git / Gitsign
       --
-      GitSignsAdd = { fg = "${green}", bg = "none" },
-      GitSignsChange = { fg = "${blue}", bg = "none" },
-      GitSignsDelete = { fg = "${red}", bg = "none" },
-      GitSignsAddNr = { fg = "${green}", bg = "${bg}" },
-      GitSignsChangeNr = { fg = "${blue}", bg = "${bg}" },
-      GitSignsDeleteNr = { fg = "${red}", bg = "${bg}" },
-      GitSignsAddLn = { fg = "none", bg = "${diff_add}" },
-      GitSignsChangeLn = { fg = "none", bg = "${diff_change}" },
-      GitSignsDeleteLn = { fg = "none", bg = "${diff_delete}" },
-
+      --
       DiffText = { fg = "none", bg = "${diff_text}" },
       DiffAdd = { fg = "none", bg = "${diff_add}" },
       DiffChange = { fg = "none", bg = "${diff_change}" },
@@ -204,9 +162,9 @@ return {
     cache_path = vim.fn.expand(vim.fn.stdpath "cache" .. "/onedarkpro_dotfiles"),
 
     plugins = {
-      gitsigns = false,
+      gitsigns = true,
       indentline = false,
-      nvim_cmp = false,
+      nvim_cmp = true,
       telescope = false,
       which_key = true,
     },
