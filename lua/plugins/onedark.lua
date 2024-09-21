@@ -19,11 +19,9 @@ return {
         diff_delete = "#362B31",
         diff_change = "#273732",
         diff_text = "#395844",
-        codeblock = "require('onedarkpro.helpers').lighten('bg', 2, 'onedark')",
       },
     },
     highlights = {
-      ["@markup.raw.block.markdown"] = { bg = "${codeblock}" },
       ["@markup.quote.markdown"] = { italic = true, extend = true },
       ["@markup.list.unchecked.markdown"] = { fg = "${bg}", bg = "${fg}" },
 
