@@ -235,7 +235,7 @@ return {
       keymap.set(
         "n",
         "<leader>fa",
-        "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
+        "<cmd> Telescope find_files follow=false no_ignore=true hidden=true <CR>",
         { desc = "Telescope find all" }
       )
       keymap.set("n", "<leader>F", function()
