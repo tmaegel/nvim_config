@@ -7,6 +7,7 @@ return {
       onedark = {
         bg = "#1e222a",
         bg_statusline = "#1e222a",
+        fg_gutter_inactive = "#abb2bf", -- fg
       },
       dark = {
         white = "#ffffff",
@@ -130,7 +131,7 @@ return {
       -- Incline
       --
       InclineNormal = { fg = "${bg}", bg = "${blue}" },
-      InclineNormalNC = { fg = "${fg}", bg = "${bg}" },
+      InclineNormalNC = { fg = "${fg}", bg = "${fg_gutter}" },
 
       --
       -- Indent-blankline
@@ -142,6 +143,12 @@ return {
       -- nvim-code-action-menu
       --
       CodeActionMenuMenuSelection = { fg = "${bg}", bg = "${blue}" },
+
+      --
+      -- lualine
+      --
+      LualineNormal = { fg = "${bg}", bg = "${comment}" },
+      LualineInactive = { fg = "${fg}", bg = "${fg_gutter}" },
 
       --
       -- Which-key

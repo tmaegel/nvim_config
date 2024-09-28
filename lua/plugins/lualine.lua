@@ -25,6 +25,9 @@ return {
       lualine_a = {
         {
           "mode",
+          fmt = function(str)
+            return str:sub(1, 1)
+          end,
           padding = { left = 1, right = 1 },
         },
       },
@@ -33,8 +36,8 @@ return {
           "tabs",
           padding = { left = 1, right = 1 },
           tabs_color = {
-            active = "lualine_b_normal", -- Color for active tab.
-            inactive = "lualine_b_inactive", -- Color for inactive tab.
+            active = "LualineNormal", -- Color for active tab.
+            inactive = "LualineInactive", -- Color for inactive tab.
           },
           show_modified_status = false,
         },
