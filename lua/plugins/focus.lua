@@ -33,8 +33,8 @@ return {
       commands = true, -- Create Focus commands
       autoresize = {
         enable = true, -- Enable or disable auto-resizing of splits
-        width = 120, -- Force width for the focused window
-        height = 80, -- Force height for the focused window
+        width = 0, -- Force width for the focused window
+        height = 0, -- Force height for the focused window
         minwidth = 20, -- Force minimum width for the unfocused window
         minheight = 10, -- Force minimum height for the unfocused window
         height_quickfix = 10, -- Set the height of quickfix panel
