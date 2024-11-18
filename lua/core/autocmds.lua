@@ -32,6 +32,18 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
+  group = augroup "ft_dart",
+  pattern = "dart",
+  callback = function()
+    opt.tabstop = 2
+    opt.shiftwidth = 2
+    opt.softtabstop = 2
+    opt.expandtab = true
+    opt.smarttab = true
+  end,
+})
+
+autocmd("FileType", {
   group = augroup "ft_javascript",
   pattern = "javascript,javascriptreact,typescript,typescriptreact,css",
   callback = function()
