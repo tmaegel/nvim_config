@@ -8,6 +8,9 @@ return {
     local b = null_ls.builtins
     local sources = {
 
+      -- GOLANG
+      b.diagnostics.golangci_lint,
+
       -- PYTHON
       b.diagnostics.flake8,
       b.diagnostics.mypy,
