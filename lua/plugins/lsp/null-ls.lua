@@ -9,7 +9,11 @@ return {
     local sources = {
 
       -- GOLANG
-      b.diagnostics.golangci_lint,
+      b.diagnostics.golangci_lint.with {
+        extra_args = {
+          "--fast",
+        },
+      },
 
       -- PYTHON
       b.diagnostics.flake8,
