@@ -43,17 +43,37 @@
         "body": "type ${1:name} struct {\n\t$0\n}",
         "description": "Struct declaration"
     },
-    "package main and main function": {
+    "package": {
+        "prefix": [
+            "pkg",
+            "package"
+        ],
+        "body": [
+            "package ${1:main}"
+        ],
+        "description": "Package"
+    },
+    "package main with main function": {
         "prefix": [
             "pkgm",
             "packagem"
         ],
-        "body": "package main\n\nfunc main() {\n\t$0\n}",
+        "body": [
+            "package main",
+            "",
+            "func main() {",
+            "\t$0",
+            "}"
+        ],
         "description": "Main package & function"
     },
     "function declaration": {
         "prefix": "func",
-        "body": "func ${1:name}(${2:args}) ${3:returns} {\n\t$0\n}",
+        "body": [
+            "func ${1:name}(${2:args}) ${3:return} {",
+            "\t$0",
+            "}"
+        ],
         "description": "Function declaration"
     },
     "variable declaration without initialization": {
@@ -108,48 +128,58 @@
     },
     "empty array declaration": {
         "prefix": "arr",
-        "body": "var array [3]int",
+        "body": "var arr [3]int",
         "description": "Empty array"
     },
     "array declaration with values": {
         "prefix": "arrv",
-        "body": "var array = [3]int{10, 20, 30}",
+        "body": "var arr = [3]int{10, 20, 30}",
         "description": "Array with values"
+    },
+    "array declaration with values (alternative)": {
+        "prefix": "arrva",
+        "body": "var arr = [...]int{10, 20, 30}",
+        "description": "Array with values (alternative)"
     },
     "array declaration with values (shorthand)": {
         "prefix": "arrvs",
-        "body": "array := [3]int{10, 20, 30}",
+        "body": "a := [3]int{10, 20, 30}",
         "description": "Array with values (shorthand)"
     },
     "empty slice declaration": {
         "prefix": "sli",
-        "body": "var slice []int",
+        "body": "var s []int",
         "description": "Empty slice"
     },
     "slice declaration with values": {
         "prefix": "sliv",
-        "body": "var slice = []int{10, 20, 30}",
+        "body": "var s = []int{10, 20, 30}",
         "description": "Slice with values"
     },
     "slice declaration with values (shorthand)": {
         "prefix": "sliv",
-        "body": "slice := []int{10, 20, 30}",
+        "body": "s := []int{10, 20, 30}",
         "description": "Slice with values (shorthand)"
     },
     "slice declaration with make": {
         "prefix": "slim",
-        "body": "var a = make([]${1:type}, ${1:len}, ${1:cap})",
+        "body": "var s = make([]${1:type}, ${2:len}, ${3:cap})",
         "description": "Slice with make"
     },
-    "nil map declaration": {
-        "prefix": "mapn",
-        "body": "var nilMap map[string]int",
-        "description": "Map (nil)"
-    },
-    "empty map declaration": {
+    "map declaration (empty)": {
         "prefix": "mape",
-        "body": "emptyMap := map[string]int{}",
-        "description": "Empty map"
+        "body": "m := map[string]int{}",
+        "description": "Map (empty)"
+    },
+    "map declaration with make": {
+        "prefix": "mapm",
+        "body": "var m = make(map[string]string)",
+        "description": "Map with make"
+    },
+    "map declaration with values": {
+        "prefix": "mapv",
+        "body": "m := map[string]int{\"a\":1, \"b\":2}",
+        "description": "Map with values"
     },
     "empty interface": {
         "prefix": "in",
@@ -311,28 +341,76 @@
     },
     "test function": {
         "prefix": "tf",
-        "body": "func Test$1(t *testing.T) {\n\t$0\n}",
+        "body": [
+            "func Test${1:Example}(t *testing.T) {",
+            "\t$0",
+            "}"
+        ],
         "description": "Test function"
     },
-    "test main": {
-        "prefix": "tm",
-        "body": "func TestMain(m *testing.M) {\n\t$1\n\n\tos.Exit(m.Run())\n}",
-        "description": "TestMain function"
+    "test sub function": {
+        "prefix": "tfs",
+        "body": [
+            "t.Run(\"${1:description}\", func(t *testing.T) {",
+            "\t$0",
+            "})"
+        ],
+        "description": "Test sub function"
     },
-    "benchmark function": {
-        "prefix": "bf",
-        "body": "func Benchmark$1(b *testing.B) {\n\tfor ${2:i} := 0; ${2:i} < b.N; ${2:i}++ {\n\t\t$0\n\t}\n}",
-        "description": "Benchmark function"
+    "test helper function": {
+        "prefix": "tfh",
+        "body": [
+            "func assert${1:Value}(t testing.TB, got, want string) {",
+            "\tt.Helper()",
+            "\tif got != want {",
+            "\t\tt.Errorf(\"got %q want %q\", got, want)",
+            "\t}",
+            "}"
+        ],
+        "description": "Test helper function"
+    },
+    "test helper sub function": {
+        "prefix": "tfhs",
+        "body": [
+            "assert${1:Value} := func(t testing.TB, got, want string) {",
+            "\tt.Helper()",
+            "\tif got != want {",
+            "\t\tt.Errorf(\"got %q want %q\", got, want)",
+            "\t}",
+            "}"
+        ],
+        "description": "Test helper sub function"
+    },
+    "test main function": {
+        "prefix": "tfm",
+        "body": [
+            "func TestMain(m *testing.M) {",
+            "\t$0",
+            "\tos.Exit(m.Run())",
+            "}"
+        ],
+        "description": "TestMain function"
     },
     "example function": {
         "prefix": "ef",
-        "body": "func Example$1() {\n\t$2\n\t//Output:\n\t$3\n}",
+        "body": [
+            "func Example${1:Value}() {",
+            "\t$2",
+            "\t//Output: ${3:0}",
+            "}"
+        ],
         "description": "Example function"
     },
-    "table driven test": {
-        "prefix": "tdt",
-        "body": "func Test$1(t *testing.T) {\n\ttestCases := []struct {\n\t\tdesc\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tdesc: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tC := range testCases {\n\t\tt.Run(tC.desc, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
-        "description": "Table driven test"
+    "benchmark function": {
+        "prefix": "bf",
+        "body": [
+            "func Benchmark${1:Example}(b *testing.B) {",
+            "\tfor ${2:i} := 0; ${2:i} < b.N; ${2:i}++ {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Benchmark function"
     },
     "init function": {
         "prefix": "finit",
@@ -347,9 +425,13 @@
     "method declaration": {
         "prefix": [
             "meth",
-            "fum"
+            "funcm"
         ],
-        "body": "func (${1:receiver} ${2:type}) ${3:method}($4) $5 {\n\t$0\n}",
+        "body": [
+            "func (${1:receiver} ${2:type}) ${3:name}(${4:args}) ${5:return} {",
+            "\t$0",
+            "}"
+        ],
         "description": "Method declaration"
     },
     "hello world web app": {
