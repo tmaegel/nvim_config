@@ -1,36 +1,32 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   dependencies = {
     "neovim/nvim-lspconfig",
+    "nvimtools/none-ls-extras.nvim",
+    "gbprod/none-ls-shellcheck.nvim",
   },
   config = function()
     local null_ls = require "null-ls"
-    local b = null_ls.builtins
+    local none_ls_shellcheck = require "none-ls-shellcheck"
     local sources = {
 
       -- GOLANG
-      b.diagnostics.golangci_lint.with {
+      null_ls.builtins.diagnostics.golangci_lint.with {
         extra_args = {
           "--fast",
         },
       },
 
       -- PYTHON
-      b.diagnostics.flake8,
-      b.diagnostics.mypy,
+      require "none-ls.diagnostics.flake8",
+      null_ls.builtins.diagnostics.mypy,
 
       -- SHELL / BASH
-      b.code_actions.shellcheck,
-      b.diagnostics.shellcheck.with {
-        diagnostics_format = "#{m} [#{c}]",
-        extra_args = {
-          "-o",
-          "all",
-        },
-      },
+      none_ls_shellcheck.code_actions,
+      none_ls_shellcheck.diagnostics,
 
       -- YAML
-      b.diagnostics.yamllint.with {
+      null_ls.builtins.diagnostics.yamllint.with {
         extra_args = {
           "-d",
           '{extends: default, rules: {line-length: {max: 999}, document-start: "disable"}}',
@@ -38,7 +34,7 @@ return {
       },
 
       -- MARKDOWN
-      b.diagnostics.markdownlint.with {
+      null_ls.builtins.diagnostics.markdownlint.with {
         extra_args = {
           "--disable",
           "MD013",
@@ -47,7 +43,7 @@ return {
     }
 
     null_ls.setup {
-      -- Use :NullLsLog to open your debug log in the current Neovim
+      -- Use :NoneLsLog to open your debug log in the current Neovim
       debug = false,
       sources = sources,
     }

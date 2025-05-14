@@ -7,21 +7,40 @@ return {
   config = function()
     local lspconfig = require "lspconfig"
 
-    -- Overwrite diagnostic icons/signs
-    require("utils").set_lsp_sign "Error"
-    require("utils").set_lsp_sign "Info"
-    require("utils").set_lsp_sign "Hint"
-    require("utils").set_lsp_sign "Warn"
-
     vim.diagnostic.config {
       underline = false,
       virtual_text = false,
-      signs = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "",
+        },
+        linehl = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "",
+        },
+        textln = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+          [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+          [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+          [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticLineNrError",
+          [vim.diagnostic.severity.WARN] = "DiagnosticLineNrWarn",
+          [vim.diagnostic.severity.INFO] = "DiagnosticLineNrInfo",
+          [vim.diagnostic.severity.HINT] = "DiagnosticLineNrHint",
+        },
+      },
       float = {
-        source = "always", -- Or "if_many"
+        source = true, -- Or "if_many"
       },
       update_in_insert = false,
-      severity_sort = false,
+      severity_sort = true,
     }
 
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
