@@ -46,7 +46,7 @@ return {
       Pmenu = { bg = "${bg}" },
       PmenuSbar = { bg = "${bg}" },
       PmenuSel = { bg = "${blue}", fg = "${bg}" },
-      PmenuThumb = { bg = "${gray}" },
+      PmenuThumb = { bg = "${border}" },
 
       --
       -- Git
