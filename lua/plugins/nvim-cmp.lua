@@ -97,6 +97,13 @@ return {
               fallback()
             end
           end, { "i", "s" }),
+          ["<C-x>"] = cmp.mapping(function()
+            if cmp.visible() then
+              cmp.close()
+            else
+              cmp.complete {}
+            end
+          end, { "i", "s" }),
         },
         experimental = {
           ghost_text = false,
