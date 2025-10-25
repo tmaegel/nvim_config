@@ -5,8 +5,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    local lspconfig = require "lspconfig"
-
     vim.diagnostic.config {
       underline = false,
       virtual_text = false,
@@ -142,6 +140,14 @@ return {
     end
 
     --
+    -- GENERAL
+    --
+    vim.lsp.config("*", {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
+    --
     -- PYTHON
     --
     local python_root_files = {
@@ -153,45 +159,39 @@ return {
       "Pipfile",
       "pyrightconfig.json",
     }
-    lspconfig["pyright"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      root_dir = lspconfig.util.root_pattern(unpack(python_root_files)),
-    }
+    vim.lsp.config("pyright", {
+      root_dir = require("lspconfig").util.root_pattern(unpack(python_root_files)),
+    })
+    vim.lsp.enable "pyright"
 
     --
     -- BASH
     --
-    lspconfig["bashls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("bashls", {
       settings = {},
-    }
+    })
+    vim.lsp.enable "bashls"
 
     --
     -- TypeScript/JavaScript
     --
-    lspconfig["ts_ls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("ts_ls", {
       settings = {},
-    }
+    })
+    vim.lsp.enable "ts_ls"
 
     --
     -- Dockerfile
     --
-    lspconfig["dockerls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("dockerls", {
       settings = {},
-    }
+    })
+    vim.lsp.enable "dockerls"
 
     --
     -- LUA
     --
-    lspconfig["lua_ls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
           diagnostics = {
@@ -210,14 +210,13 @@ return {
           },
         },
       },
-    }
+    })
+    vim.lsp.enable "lua_ls"
 
     --
     -- DART
     --
-    lspconfig["dartls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("dartls", {
       -- init_options = {
       --   onlyAnalyzeProjectsWithOpenFiles = true,
       --   suggestFromUnimportedLibraries = true,
@@ -246,23 +245,21 @@ return {
           enableSnippets = false,
         },
       },
-    }
+    })
+    vim.lsp.enable "dartls"
 
     --
     -- GOLANG
     --
-    lspconfig["gopls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("gopls", {
       settings = {},
-    }
+    })
+    vim.lsp.enable "gopls"
 
     --
     -- ANSIBLE
     --
-    lspconfig["ansiblels"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("ansiblels", {
       settings = {
         ansible = {
           ansible = {
@@ -283,23 +280,21 @@ return {
           },
         },
       },
-    }
+    })
+    vim.lsp.enable "ansiblels"
 
     --
     -- TERRAFORM
     --
-    lspconfig["terraformls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("terraformls", {
       settings = {},
-    }
+    })
+    vim.lsp.enable "terraformls"
 
     --
     -- HELM
     --
-    lspconfig["helm_ls"].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
+    vim.lsp.config("helm_ls", {
       settings = {
         ["helm-ls"] = {
           yamlls = {
@@ -307,6 +302,7 @@ return {
           },
         },
       },
-    }
+    })
+    vim.lsp.enable "helm_ls"
   end,
 }
