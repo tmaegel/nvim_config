@@ -41,11 +41,11 @@ return {
       severity_sort = true,
     }
 
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.signature_help {
       border = "single",
       focusable = false,
       relative = "cursor",
-    })
+    }
 
     vim.api.nvim_create_autocmd("CursorHold", {
       buffer = bufnr,
@@ -111,11 +111,11 @@ return {
       )
 
       keymap.set("n", "<leader>dN", function()
-        vim.diagnostic.goto_prev()
+        vim.diagnostic.jump { count = -1, float = true }
       end, { desc = "Goto prev", noremap = true, silent = true })
 
       keymap.set("n", "<leader>dn", function()
-        vim.diagnostic.goto_next()
+        vim.diagnostic.jump { count = 1, float = true }
       end, { desc = "Goto_next", noremap = true, silent = true })
 
       keymap.set("n", "<leader>q", function()
@@ -139,170 +139,29 @@ return {
       end, { desc = "List workspace folders", noremap = true, silent = true })
     end
 
-    --
-    -- GENERAL
-    --
     vim.lsp.config("*", {
       on_attach = on_attach,
       capabilities = capabilities,
     })
-
-    --
-    -- PYTHON
-    --
-    local python_root_files = {
-      "WORKSPACE", -- added for Bazel; items below are from default config
-      "pyproject.toml",
-      "setup.py",
-      "setup.cfg",
-      "requirements.txt",
-      "Pipfile",
-      "pyrightconfig.json",
-    }
-    vim.lsp.config("pyright", {
-      root_dir = require("lspconfig").util.root_pattern(unpack(python_root_files)),
-    })
+    vim.lsp.config("pyright", require "lsp.pyright")
     vim.lsp.enable "pyright"
-
-    --
-    -- BASH
-    --
-    vim.lsp.config("bashls", {
-      settings = {},
-    })
+    vim.lsp.config("bashls", require "lsp.bashls")
     vim.lsp.enable "bashls"
-
-    --
-    -- TypeScript/JavaScript
-    --
-    vim.lsp.config("ts_ls", {
-      settings = {},
-    })
+    vim.lsp.config("ts_ls", require "lsp.ts_ls")
     vim.lsp.enable "ts_ls"
-
-    --
-    -- Dockerfile
-    --
-    vim.lsp.config("dockerls", {
-      settings = {},
-    })
+    vim.lsp.config("dockerls", require "lsp.dockerls")
     vim.lsp.enable "dockerls"
-
-    --
-    -- LUA
-    --
-    vim.lsp.config("lua_ls", {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-          format = {
-            enable = true,
-          },
-          workspace = {
-            library = {
-              [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-              [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-            },
-            maxPreload = 100000,
-            preloadFileSize = 10000,
-          },
-        },
-      },
-    })
+    vim.lsp.config("lua_ls", require "lsp.lua_ls")
     vim.lsp.enable "lua_ls"
-
-    --
-    -- DART
-    --
-    vim.lsp.config("dartls", {
-      -- init_options = {
-      --   onlyAnalyzeProjectsWithOpenFiles = true,
-      --   suggestFromUnimportedLibraries = true,
-      --   closingLabels = flutter_config.closing_labels.enabled,
-      --   outline = true,
-      --   flutterOutline = true,
-      -- },
-      -- handlers = {
-      --   ["dart/textDocument/publishClosingLabels"] = closing_labels.closing_labels,
-      -- },
-      settings = {
-        dart = {
-          -- An array of paths (absolute or relative to each workspace folder)
-          -- that should be excluded from analysis.
-          -- analysisExcludedFolders = {
-          --   path.join(flutter_sdk_path, "packages"),
-          --   path.join(flutter_sdk_path, ".pub-cache"),
-          -- },
-          enableSdkFormatter = true,
-          updateImportsOnRename = true,
-          -- Completes functions/methods with their required parameters.
-          completeFunctionCalls = true,
-          -- Whether to generate diagnostics for TODO comments.
-          showTodos = true,
-          lineLength = 80,
-          enableSnippets = false,
-        },
-      },
-    })
+    vim.lsp.config("dartls", require "lsp.dartls")
     vim.lsp.enable "dartls"
-
-    --
-    -- GOLANG
-    --
-    vim.lsp.config("gopls", {
-      settings = {},
-    })
+    vim.lsp.config("gopls", require "lsp.gopls")
     vim.lsp.enable "gopls"
-
-    --
-    -- ANSIBLE
-    --
-    vim.lsp.config("ansiblels", {
-      settings = {
-        ansible = {
-          ansible = {
-            path = "ansible",
-          },
-          executionEnvironment = {
-            enabled = false,
-          },
-          python = {
-            interpreterPath = "python",
-          },
-          validation = {
-            enabled = true,
-            lint = {
-              enabled = true,
-              path = "ansible-lint",
-            },
-          },
-        },
-      },
-    })
+    vim.lsp.config("ansiblels", require "lsp.ansiblels")
     vim.lsp.enable "ansiblels"
-
-    --
-    -- TERRAFORM
-    --
-    vim.lsp.config("terraformls", {
-      settings = {},
-    })
+    vim.lsp.config("terraformls", require "lsp.terraformls")
     vim.lsp.enable "terraformls"
-
-    --
-    -- HELM
-    --
-    vim.lsp.config("helm_ls", {
-      settings = {
-        ["helm-ls"] = {
-          yamlls = {
-            path = "yaml-language-server",
-          },
-        },
-      },
-    })
+    vim.lsp.config("helm_ls", require "lsp.helm_ls")
     vim.lsp.enable "helm_ls"
   end,
 }
