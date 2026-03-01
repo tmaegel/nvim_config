@@ -8,6 +8,7 @@ return {
         "*",
       },
       user_default_options = {
+        suppress_deprecation = true,
         RGB = true, -- #RGB hex codes
         RRGGBB = true, -- #RRGGBB hex codes
         names = false, -- "Name" codes like Blue
