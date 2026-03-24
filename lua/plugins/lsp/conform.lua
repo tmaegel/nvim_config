@@ -17,7 +17,8 @@ return {
       css = { "prettier" },
       markdown = { "prettier" },
       terraform = { "terraform_fmt" },
-      json = { "jq" },
+      json = { "prettier" },
+      jsonc = { "prettier" },
       yaml = { "yamlfmt" },
       nix = { "nixfmt" },
       -- Use the "*" filetype to run formatters on all filetypes.
@@ -33,9 +34,6 @@ return {
     formatters = {
       shfmt = {
         prepend_args = { "-i", "2", "-s", "-bn", "-ci", "-sr" },
-      },
-      prettier = {
-        prepend_args = { "--print-width", "120" },
       },
       jq = {
         prepend_args = { "--indent", "4" },
