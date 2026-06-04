@@ -32,6 +32,11 @@ return {
       lsp_fallback = true,
     },
     formatters = {
+      -- Fix: https://github.com/stevearc/conform.nvim/issues/712
+      dart_format = {
+        args = { "format", "$FILENAME" },
+        stdin = false,
+      },
       shfmt = {
         prepend_args = { "-i", "2", "-s", "-bn", "-ci", "-sr" },
       },
