@@ -17,10 +17,6 @@ return {
         },
       },
 
-      -- PYTHON
-      require "none-ls.diagnostics.flake8",
-      null_ls.builtins.diagnostics.mypy,
-
       -- SHELL / BASH
       none_ls_shellcheck.code_actions,
       none_ls_shellcheck.diagnostics,
