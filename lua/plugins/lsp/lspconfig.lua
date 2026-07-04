@@ -92,51 +92,25 @@ return {
         vim.lsp.buf.hover()
       end, { desc = "LSP hover", noremap = true, silent = true })
 
-      keymap.set("n", "<leader>sh", function()
+      keymap.set("n", "sh", function()
         vim.lsp.buf.signature_help()
       end, { desc = "LSP signature_help", noremap = true, silent = true })
 
-      keymap.set(
-        "n",
-        "<leader>ca",
-        "<CMD> CodeActionMenu <CR>",
-        { desc = "LSP code_action", noremap = true, silent = true }
-      )
+      keymap.set("n", "ca", "<CMD> CodeActionMenu <CR>", { desc = "LSP code_action", noremap = true, silent = true })
 
-      keymap.set(
-        "n",
-        "<leader>rn",
-        vim.lsp.buf.rename,
-        { desc = "Rename symbol under cursor", noremap = true, silent = true }
-      )
+      keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "Rename symbol under cursor", noremap = true, silent = true })
 
-      keymap.set("n", "<leader>dN", function()
+      keymap.set("n", "dN", function()
         vim.diagnostic.jump { count = -1, float = true }
       end, { desc = "Goto prev", noremap = true, silent = true })
 
-      keymap.set("n", "<leader>dn", function()
+      keymap.set("n", "dn", function()
         vim.diagnostic.jump { count = 1, float = true }
       end, { desc = "Goto_next", noremap = true, silent = true })
 
-      keymap.set("n", "<leader>q", function()
-        vim.diagnostic.setloclist()
-      end, { desc = "Diagnostic setloclist", noremap = true, silent = true })
-
-      keymap.set("n", "<leader>fm", function()
+      keymap.set("n", "cf", function()
         vim.lsp.buf.format { async = true }
       end, { desc = "LSP formatting", noremap = true, silent = true })
-
-      keymap.set("n", "<leader>wa", function()
-        vim.lsp.buf.add_workspace_folder()
-      end, { desc = "Add workspace folder", noremap = true, silent = true })
-
-      keymap.set("n", "<leader>wr", function()
-        vim.lsp.buf.remove_workspace_folder()
-      end, { desc = "Remove workspace folder", noremap = true, silent = true })
-
-      keymap.set("n", "<leader>wl", function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      end, { desc = "List workspace folders", noremap = true, silent = true })
     end
 
     vim.lsp.config("*", {

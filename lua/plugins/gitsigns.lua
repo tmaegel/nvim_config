@@ -46,22 +46,17 @@ return {
       },
       on_attach = function(bufnr)
         local keymap = vim.keymap
-        keymap.set("n", "<leader>hn", "<cmd> Gitsigns next_hunk <CR>", { desc = "Git go to next hunk" })
-        keymap.set("n", "<leader>hN", "<cmd> Gitsigns prev_hunk <CR>", { desc = "Git go to prev hunk" })
-        keymap.set("n", "<leader>ha", "<cmd> Gitsigns stage_hunk <CR>", { desc = "Git stage hunk" })
-        keymap.set("n", "<leader>hA", "<cmd> Gitsigns stage_buffer <CR>", { desc = "Git stage buffer" })
-        keymap.set("n", "<leader>hu", "<cmd> Gitsigns undo_stage_hunk <CR>", { desc = "Git Undo stage hunk" })
-        keymap.set("n", "<leader>hr", "<cmd> Gitsigns reset_hunk <CR>", { desc = "Git reset hunk" })
-        keymap.set("n", "<leader>hR", "<cmd> Gitsigns reset_buffer <CR>", { desc = "Git reset buffer" })
-        keymap.set("n", "<leader>hd", "<cmd> Gitsigns diffthis split=botright <CR>", { desc = "Git show diff" })
-        keymap.set(
-          "n",
-          "<leader>hp",
-          "<cmd> preview_hunk <CR>",
-          { desc = "Git preview the hunk at the cursor position" }
-        )
-        keymap.set("v", "<leader>ha", "<cmd> Gitsigns stage_hunk <CR>", { desc = "Git stage hunk" })
-        keymap.set("v", "<leader>hr", "<cmd> Gitsigns reset_hunk <CR>", { desc = "Git reset hunk" })
+        keymap.set("n", "hn", "<cmd> Gitsigns next_hunk <CR>", { desc = "Git go to next hunk" })
+        keymap.set("n", "hN", "<cmd> Gitsigns prev_hunk <CR>", { desc = "Git go to prev hunk" })
+        keymap.set("n", "ha", "<cmd> Gitsigns stage_hunk <CR>", { desc = "Git stage hunk" })
+        keymap.set("n", "hA", "<cmd> Gitsigns stage_buffer <CR>", { desc = "Git stage buffer" })
+        keymap.set("n", "hu", "<cmd> Gitsigns undo_stage_hunk <CR>", { desc = "Git Undo stage hunk" })
+        keymap.set("n", "hr", "<cmd> Gitsigns reset_hunk <CR>", { desc = "Git reset hunk" })
+        keymap.set("n", "hR", "<cmd> Gitsigns reset_buffer <CR>", { desc = "Git reset buffer" })
+        keymap.set("n", "hd", "<cmd> Gitsigns diffthis split=botright <CR>", { desc = "Git show diff" })
+        keymap.set("n", "hp", "<cmd> preview_hunk <CR>", { desc = "Git preview the hunk at the cursor position" })
+        keymap.set("v", "ha", "<cmd> Gitsigns stage_hunk <CR>", { desc = "Git stage hunk" })
+        keymap.set("v", "hr", "<cmd> Gitsigns reset_hunk <CR>", { desc = "Git reset hunk" })
       end,
     }
   end,

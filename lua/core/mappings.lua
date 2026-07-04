@@ -32,7 +32,7 @@ keymap.set("n", "O", "O<ESC>", { desc = "Insert new line above (without enter in
 
 keymap.set("n", "U", "<cmd> redo<CR>", { desc = "Redo" })
 
-keymap.set("n", "<leader>a", "ggVG", { desc = "Select all text in curent buffer" })
+keymap.set("n", "A", "ggVG", { desc = "Select all text in curent buffer" })
 -- ["<leader>e", "%", "Go to matching pair" })
 -- ["<leader>f", "^", "Go to first character in line" })
 -- ["<leader>l", "g_", "Go to last character in line" })
