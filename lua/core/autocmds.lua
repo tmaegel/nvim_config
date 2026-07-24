@@ -1,14 +1,11 @@
 -- lua/core/autocmds
 
-local autocmd = vim.api.nvim_create_autocmd
-local opt = vim.opt
-
 local function augroup(name)
-  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("autocmd_" .. name, { clear = true })
 end
 
 -- Dont list quickfix buffers
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   group = augroup "qf_buffer",
   pattern = "qf",
   callback = function()
@@ -17,23 +14,15 @@ autocmd("FileType", {
 })
 
 -- Highlight on yank
-autocmd("TextYankPost", {
-  group = augroup "highlight_yank",
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = augroup "highlight",
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
--- Resize splits if window got resized
-autocmd({ "VimResized" }, {
-  group = augroup "resize_splits",
-  callback = function()
-    vim.cmd "tabdo wincmd ="
-  end,
-})
-
 -- go to last loc when opening a buffer
-autocmd("BufReadPost", {
+vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup "last_loc",
   callback = function()
     local exclude = { "gitcommit" }
@@ -50,7 +39,7 @@ autocmd("BufReadPost", {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = augroup "auto_create_dir",
   callback = function(event)
     if event.match:match "^%w%w+://" then
@@ -58,13 +47,5 @@ autocmd({ "BufWritePre" }, {
     end
     local file = vim.loop.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
-  end,
-})
-
-autocmd({ "BufWritePost" }, {
-  callback = function()
-    -- try_lint without arguments runs the linters defined in `linters_by_ft`
-    -- for the current filetype
-    require("lint").try_lint()
   end,
 })
