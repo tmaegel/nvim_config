@@ -116,7 +116,7 @@ local options = {
   -- Insert mode completion setting
   completeopt = { "menu", "menuone", "noselect", "noinsert" },
   showmode = false,
-  clipboard = opt.clipboard + "unnamedplus",
+  clipboard = opt.clipboard + "unnamedplus", -- https://neovim.io/doc/user/provider/#clipboard
   mouse = "a",
   mousemodel = "extend",
   -- Disable nvim intro
@@ -180,6 +180,7 @@ local default_providers = {
   "ruby",
 }
 
+-- Disable some builtin providers
 for _, provider in ipairs(default_providers) do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
