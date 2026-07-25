@@ -221,6 +221,7 @@ return {
       require("telescope").load_extension "luasnip"
 
       local keymap = vim.keymap
+
       keymap.set("n", "?", builtin.grep_string, { desc = "Telescope grep string under the cursor" })
       keymap.set("n", "<leader>fr", builtin.resume, { desc = "Telescope resume" })
       keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
