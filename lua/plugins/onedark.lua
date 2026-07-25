@@ -56,6 +56,10 @@ return {
       DiffDelete = { bg = "${diff_delete}" },
       DiffText = { bg = "${diff_text}" }, -- diff mode: Changed text within a changed line |diff.txt|
 
+      LuaLineDiffAdd = { fg = "${green}", bold = false },
+      LuaLineDiffChange = { fg = "${yellow}", bold = false },
+      LuaLineDiffDelete = { fg = "${red}", bold = false },
+
       --
       -- LSP
       --
@@ -163,6 +167,8 @@ return {
       gitsigns = true,
       indentline = true,
       nvim_cmp = true,
+      nvim_dap_ui = true,
+      nvim_lsp = true, -- nvim-lspconfig
       telescope = false,
       treesitter = true,
       trouble = true,

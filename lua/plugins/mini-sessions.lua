@@ -31,8 +31,5 @@ return {
       -- Whether to print session path after action
       verbose = { read = false, write = true, delete = true },
     }
-
-    local keymap = vim.keymap
-    keymap.set("n", "<leader>r", "<cmd> lua MiniSessions.read('Session.vim') <CR>", { desc = "Restore session" })
   end,
 }

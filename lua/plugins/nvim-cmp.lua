@@ -20,7 +20,6 @@ return {
       local lspkind = require "lspkind"
 
       cmp.setup {
-
         completion = {
           completeopt = "menu,menuone,noselect,noinsert",
         },

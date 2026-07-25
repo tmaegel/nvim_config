@@ -7,7 +7,7 @@ return {
   }, -- optional for icon support
   config = function()
     require("nvim-autopairs").setup {
-      disable_filetype = { "TelescopePrompt", "vim" },
+      disable_filetype = { "TelescopePrompt", "spectre_panel", "snacks_picker_input", "vim" },
       -- Don't add pairs if it already has a close pair in the same line.
       enable_check_bracket_line = false,
       fast_wrap = {
