@@ -83,7 +83,7 @@ return {
         map("n", "ha", gitsigns.stage_hunk, { desc = "Git stage hunk" })
         map("n", "hA", gitsigns.stage_buffer, { desc = "Git stage buffer" })
         map("n", "hr", gitsigns.reset_hunk, { desc = "Git reset hunk" })
-        map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "Git reset buffer" })
+        map("n", "hR", gitsigns.reset_buffer, { desc = "Git reset buffer" })
         map("n", "hu", gitsigns.undo_stage_hunk, { desc = "Git undo stage hunk" })
 
         map("v", "ha", function()
