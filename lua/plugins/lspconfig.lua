@@ -137,5 +137,7 @@ return {
     vim.lsp.enable "terraformls"
     vim.lsp.config("helm_ls", require "lsp.helm_ls")
     vim.lsp.enable "helm_ls"
+    vim.lsp.config("yamlls", require "lsp.yamlls")
+    vim.lsp.enable "yamlls"
   end,
 }
