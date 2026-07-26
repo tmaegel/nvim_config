@@ -117,27 +117,16 @@ return {
       on_attach = on_attach,
       capabilities = capabilities,
     })
-    vim.lsp.config("pyright", require "lsp.pyright")
-    vim.lsp.enable "pyright"
-    vim.lsp.config("bashls", require "lsp.bashls")
-    vim.lsp.enable "bashls"
-    vim.lsp.config("ts_ls", require "lsp.ts_ls")
-    vim.lsp.enable "ts_ls"
-    vim.lsp.config("dockerls", require "lsp.dockerls")
-    vim.lsp.enable "dockerls"
-    vim.lsp.config("lua_ls", require "lsp.lua_ls")
-    vim.lsp.enable "lua_ls"
-    vim.lsp.config("dartls", require "lsp.dartls")
-    vim.lsp.enable "dartls"
-    vim.lsp.config("gopls", require "lsp.gopls")
-    vim.lsp.enable "gopls"
-    vim.lsp.config("ansiblels", require "lsp.ansiblels")
     vim.lsp.enable "ansiblels"
-    vim.lsp.config("terraformls", require "lsp.terraformls")
-    vim.lsp.enable "terraformls"
-    vim.lsp.config("helm_ls", require "lsp.helm_ls")
+    vim.lsp.enable "bashls"
+    vim.lsp.enable "dartls"
+    vim.lsp.enable "dockerls"
+    vim.lsp.enable "gopls"
     vim.lsp.enable "helm_ls"
-    vim.lsp.config("yamlls", require "lsp.yamlls")
+    vim.lsp.enable "lua_ls"
+    vim.lsp.enable "pyright"
+    vim.lsp.enable "terraformls"
+    vim.lsp.enable "ts_ls"
     vim.lsp.enable "yamlls"
   end,
 }
