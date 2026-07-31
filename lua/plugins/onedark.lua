@@ -132,6 +132,19 @@ return {
       TelescopeMatching = { fg = "${red}" },
 
       --
+      -- nvim-tree
+      --
+      NvimTreeCursorLine = { bg = "${blue}", fg = "${bg}" },
+      NvimTreeFolderIcon = { fg = "${blue}" },
+      NvimTreeIndentMarker = { link = "IndentLine" },
+      NvimTreeFolderArrowClosed = { fg = "${light_gray}" },
+      NvimTreeFolderArrowOpen = { fg = "${light_gray}" },
+      NvimTreeGitDirty = { fg = "${red}" },
+      NvimTreeGitIgnored = { fg = "${yellow}" },
+      NvimTreeGitNew = { fg = "${green}" },
+      NvimTreeGitDeleted = { fg = "${red}" },
+
+      --
       -- Incline
       --
       InclineNormal = { fg = "${bg}", bg = "${blue}" },
