@@ -136,12 +136,17 @@ return {
       --
       NvimTreeCursorLine = { bg = "${blue}", fg = "${bg}" },
       NvimTreeFolderIcon = { fg = "${blue}" },
+      NvimTreeFolderName = { fg = "${blue}" },
+      NvimTreeEmptyFolderName = { fg = "${blue}" },
+      NvimTreeOpenedFolderName = { fg = "${blue}" },
+      NvimTreeSymlinkFolderName = { fg = "${blue}" },
       NvimTreeIndentMarker = { link = "IndentLine" },
-      NvimTreeFolderArrowClosed = { fg = "${light_gray}" },
-      NvimTreeFolderArrowOpen = { fg = "${light_gray}" },
-      NvimTreeGitDirty = { fg = "${red}" },
-      NvimTreeGitIgnored = { fg = "${yellow}" },
+      NvimTreeFolderArrowClosed = { fg = "${gray}" },
+      NvimTreeFolderArrowOpen = { fg = "${gray}" },
+      NvimTreeGitIgnored = { fg = "${gray}" },
+      NvimTreeGitDirty = { fg = "${yellow}" },
       NvimTreeGitNew = { fg = "${green}" },
+      NvimTreeGitStaged = { fg = "${blue}" },
       NvimTreeGitDeleted = { fg = "${red}" },
 
       --
@@ -182,6 +187,7 @@ return {
       nvim_cmp = true,
       nvim_dap_ui = true,
       nvim_lsp = true, -- nvim-lspconfig
+      nvim_tree = true,
       telescope = false,
       treesitter = true,
       trouble = true,
