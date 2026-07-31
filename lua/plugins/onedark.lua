@@ -56,10 +56,6 @@ return {
       DiffDelete = { bg = "${diff_delete}" },
       DiffText = { bg = "${diff_text}" }, -- diff mode: Changed text within a changed line |diff.txt|
 
-      LuaLineDiffAdd = { fg = "${green}", bold = false },
-      LuaLineDiffChange = { fg = "${yellow}", bold = false },
-      LuaLineDiffDelete = { fg = "${red}", bold = false },
-
       --
       -- LSP
       --
@@ -169,8 +165,13 @@ return {
       --
       -- lualine
       --
-      LualineNormal = { fg = "${bg}", bg = "${comment}" },
-      LualineInactive = { fg = "${fg}", bg = "${fg_gutter}" },
+      LualineNormal = { fg = "${bg}", bg = "${purple}" },
+      LualineInactive = { fg = "#6f737b", bg = "#2d3139" },
+      LuaLineDiffAdd = { fg = "${green}", bold = false },
+      LuaLineDiffChange = { fg = "${yellow}", bold = false },
+      LuaLineDiffDelete = { fg = "${red}", bold = false },
+      LuaLineBufferActive = { fg = "${bg}", bg = "${blue}" },
+      LuaLineBufferInactive = { fg = "#6f737b", bg = "#2d3139" },
 
       --
       -- Which-key
