@@ -18,6 +18,7 @@ return {
       "json",
       "lua",
       "markdown",
+      "nix",
       "python",
       "terraform",
       "toml",
